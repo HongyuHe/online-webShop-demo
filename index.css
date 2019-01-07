@@ -34,3 +34,13 @@ td {
 th {
     background-color: lightgray;
 }
+
+@media screen and (max-width: 600px) {
+    body {
+        background-color: rgb(72, 124, 117)
+    }
+}
+
+@media print {
+    /* do something */
+}
