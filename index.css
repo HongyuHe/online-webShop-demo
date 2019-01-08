@@ -7,6 +7,93 @@
     -webkit-tap-highlight-color: transparent;
 }
 
+html,
+body {
+    color: #000;
+    background: #fff;
+    font: 12px/22px Verdana, Arial, sans-serif, "Times New Roman", 思源宋体;
+    width: 100%;
+}
+
+section {
+    background-color: rgb(186, 235, 183);
+    border-radius: 50px;
+    padding: 10px;
+    margin-top: 50px;
+}
+
+input,
+select,
+button {
+    font-size: 100%;
+    outline: 0;
+    vertical-align: middle;
+    -webkit-appearance: none;
+}
+
+button {
+    border: 0;
+    background-clip: padding-box;
+    width: auto;
+    /* 宽度 */
+    height: auto;
+    /* 高度 */
+    border-width: 0px;
+    /* 边框宽度 */
+    border-radius: 3px;
+    /* 边框半径 */
+    background: #1E90FF;
+    /* 背景颜色 */
+    cursor: pointer;
+    /* 鼠标移入按钮范围时出现手势 */
+    outline: none;
+    /* 不显示轮廓线 */
+    font-family: Microsoft YaHei;
+    /* 设置字体 */
+    color: white;
+    /* 字体颜色 */
+    font-size: 17px;
+    /* 字体大小 */
+}
+
+button:hover {
+    /* 鼠标移入按钮范围时改变颜色 */
+    background: #5599FF;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+td {
+    padding: 30%;
+}
+
+
+/* 定义图片边框，当图片作为链接内容被填充时，会有默认边框出现，重定义掉 */
+
+img {
+    border: none;
+    vertical-align: baseline;
+    height: 300px;
+    width: 400px;
+}
+
+a,
+a:link,
+a:visited {
+    color: #000;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #000;
+    text-decoration: underline;
+}
+
+
+/* NavigationBar */
+
 .NaviBar ul {
     position: fixed;
     /*设置导航栏的框框*/
@@ -55,66 +142,6 @@
 
 .NaviBar a:hover {
     background-color: #2f6f4f;
-}
-
-html,
-body {
-    color: #000;
-    background: #fff;
-    font: 12px/22px Verdana, Arial, sans-serif, "Times New Roman", 思源宋体;
-    width: 100%;
-}
-
-section {
-    background-color: rgb(186, 235, 183);
-    border-radius: 50px;
-    padding: 10px;
-    margin-top: 50px;
-}
-
-input,
-select,
-button {
-    font-size: 100%;
-    outline: 0;
-    vertical-align: middle;
-    -webkit-appearance: none;
-}
-
-button {
-    border: 0;
-    background-clip: padding-box;
-}
-
-table {
-    border-collapse: collapse;
-    /* border-spacing: 100px; */
-}
-
-td {
-    padding: 30%;
-}
-
-
-/* 定义图片边框，当图片作为链接内容被填充时，会有默认边框出现，重定义掉 */
-
-img {
-    border: none;
-    vertical-align: baseline;
-    height: 300px;
-    width: 400px;
-}
-
-a,
-a:link,
-a:visited {
-    color: #000;
-    text-decoration: none;
-}
-
-a:hover {
-    color: #000;
-    text-decoration: underline;
 }
 
 
