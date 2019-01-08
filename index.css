@@ -1,6 +1,5 @@
 * {
     margin: 0;
-    padding: 0;
     outline: 0;
     vertical-align: baseline;
     -webkit-box-sizing: border-box;
@@ -14,6 +13,13 @@ body {
     background: #fff;
     font: 12px/22px Verdana, Arial, sans-serif, "Times New Roman", 思源宋体;
     width: 100%;
+}
+
+section{
+  background-color: rgb(180,200,0);
+  border-radius: 50px;
+  padding: 20px;
+  margin-top:50px;
 }
 
 input,
@@ -37,12 +43,6 @@ table {
 
 td {
     padding: 30%;
-}
-
-ol,
-ul,
-li {
-    list-style: none;
 }
 
 
