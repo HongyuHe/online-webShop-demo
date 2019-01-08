@@ -1,6 +1,5 @@
 * {
     margin: 0;
-    /* padding: 0; */
     outline: 0;
     vertical-align: baseline;
     -webkit-box-sizing: border-box;
@@ -9,7 +8,7 @@
 }
 
 .NaviBar ul {
-    /* position: absolute; */
+    position: fixed;
     /*设置导航栏的框框*/
     margin: 30px auto;
     /*框框整体的位置，30px是指离网页的顶部和下部的距离，auto控制的是左右距离为自动调节*/
@@ -43,10 +42,10 @@
     font-family: Microsoft Yahei;
     line-height: 50px;
     /*设置字体在块中的高度*/
-    background-color: #2f4f4f;
+    background-color: rgb(186, 235, 183);
     margin: 0px 0px;
     /*块里的高宽通过margin设置*/
-    color: #fff;
+    color: rgb(95, 73, 73);
     text-align: center;
     /*字体居中*/
     text-decoration: none;
@@ -64,6 +63,13 @@ body {
     background: #fff;
     font: 12px/22px Verdana, Arial, sans-serif, "Times New Roman", 思源宋体;
     width: 100%;
+}
+
+section {
+    background-color: rgb(186, 235, 183);
+    border-radius: 50px;
+    padding: 10px;
+    margin-top: 50px;
 }
 
 input,
@@ -87,12 +93,6 @@ table {
 
 td {
     padding: 30%;
-}
-
-ol,
-ul,
-li {
-    list-style: none;
 }
 
 
@@ -190,6 +190,12 @@ a:hover {
 .TopSellTable th {
     border: 1px solid #fcdede;
     border-width: 1px
+}
+
+th,
+td {
+    text-align: center;
+    vertical-align: middle;
 }
 
 .TopSellTable td {
