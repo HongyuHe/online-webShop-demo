@@ -42,7 +42,7 @@ button {
     /* 边框宽度 */
     border-radius: 3px;
     /* 边框半径 */
-    background: #1E90FF;
+    background: rgb(194, 143, 61);
     /* 背景颜色 */
     cursor: pointer;
     /* 鼠标移入按钮范围时出现手势 */
