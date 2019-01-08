@@ -1,0 +1,178 @@
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    vertical-align: baseline;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+    color: #000;
+    background: #fff;
+    font: 12px/22px Verdana, Arial, sans-serif, "Times New Roman", 思源宋体;
+    width: 100%;
+}
+
+input,
+select,
+button {
+    font-size: 100%;
+    outline: 0;
+    vertical-align: middle;
+    -webkit-appearance: none;
+}
+
+button {
+    border: 0;
+    background-clip: padding-box;
+}
+
+table {
+    border-collapse: collapse;
+    /* border-spacing: 100px; */
+}
+
+td {
+    padding: 30%;
+}
+
+ol,
+ul,
+li {
+    list-style: none;
+}
+
+
+/* 定义图片边框，当图片作为链接内容被填充时，会有默认边框出现，重定义掉 */
+
+img {
+    border: none;
+    vertical-align: baseline;
+    height: 300px;
+    width: 400px;
+}
+
+a,
+a:link,
+a:visited {
+    color: #000;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #000;
+    text-decoration: underline;
+}
+
+
+/* Physical Locations table */
+
+.PhyLocTable table {
+    width: 50%;
+    margin: 15px 0;
+    border: 0;
+}
+
+.PhyLocTable th {
+    font-weight: bold;
+    background-color: #e3e3e3;
+    color: #3c3c3c
+}
+
+.PhyLocTable,
+.PhyLocTable th,
+.PhyLocTable td {
+    font-size: 0.95em;
+    text-align: center;
+    padding: 4px;
+    border-collapse: collapse;
+}
+
+.PhyLocTable th {
+    border: 1px solid #e3e3e3;
+    border-width: 1px
+}
+
+.PhyLocTable td {
+    border: 1px solid #e3e3e3;
+    border-width: 1px
+}
+
+.PhyLocTable tr {
+    border: 1px solid #ffffff;
+}
+
+.PhyLocTable tr:nth-child(odd) {
+    background-color: #f7f7f7;
+}
+
+.PhyLocTable tr:nth-child(even) {
+    background-color: #ffffff;
+}
+
+
+/* Top Selling Products table */
+
+.TopSellTable table {
+    width: 30%;
+    margin: 15px 0;
+    border: 0;
+}
+
+.TopSellTable #title {
+    font-weight: bold;
+    background-color: #fcdede;
+    color: #ef2020
+}
+
+.TopSellTable,
+.TopSellTable th,
+.TopSellTable td {
+    font-size: 0.95em;
+    text-align: center;
+    padding: 4px;
+    border-collapse: collapse;
+}
+
+.TopSellTable th {
+    border: 1px solid #fcdede;
+    border-width: 1px
+}
+
+.TopSellTable td {
+    border: 1px solid #fcdede;
+    border-width: 1px
+}
+
+.TopSellTable tr {
+    border: 1px solid #ffffff;
+}
+
+.TopSellTable tr:nth-child(odd) {
+    background-color: #f7f7f7;
+}
+
+.TopSellTable tr:nth-child(even) {
+    background-color: #ffffff;
+}
+
+.TopSellTable tr td img {
+    width: 125px;
+    height: 100px;
+    padding: 0%;
+    margin: 0%;
+    border: 0ch;
+}
+
+@media screen and (max-width: 600px) {
+    body {
+        background-color: rgb(132, 148, 146)
+    }
+}
+
+@media print {
+    /* do something */
+}
