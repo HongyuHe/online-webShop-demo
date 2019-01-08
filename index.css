@@ -16,10 +16,11 @@ body {
 }
 
 section {
-    background-color: rgb(186, 235, 183);
-    border-radius: 50px;
+    background-color: rgb(244, 211, 75);
     padding: 10px;
     margin-top: 50px;
+    margin-left: 50px;
+    margin-right: 50px;
 }
 
 input,
@@ -82,7 +83,7 @@ img {
 a,
 a:link,
 a:visited {
-    color: #000;
+    color: rgb(0, 0, 255);
     text-decoration: none;
 }
 
@@ -129,7 +130,7 @@ a:hover {
     font-family: Microsoft Yahei;
     line-height: 50px;
     /*设置字体在块中的高度*/
-    background-color: rgb(186, 235, 183);
+    background-color: rgb(207, 150, 85);
     margin: 0px 0px;
     /*块里的高宽通过margin设置*/
     color: rgb(95, 73, 73);
@@ -141,7 +142,7 @@ a:hover {
 }
 
 .NaviBar a:hover {
-    background-color: #2f6f4f;
+    background-color: rgb(206, 177, 59);
 }
 
 
@@ -201,8 +202,8 @@ a:hover {
 
 .TopSellTable #title {
     font-weight: bold;
-    background-color: #fcdede;
-    color: #ef2020
+    background-color: rgb(206, 177, 59);
+    color: rgb(0, 0, 0);
 }
 
 .TopSellTable,
@@ -257,6 +258,10 @@ td {
 }
 
 @media print {
+    * {
+        filter: gray;
+        filter: grayscale(100%);
+    }
     body {
         font: 12pt Georgia, "Times New Roman", Times, serif;
         line-height: 1.3;
