@@ -142,6 +142,11 @@ a:hover {
     border-width: 1px
 }
 
+th, td {
+  text-align: center;
+  vertical-align: middle;
+}
+
 .TopSellTable td {
     border: 1px solid #fcdede;
     border-width: 1px
