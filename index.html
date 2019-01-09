@@ -180,20 +180,25 @@
                     <button>Delete</button>
                 </td>
             </tr>
-            <tr id = "inputRow">
+            <tr id="inputRow">
                 <form action="https://wt.ops.labs.vu.nl/api19/6bb9b56b " method="post">
-                    <td id="Image "><input>
+                    <td>
+                        <input id="image" name="image" type="text" placeholder="Image URL">
                     </td>
-                    <th id="Products "><input>
+                    <th>
+                        <input id="products" name="product" type="text" placeholder="Product's Name">
                     </th>
-                    <td id="Origin "><input>
-                    </td>
-                    <td id="Best Before Date "><input>
-                    </td>
-                    <td id="Amount "><input>
+                    <td>
+                        <input id="amount" name="amount" type="text" placeholder="Amount(kg)">
                     </td>
                     <td>
-                        <button>Submit</button>
+                        <input id="origin" name="origin" type="text" placeholder="Origin">
+                    </td>
+                    <td>
+                        <input id="bestBeforeDate" name="best_before_date" type="text" placeholder="Best Before Date">
+                    </td>
+                    <td>
+                        <button id="Submit">Submit</button>
                     </td>
                 </form>
             </tr>
