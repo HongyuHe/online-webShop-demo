@@ -107,7 +107,7 @@ img {
 a,
 a:link,
 a:visited {
-    color: rgb(0, 0, 255);
+    /* color: rgb(0, 0, 255); */
     text-decoration: none;
 }
 
@@ -154,11 +154,13 @@ ul.NaviBar {
     position: fixed;
     top: 0;
     width: 100%;
+    text-align: center;
 }
 
 li.NaviBar {
     float: left;
     list-style-image: none;
+    text-align: center;
 }
 
 li a {
@@ -292,13 +294,10 @@ input:focus {
     background-color: yellow;
 }
 
-@media screen and (max-width: 600px) {
-    .TopSellTable,
+@media screen and (max-width: 320px) {
+    table,
     li a {
-        font-size: 30px;
-    }
-    body {
-        background-color: rgb(26, 88, 109);
+        font-size: 20px;
     }
 }
 
