@@ -38,11 +38,11 @@ body {
 }
 
 section {
-    padding: 50px;
-    margin-top: 50px;
+    padding: 10px;
+    margin-top: 100px;
     margin-bottom: 50px;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 50px;
+    margin-right: 50px;
 }
 
 input,
@@ -135,7 +135,7 @@ a:active {
     background-color: #f3f3f3;
 }
 
-#top {
+#top h1 {
     font: bold 30px Helvetica;
     text-align: center
 }
@@ -151,9 +151,6 @@ ul.NaviBar {
     border: 1px solid #e7e7e7;
     background-color: #f3f3f3;
     list-style: none inside none;
-    position: fixed;
-    top: 0;
-    width: 100%;
 }
 
 li.NaviBar {
@@ -248,7 +245,7 @@ li a.active {
 .TopSellTable td {
     font-size: 0.95em;
     text-align: center;
-    padding: 4px;
+    padding: 3px;
     border-collapse: collapse;
 }
 
@@ -292,13 +289,12 @@ input:focus {
     background-color: yellow;
 }
 
-@media screen and (max-width: 600px) {
-    .TopSellTable,
-    li a {
-        font-size: 30px;
-    }
+@media screen and (min-width: 600px) {
     body {
-        background-color: rgb(26, 88, 109);
+        background-color: rgb(132, 148, 146)
+    }
+    p{
+      color: rgb(255,0,0);
     }
 }
 
