@@ -5,6 +5,7 @@
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     -webkit-tap-highlight-color: transparent;
+    caption-side: top;
 }
 
 ol {
@@ -114,6 +115,11 @@ a:visited {
 a:hover {
     color: #000;
     text-decoration: underline;
+}
+
+a:active {
+  color: blue;
+  text-decoration: underline;
 }
 
 
@@ -278,6 +284,10 @@ td {
     border: 0ch;
 }
 
+input:focus {
+  background-color: yellow;
+}
+
 @media screen and (max-width: 600px) {
     body {
         background-color: rgb(132, 148, 146)
@@ -289,10 +299,25 @@ td {
         filter: gray;
         filter: grayscale(100%);
     }
+
+    h2 {
+      page-break-before: always;
+    }
+
+    table {
+      page-break-after: always;
+    }
+
     body {
         font: 12pt Georgia, "Times New Roman", Times, serif;
         line-height: 1.3;
     }
+
+    p {
+      orphans: 3;
+      widows: 3;
+    }
+
     nav,
     #inputRow {
         /* No need to display nav bar or interactive elements when printing */
