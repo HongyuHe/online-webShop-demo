@@ -5,6 +5,39 @@
 		<link rel="stylesheet" href="prep.css">
 	</head>
 	<body>
+
+		<h1>Browser Report for Assignment 1 Website</h1>
+		<p>		The two browsers we chose to test our website on was Google Chrome and Microsoft Edge.
+			The two browsers show the content in a very similar way, however when inputting data
+			into the table, the two browsers have different selection methods. When inputting a
+			"Best Before Date" into the table, Google Chrome shows a calendar to select a date,
+			whilst Microsoft Edge shows a scroll wheel selection for the dates. A larger difference is
+			that Google Chrome shows a "up/down" button on the input box for "Amount." Other than that
+			the two browsers show the pages as identical.
+		</p>
+
+		<p>
+				Where the two browsers start to change is when testing the print media type. Google Chrome
+				shows everything as we designed it (due to the fact that we used it during development)
+				however Microsoft Edge does not grayscale the page. This is strange as we used the modifier
+				<code>filter: gray;
+        filter: grayscale(100%);</code> This is under our print media style section. There are more
+				differences in the print styles as well. For example one of the three red stars used in our
+				unordered list under the about section leaks over to the third page in Edge, but stays on the second
+				page in Chrome. Red Stars: <code>list-style-image: url(https://russianchicagomag.com/wp-content/uploads/2015/07/Editor_avatar_1438098395-25x25.jpg);</code>
+				While the grayscale modifier isn't that big of a deal, as users can set their printers to
+				grayscale, the red star is annoying, as the actual list element does not show up, only the image.
+		</p>
+
+
+		<p>
+			In the end we decided that all of these browser differences did not make much
+			of a difference, as such we decided not to take additional steps to fix them.
+			In the future, one could use more strict css rules to keep the red star above the
+			page break. However the grayscale issue on Microsoft Edge is most likely due to
+			the browser simply not supporting it.
+		</p>
+
 		<h1>Preparation lab session 1: Markup</h1>
 		<dl>
   			<dt>1. What is the key difference between the HTML5
