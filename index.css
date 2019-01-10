@@ -38,11 +38,11 @@ body {
 }
 
 section {
-    padding: 10px;
-    margin-top: 100px;
+    padding: 50px;
+    margin-top: 50px;
     margin-bottom: 50px;
-    margin-left: 50px;
-    margin-right: 50px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 input,
@@ -135,7 +135,7 @@ a:active {
     background-color: #f3f3f3;
 }
 
-#top h1 {
+#top {
     font: bold 30px Helvetica;
     text-align: center
 }
@@ -151,6 +151,9 @@ ul.NaviBar {
     border: 1px solid #e7e7e7;
     background-color: #f3f3f3;
     list-style: none inside none;
+    position: fixed;
+    top: 0;
+    width: 100%;
 }
 
 li.NaviBar {
@@ -290,8 +293,12 @@ input:focus {
 }
 
 @media screen and (max-width: 600px) {
+    .TopSellTable,
+    li a {
+        font-size: 30px;
+    }
     body {
-        background-color: rgb(132, 148, 146)
+        background-color: rgb(26, 88, 109);
     }
 }
 
