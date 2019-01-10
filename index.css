@@ -16,7 +16,6 @@ body {
 }
 
 section {
-    background-color: rgb(244, 211, 75);
     padding: 10px;
     margin-top: 50px;
     margin-left: 50px;
@@ -43,7 +42,7 @@ button {
     /* 边框宽度 */
     border-radius: 3px;
     /* 边框半径 */
-    background: rgb(194, 143, 61);
+    background: rgb(76, 194, 61);
     /* 背景颜色 */
     cursor: pointer;
     /* 鼠标移入按钮范围时出现手势 */
@@ -64,6 +63,8 @@ button:hover {
 
 table {
     border-collapse: collapse;
+    left: 30%;
+    right: 30%;
 }
 
 td {
@@ -93,56 +94,56 @@ a:hover {
 }
 
 
+/* General */
+
+#home,
+#about,
+#topSellingProducts {
+    background-color: white;
+}
+
+#dailySpecial,
+#physicalLocations {
+    background-color: #f3f3f3;
+}
+
+#top h1 {
+    font: bold 30px Helvetica;
+    text-align: center
+}
+
+
 /* NavigationBar */
 
-.NaviBar ul {
-    position: fixed;
-    /*设置导航栏的框框*/
-    margin: 30px auto;
-    /*框框整体的位置，30px是指离网页的顶部和下部的距离，auto控制的是左右距离为自动调节*/
-    width: 100%;
-    /*框框的宽度*/
-    height: 350px;
-    /*框框的长度*/
-    padding: 0px;
-    /*将框框的padding设置为零，不然会导致框框里的内容与框边缘有间隔*/
-    border: 1px solid #000;
-    /*添加边框*/
-    display: inline-block;
-}
-
-.NaviBar li {
-    /* position: absolute; */
+ul.NaviBar {
     list-style-type: none;
-    /* 去掉li前的点 */
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #e7e7e7;
+    background-color: #f3f3f3;
+}
+
+li.NaviBar {
     float: left;
-    /*将li设置成做浮动，变为联动*/
 }
 
-.NaviBar a {
-    padding: 10px;
+li a {
+    color: #000;
     display: block;
-    /*将a变成块状*/
-    width: auto;
-    /*设置块的宽度*/
-    height: 50px;
-    /*设置块的长度*/
-    font-family: Microsoft Yahei;
-    line-height: 50px;
-    /*设置字体在块中的高度*/
-    background-color: rgb(207, 150, 85);
-    margin: 0px 0px;
-    /*块里的高宽通过margin设置*/
-    color: rgb(95, 73, 73);
+    color: #666;
     text-align: center;
-    /*字体居中*/
+    padding: 14px 16px;
     text-decoration: none;
-    /*去掉下划线*/
-    font-size: 15px;
 }
 
-.NaviBar a:hover {
-    background-color: rgb(206, 177, 59);
+li a:hover:not(.active) {
+    background-color: #ddd;
+}
+
+li a.active {
+    color: white;
+    background-color: #4CAF50;
 }
 
 
@@ -150,8 +151,10 @@ a:hover {
 
 .PhyLocTable table {
     width: 50%;
-    margin: 15px 0;
+    margin: 0 auto;
     border: 0;
+    /* margin-left: auto;
+    margin-right: auto; */
 }
 
 .PhyLocTable th {
@@ -202,7 +205,7 @@ a:hover {
 
 .TopSellTable #title {
     font-weight: bold;
-    background-color: rgb(206, 177, 59);
+    background-color: rgb(76, 194, 61);
     color: rgb(0, 0, 0);
 }
 

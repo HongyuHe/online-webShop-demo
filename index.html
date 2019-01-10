@@ -8,16 +8,22 @@
 </head>
 
 <body>
-    <nav>
-        <!--The navigation bar for the webpage -->
-        <ul class="NaviBar">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#topSelling">Top Selling Products</a></li>
-            <li><a href="#dailySpecial">Foods</a></li>
-            <li><a href="#about">About</a></li>
-        </ul>
-    </nav>
-    <br>
+    <section id="top">
+        <h1>Miko and Ray's Online Store</h1>
+
+        <nav>
+            <!--The navigation bar for the webpage -->
+            <ul class="NaviBar">
+                <li class="NaviBar"><a class="active" href="#home">Home</a></li>
+                <li class="NaviBar"><a href="#dailySpecial">Daily Special</a></li>
+                <li class="NaviBar"><a href="#topSellingProducts">Top Selling Products</a></li>
+                <li class="NaviBar"><a href="#dailySpecial">Foods</a></li>
+                <li class="NaviBar"><a href="#about">About</a></li>
+            </ul>
+        </nav>
+        <br>
+
+    </section>
 
     <section id="home">
         <figure>
@@ -83,7 +89,7 @@
         </ul>
 
     </section>
-    <section>
+    <section id="physicalLocations">
         <table class="PhyLocTable">
             <caption>Physical Locations</caption>
             <tr>
@@ -109,8 +115,7 @@
         </table>
     </section>
 
-    <a name="topSelling"></a>
-    <section id="TopSellingProducts">
+    <section id="topSellingProducts">
         <h2>Top Selling Products</h2>
         <table class="TopSellTable">
             <tr id="title">
