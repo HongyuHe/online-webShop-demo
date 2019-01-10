@@ -5,19 +5,42 @@
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     -webkit-tap-highlight-color: transparent;
+    caption-side: top;
+}
+
+ol {
+    font-style: italic;
+    list-style-position: inside;
+}
+
+ul {
+    list-style-image: url(https://russianchicagomag.com/wp-content/uploads/2015/07/Editor_avatar_1438098395-25x25.jpg);
+}
+
+h1,
+h2 {
+    font-variant: small-caps;
+}
+
+b,
+strong {
+    text-transform: uppercase;
 }
 
 html,
 body {
     color: #000;
-    background: #fff;
+    background-image: url(https://i.pinimg.com/originals/52/ae/1d/52ae1d1a17f72c634f8b15549ed3959c.jpg);
+    background-repeat: repeat;
     font: 12px/22px Verdana, Arial, sans-serif, "Times New Roman", 思源宋体;
     width: 100%;
+    text-indent: 20px;
 }
 
 section {
     padding: 10px;
-    margin-top: 50px;
+    margin-top: 100px;
+    margin-bottom: 50px;
     margin-left: 50px;
     margin-right: 50px;
 }
@@ -33,6 +56,7 @@ button {
 
 button {
     border: 0;
+    border-color: rgb(0, 0, 0);
     background-clip: padding-box;
     width: auto;
     /* 宽度 */
@@ -62,9 +86,8 @@ button:hover {
 }
 
 table {
-    border-collapse: collapse;
-    left: 30%;
-    right: 30%;
+    border-collapse: separate;
+    border-style: groove;
 }
 
 td {
@@ -90,6 +113,11 @@ a:visited {
 
 a:hover {
     color: #000;
+    text-decoration: underline;
+}
+
+a:active {
+    color: blue;
     text-decoration: underline;
 }
 
@@ -169,7 +197,8 @@ li a.active {
     font-size: 0.95em;
     text-align: center;
     padding: 4px;
-    border-collapse: collapse;
+    border-collapse: separate;
+    border-spacing: 15px;
 }
 
 .PhyLocTable th {
@@ -254,6 +283,10 @@ td {
     border: 0ch;
 }
 
+input:focus {
+    background-color: yellow;
+}
+
 @media screen and (max-width: 600px) {
     body {
         background-color: rgb(132, 148, 146)
@@ -265,9 +298,19 @@ td {
         filter: gray;
         filter: grayscale(100%);
     }
+    h2 {
+        page-break-before: always;
+    }
+    table {
+        page-break-after: always;
+    }
     body {
         font: 12pt Georgia, "Times New Roman", Times, serif;
         line-height: 1.3;
+    }
+    p {
+        orphans: 3;
+        widows: 3;
     }
     nav,
     #inputRow {
