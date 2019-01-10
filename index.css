@@ -7,18 +7,40 @@
     -webkit-tap-highlight-color: transparent;
 }
 
+ol {
+  font-style:italic;
+  list-style-position: inside;
+}
+
+ul {
+  list-style-image: url(https://russianchicagomag.com/wp-content/uploads/2015/07/Editor_avatar_1438098395-25x25.jpg);
+}
+
+h1,
+h2 {
+  font-variant: small-caps;
+}
+
+b,
+strong {
+  text-transform: uppercase;
+}
+
 html,
 body {
     color: #000;
-    background: #fff;
+    background-image: url(https://i.pinimg.com/originals/52/ae/1d/52ae1d1a17f72c634f8b15549ed3959c.jpg);
+    background-repeat: repeat;
     font: 12px/22px Verdana, Arial, sans-serif, "Times New Roman", 思源宋体;
     width: 100%;
+    text-indent: 20px;
 }
 
 section {
     background-color: rgb(244, 211, 75);
     padding: 10px;
-    margin-top: 50px;
+    margin-top: 100px;
+    margin-bottom: 50px;
     margin-left: 50px;
     margin-right: 50px;
 }
@@ -34,6 +56,7 @@ button {
 
 button {
     border: 0;
+    border-color: rgb(0,0,0);
     background-clip: padding-box;
     width: auto;
     /* 宽度 */
@@ -63,7 +86,8 @@ button:hover {
 }
 
 table {
-    border-collapse: collapse;
+    border-collapse: separate;
+    border-style:groove;
 }
 
 td {
@@ -109,6 +133,7 @@ a:hover {
     border: 1px solid #000;
     /*添加边框*/
     display: inline-block;
+    list-style: square inside none;
 }
 
 .NaviBar li {
@@ -117,6 +142,7 @@ a:hover {
     /* 去掉li前的点 */
     float: left;
     /*将li设置成做浮动，变为联动*/
+    list-style-image: none;
 }
 
 .NaviBar a {
@@ -166,7 +192,8 @@ a:hover {
     font-size: 0.95em;
     text-align: center;
     padding: 4px;
-    border-collapse: collapse;
+    border-collapse: separate;
+    border-spacing: 15px;
 }
 
 .PhyLocTable th {
