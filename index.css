@@ -2,9 +2,9 @@
     margin: 0;
     outline: 0;
     vertical-align: baseline;
-    /* -webkit-box-sizing: border-box; */
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
-    /* -webkit-tap-highlight-color: transparent; */
+    -webkit-tap-highlight-color: transparent;
     caption-side: top;
 }
 
@@ -51,7 +51,7 @@ button {
     font-size: 100%;
     outline: 0;
     vertical-align: middle;
-    /* -webkit-appearance: none; */
+    -webkit-appearance: none;
 }
 
 button {
@@ -59,29 +59,21 @@ button {
     border-color: rgb(0, 0, 0);
     background-clip: padding-box;
     width: auto;
-    /* 宽度 */
     height: auto;
-    /* 高度 */
+    /* Border */
     border-width: 0px;
-    /* 边框宽度 */
     border-radius: 3px;
-    /* 边框半径 */
     background: rgb(76, 194, 61);
-    /* 背景颜色 */
     cursor: pointer;
-    /* 鼠标移入按钮范围时出现手势 */
+    /* Gesture when mouse moves into button range  */
     outline: none;
-    /* 不显示轮廓线 */
+    /* Do not display contours  */
     font-family: Microsoft YaHei;
-    /* 设置字体 */
     color: white;
-    /* 字体颜色 */
     font-size: 17px;
-    /* 字体大小 */
 }
 
 button:hover {
-    /* 鼠标移入按钮范围时改变颜色 */
     background: #5599FF;
 }
 
@@ -95,9 +87,6 @@ td {
     text-align: center;
 }
 
-
-/* 定义图片边框，当图片作为链接内容被填充时，会有默认边框出现，重定义掉 */
-
 img {
     border: none;
     vertical-align: center;
@@ -109,7 +98,6 @@ img {
 a,
 a:link,
 a:visited {
-    /* color: rgb(0, 0, 255); */
     text-decoration: none;
 }
 
@@ -301,6 +289,9 @@ td {
 input:focus {
     background-color: yellow;
 }
+
+
+/* Media */
 
 @media screen and (max-width: 320px) {
     .PhyLocTable,
