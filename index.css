@@ -2,9 +2,9 @@
     margin: 0;
     outline: 0;
     vertical-align: baseline;
-    -webkit-box-sizing: border-box;
+    /* -webkit-box-sizing: border-box; */
     box-sizing: border-box;
-    -webkit-tap-highlight-color: transparent;
+    /* -webkit-tap-highlight-color: transparent; */
     caption-side: top;
 }
 
@@ -30,7 +30,7 @@ strong {
 html,
 body {
     color: #000;
-    background-image: url(https://i.pinimg.com/originals/52/ae/1d/52ae1d1a17f72c634f8b15549ed3959c.jpg);
+    background-image: url(https://static.designboom.com/wp-content/uploads/2016/12/carlo-ratti-supermarket-of-the-future-milan-designboom-006.jpg);
     background-repeat: repeat;
     font: 12px/22px Verdana, Arial, sans-serif, "Times New Roman", 思源宋体;
     width: 100%;
@@ -38,11 +38,11 @@ body {
 }
 
 section {
-    padding: 10px;
-    margin-top: 50px;
-    margin-bottom: 0px;
-    margin-left: 10px;
-    margin-right: 10px;
+    padding: 3%;
+    margin-top: 2%;
+    margin-bottom: 0%;
+    margin-left: 3%;
+    margin-right: 3%;
 }
 
 input,
@@ -51,7 +51,7 @@ button {
     font-size: 100%;
     outline: 0;
     vertical-align: middle;
-    -webkit-appearance: none;
+    /* -webkit-appearance: none; */
 }
 
 button {
@@ -92,6 +92,7 @@ table {
 
 td {
     padding: 30%;
+    text-align: center;
 }
 
 
@@ -99,9 +100,10 @@ td {
 
 img {
     border: none;
-    vertical-align: baseline;
+    vertical-align: center;
     height: 300px;
     width: 400px;
+    display: table-cell;
 }
 
 a,
@@ -113,12 +115,12 @@ a:visited {
 
 a:hover {
     color: #000;
-    text-decoration: underline;
+    text-decoration: seagreen;
 }
 
 a:active {
     color: blue;
-    text-decoration: underline;
+    text-decoration: seagreen;
 }
 
 
@@ -136,8 +138,14 @@ a:active {
 }
 
 #top h1 {
+    position: absolute;
+    top: 11%;
+    left: 10%;
+    right: 10%;
     font: bold 30px Helvetica;
-    text-align: center
+    text-align: center;
+    color: whitesmoke;
+    overflow-y: no-display;
 }
 
 
@@ -185,7 +193,7 @@ li a.active {
 /* Physical Locations table */
 
 .PhyLocTable table {
-    width: 50%;
+    width: 100%;
     margin: 0 auto;
     border: 0;
     /* margin-left: auto;
@@ -234,7 +242,7 @@ li a.active {
 /* Top Selling Products table */
 
 .TopSellTable table {
-    width: 30%;
+    width: 10%;
     margin: 15px 0;
     border: 0;
 }
@@ -295,7 +303,8 @@ input:focus {
 }
 
 @media screen and (max-width: 320px) {
-    table,
+    .PhyLocTable,
+    .TopSellTable,
     li a {
         font-size: 20px;
     }
