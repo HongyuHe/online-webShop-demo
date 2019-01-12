@@ -246,7 +246,7 @@ li a.active {
 .TopSellTable td {
     font-size: 0.95em;
     text-align: center;
-    padding: 3px;
+    padding: 0.01%;
     border-collapse: collapse;
 }
 
@@ -279,8 +279,8 @@ td {
 }
 
 .TopSellTable tr td img {
-    width: 125px;
-    height: 100px;
+    width: 50px;
+    height: 50px;
     padding: 0%;
     margin: 0%;
     border: 0ch;
@@ -294,11 +294,48 @@ input:focus {
 /* Media */
 
 @media screen and (max-width: 320px) {
+
+    * {
+      text-indent: 3px;
+    }
+
+    img {
+      max-width: 100%;
+
+    }
+
+    pre {
+      display: none;
+    }
+
     .PhyLocTable,
     .TopSellTable,
     li a {
         font-size: 20px;
     }
+
+    table,
+    .TopSellTable th,
+    .TopSellTable td {
+        font-size: 9px;
+        max-width: 44px;
+        text-align: left;
+    }
+
+    table,
+    .PhyLocTable th,
+    .PhyLocTable td {
+        font-size: 10px;
+        max-width: 65px;
+        text-align: left;
+    }
+
+
+    button {
+        border-radius: 2px;
+        font-size: 10px;
+    }
+
 }
 
 @media print {
