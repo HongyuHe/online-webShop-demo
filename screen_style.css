@@ -1,0 +1,378 @@
+* {
+    margin: 0;
+    outline: 0;
+    vertical-align: baseline;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    caption-side: bottom;
+}
+
+ol {
+    font-style: italic;
+    list-style-position: inside;
+}
+
+ul {
+    list-style-image: url(https://russianchicagomag.com/wp-content/uploads/2015/07/Editor_avatar_1438098395-25x25.jpg);
+}
+
+h1,
+h2 {
+    font-variant: small-caps;
+}
+
+h1 {
+    font-size: 26px;
+}
+
+h2 {
+    font-size: 23px;
+}
+
+p {
+    font-size: 20px;
+    font-family: DengXian;
+}
+
+strong {
+    text-transform: uppercase;
+}
+
+html,
+body {
+    color: #000;
+    background-image: url(https://static.designboom.com/wp-content/uploads/2016/12/carlo-ratti-supermarket-of-the-future-milan-designboom-006.jpg);
+    background-repeat: repeat;
+    font: 12px/22px Verdana, Arial, sans-serif, "Times New Roman", 思源宋体;
+    width: 100%;
+    text-indent: 0px;
+}
+
+section {
+    padding: 3%;
+    margin-top: 2%;
+    margin-bottom: 0%;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+input,
+select,
+button {
+    font-size: 100%;
+    outline: 0;
+    vertical-align: middle;
+    -webkit-appearance: none;
+}
+
+button {
+    border: 0;
+    border-color: rgb(0, 0, 0);
+    background-clip: padding-box;
+    width: auto;
+    height: auto;
+    /* Border */
+    border-width: 0px;
+    border-radius: 3px;
+    background: rgb(76, 194, 61);
+    cursor: pointer;
+    /* Gesture when mouse moves into button range  */
+    outline: none;
+    /* Do not display contours  */
+    font-family: Microsoft YaHei;
+    color: white;
+    font-size: 17px;
+}
+
+button:hover {
+    background: #5599FF;
+}
+
+table {
+    border-collapse: separate;
+    border-style: groove;
+    word-wrap: break-word;
+    table-layout: fixed;
+}
+
+td {
+    /* padding: 30%; */
+    text-align: center;
+}
+
+th,
+td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+img {
+    border: none;
+    vertical-align: center;
+    height: 300px;
+    width: 400px;
+    /* display: inline-flex; */
+    max-width: 100%;
+    /* text-align: center; */
+    /* margin-left: 10%;
+    margin-right: 0%; */
+}
+
+a,
+a:link,
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    color: #000;
+    text-decoration: seagreen;
+}
+
+a:active {
+    color: blue;
+    text-decoration: seagreen;
+}
+
+
+/* General */
+
+#home,
+#about,
+#topSellingProducts {
+    background-color: white;
+}
+
+#dailySpecial,
+#physicalLocations {
+    background-color: #f3f3f3;
+}
+
+#headline h1 {
+    position: absolute;
+    top: 11%;
+    left: 10%;
+    right: 10%;
+    font: bold 30px Helvetica;
+    text-align: center;
+    color: whitesmoke;
+    overflow-y: no-display;
+}
+
+
+/* NavigationBar */
+
+ul.NaviBar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #e7e7e7;
+    background-color: #f3f3f3;
+    list-style: none inside none;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 90%;
+    font-weight: bold;
+}
+
+li.NaviBar {
+    float: left;
+    list-style-image: none;
+    text-align: center;
+}
+
+li a {
+    color: #000;
+    display: block;
+    color: #666;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #ddd;
+}
+
+li a.active {
+    color: white;
+    background-color: #4CAF50;
+}
+
+
+/* Physical Locations table */
+
+.PhyLocTable table {
+    width: 100%;
+    margin: 0 auto;
+    border: 0;
+    /* margin-left: auto;
+    margin-right: auto; */
+}
+
+.PhyLocTable th {
+    font-weight: bold;
+    background-color: #e3e3e3;
+    color: #3c3c3c
+}
+
+.PhyLocTable,
+.PhyLocTable th,
+.PhyLocTable td {
+    font-size: 0.95em;
+    text-align: center;
+    padding: 4px;
+    border-collapse: separate;
+    border-spacing: 15px;
+}
+
+.PhyLocTable th {
+    border: 1px solid #e3e3e3;
+    border-width: 1px
+}
+
+.PhyLocTable td {
+    border: 1px solid #e3e3e3;
+    border-width: 1px
+}
+
+.PhyLocTable tr {
+    border: 1px solid #ffffff;
+}
+
+.PhyLocTable tr:nth-child(odd) {
+    background-color: #f7f7f7;
+}
+
+.PhyLocTable tr:nth-child(even) {
+    background-color: #ffffff;
+}
+
+
+/* Top Selling Products table */
+
+.TopSellTable table {
+    width: 90%;
+    margin: auto;
+    border: 0;
+}
+
+.TopSellTable #title {
+    font-weight: bold;
+    background-color: rgb(76, 194, 61);
+    color: rgb(0, 0, 0);
+}
+
+.TopSellTable,
+.TopSellTable th,
+.TopSellTable td {
+    font-size: 85%;
+    text-align: center;
+    padding: 0.01%;
+    border-collapse: collapse;
+}
+
+.TopSellTable th {
+    border: 1px solid #fcdede;
+    border-width: 1px
+}
+
+.TopSellTable td {
+    border: 1px solid #fcdede;
+    border-width: 1px
+}
+
+.TopSellTable tr {
+    border: 1px solid #ffffff;
+}
+
+.TopSellTable tr:nth-child(odd) {
+    background-color: #f7f7f7;
+}
+
+.TopSellTable tr:nth-child(even) {
+    background-color: #ffffff;
+}
+
+.TopSellTable tr td img {
+    width: 125px;
+    height: 100px;
+    padding: 0%;
+    margin: 0%;
+    border: 0ch;
+}
+
+input:focus {
+    background-color: yellow;
+}
+
+
+/* Media */
+
+@media screen and (max-width: 700px) and (min-width: 350px) {
+    #headline h1 {
+        display: none;
+    }
+    .TopSellTable th,
+    .TopSellTable td {
+        font-size: 60%;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    * {
+        text-indent: 3px;
+    }
+    img {
+        max-width: 100%;
+    }
+    pre {
+        display: none;
+    }
+    h1 {
+        font-size: 23px;
+    }
+    h2 {
+        font-size: 20px;
+    }
+    p {
+        font-size: 16px;
+        font-family: DengXian;
+    }
+    #headline h1 {
+        top: 55%;
+        left: 10%;
+        right: 10%;
+        font: 23px;
+        overflow-y: no-display;
+    }
+    ul.NaviBar {
+        font-size: 70%;
+    }
+    .TopSellTable th,
+    .TopSellTable td {
+        font-size: 50%;
+        max-width: 44px;
+        text-align: center;
+    }
+    .TopSellTable tr td img {
+        width: 30px;
+        height: 50px;
+    }
+    .PhyLocTable th,
+    .PhyLocTable td {
+        font-size: 50%;
+        text-align: center;
+        border-spacing: 0px;
+        border-collapse: collapse;
+    }
+    button {
+        border-radius: 2px;
+        font-size: 7px;
+        max-width: 40px;
+    }
+}
