@@ -1,82 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<title>Prep Questions</title>
-		<link rel="stylesheet" href="prep.css">
-	</head>
-	<body>
 
-		<h1>Browser Report for Assignment 1 Website</h1>
-		<p>&nbsp; &nbsp; &nbsp; &nbsp; The two browsers we chose to test our website on was Google Chrome and Microsoft Edge.
-			The two browsers show the content in a very similar way, however when inputting data
-			into the table, the two browsers have different selection methods. When inputting a
-			"Best Before Date" into the table, Google Chrome shows a calendar to select a date,
-			whilst Microsoft Edge shows a scroll wheel selection for the dates. A larger difference is
-			that Google Chrome shows a "up/down" button on the input box for "Amount." Other than that
-			the two browsers show the pages as identical.
-		</p>
+<head>
+    <title>Prep Questions</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="prep.css">
+</head>
 
-		<p>
-			&nbsp; &nbsp; &nbsp; &nbsp; Testing our website for different screen sizes on Google Chrome and
-			Microsoft Edge was the same. On both browsers we ran into issues with changing the screen size.
-			In general we had issues with using the </p> <code> @media screen and (min-width: 600px) { </code>
-				<p>
-					selector.
-		</p>
+<body>
 
-		<p>
-				&nbsp; &nbsp; &nbsp; &nbsp; Where the two browsers start to change is when testing the print media type. Google Chrome
-				shows everything as we designed it (due to the fact that we used it during development)
-				however Microsoft Edge does not grayscale the page. This is strange as we used the modifier </p>
-				<code>
+    <h1>Browser Report for Assignment 1 Website</h1>
+    <p>&nbsp; &nbsp; &nbsp; &nbsp; The two browsers we chose to test our website on was Google Chrome and Microsoft Edge. The two browsers show the content in a very similar way, however when inputting data into the table, the two browsers have different
+        selection methods. When inputting a "Best Before Date" into the table, Google Chrome shows a calendar to select a date, whilst Microsoft Edge shows a scroll wheel selection for the dates. A larger difference is that Google Chrome shows a "up/down"
+        button on the input box for "Amount." Other than that the two browsers show the pages as identical.
+    </p>
+
+    <p>
+        &nbsp; &nbsp; &nbsp; &nbsp; Testing our website for different screen sizes on Google Chrome and Microsoft Edge was the same. On both browsers we ran into issues with changing the screen size. In general we had issues with using the </p> <code> @media screen and (min-width: 600px) { </code>
+    <p>
+        selector.
+    </p>
+
+    <p>
+        &nbsp; &nbsp; &nbsp; &nbsp; Where the two browsers start to change is when testing the print media type. Google Chrome shows everything as we designed it (due to the fact that we used it during development) however Microsoft Edge does not grayscale the
+        page. This is strange as we used the modifier </p>
+    <code>
 				filter: gray;
         filter: grayscale(100%);
 			  </code>
-				<p>This is under our print media style section. There are more
-				differences in the print styles as well. For example one of the three red stars used in our
-				unordered list under the about section leaks over to the third page in Edge, but stays on the second
-				page in Chrome. Red Stars: </p>
-				<code>list-style-image: url(https://russianchicagomag.com/wp-content/uploads/2015/07/Editor_avatar_1438098395-25x25.jpg);</code>
-				<p>While the grayscale modifier isn't that big of a deal, as users can set their printers to
-				grayscale, the red star is annoying, as the actual list element does not show up, only the image.
-		</p>
+    <p>This is under our print media style section. There are more differences in the print styles as well. For example one of the three red stars used in our unordered list under the about section leaks over to the third page in Edge, but stays on the second
+        page in Chrome. Red Stars: </p>
+    <code>list-style-image: url(https://russianchicagomag.com/wp-content/uploads/2015/07/Editor_avatar_1438098395-25x25.jpg);</code>
+    <p>While the grayscale modifier isn't that big of a deal, as users can set their printers to grayscale, the red star is annoying, as the actual list element does not show up, only the image.
+    </p>
 
 
-		<p>
-			&nbsp; &nbsp; &nbsp; &nbsp;In the end we decided that all of these browser differences did not make much
-			of a difference, as such we decided not to take additional steps to fix them.
-			In the future, one could use more strict css rules to keep the red star above the
-			page break. However the grayscale issue on Microsoft Edge is most likely due to
-			the browser simply not supporting it.
-		</p>
+    <p>
+        &nbsp; &nbsp; &nbsp; &nbsp;In the end we decided that all of these browser differences did not make much of a difference, as such we decided not to take additional steps to fix them. In the future, one could use more strict css rules to keep the red star
+        above the page break. However the grayscale issue on Microsoft Edge is most likely due to the browser simply not supporting it.
+    </p>
 
-		<h1>Preparation lab session 1: Markup</h1>
-		<dl>
-  			<dt>1. What is the key difference between the HTML5
+    <h1>Preparation lab session 1: Markup</h1>
+    <dl>
+        <dt>1. What is the key difference between the HTML5
 				Recommendation published by W3C and the one
 				published by the WHATWG?
 			</dt>
-  				<dd>
-					<p> The key difference is their original HTML5 Recommendation. WHATWG regard HTML5 as a
-					highly sef-contained platform or even as a fast,
-					general-purpose computer with its own operating system,
-					while W3C wants to standardise every possible element or
-					operations in HTML5 and that's why
-					the W3C’s HTML5 standard is super long.</p>
-					<p>
-						All in all, the W3C sees HTML5 as a single
-						static version document, while for WHATWG, it is living
-						and dynamic.
-					</p>
-				</dd>
+        <dd>
+            <p> The key difference is their original HTML5 Recommendation. WHATWG regard HTML5 as a highly sef-contained platform or even as a fast, general-purpose computer with its own operating system, while W3C wants to standardise every possible element
+                or operations in HTML5 and that's why the W3C’s HTML5 standard is super long.</p>
+            <p>
+                All in all, the W3C sees HTML5 as a single static version document, while for WHATWG, it is living and dynamic.
+            </p>
+        </dd>
 
-  			<dt>2. Explain the difference between "the Internet"
+        <dt>2. Explain the difference between "the Internet"
 				and "the World-Wide Web". Provide links to the
 				online resources you used (if any) to answer
 				this question.
 			</dt>
-		  		<dd>
-					<cite>
+        <dd>
+            <cite>
 					"The Internet is a comprehensive network of computers and was
 					conceptualized during 1969 by the ARPA or Advanced Research Projects Agency.
 					The World Wide Web is much newer compared to the Internet and was initialized
@@ -85,33 +69,26 @@
 					world."<a href="https://www.theedesign.com/blog/2006/differences-between-the-internet-and-world-wide-web">
 					<small>sourse</small></a>
 					</cite>
-					<p>
-						Or, in our own words: The internet is a connected network of computer systems using TCP/IP.
-						The world wide web is built on top of the internet and is a space where documents
-						can be identified with URIs and can be hyperlinked together.
-					</p>
+            <p>
+                Or, in our own words: The internet is a connected network of computer systems using TCP/IP. The world wide web is built on top of the internet and is a space where documents can be identified with URIs and can be hyperlinked together.
+            </p>
 
 
-				</dd>
+        </dd>
 
-			<dt>3. What are the three essential technologies that
+        <dt>3. What are the three essential technologies that
 				Tim Berners-Lee created to build the World-Wide
 				Web on top of the already existing Internet infrastructure?
 			</dt>
-		  		<dd>
-					<ul>
-						<li>HTML: HyperText Markup Language.
-							The markup (formatting) language for the web.</li>
-						<li>URI: Uniform Resource Identifier. A kind of “address”
-							that is unique and used to identify to each resource
-							on the web. It is also commonly called a URL.</li>
-						<li>HTTP: Hypertext Transfer Protocol. Allows for the
-							retrieval of linked resources from across the web, is responsible
-							for receiving and requesting data through connections.</li>
-					</ul>
-				</dd>
+        <dd>
+            <ul>
+                <li>HTML: HyperText Markup Language. The markup (formatting) language for the web.</li>
+                <li>URI: Uniform Resource Identifier. A kind of “address” that is unique and used to identify to each resource on the web. It is also commonly called a URL.</li>
+                <li>HTTP: Hypertext Transfer Protocol. Allows for the retrieval of linked resources from across the web, is responsible for receiving and requesting data through connections.</li>
+            </ul>
+        </dd>
 
-			<dt>4. Create a document with the text "Hello World!"
+        <dt>4. Create a document with the text "Hello World!"
 				in a word processor such as Microsoft Word or
 				LibreOffice Writer. Save the file as a Web page
 				or HTML document and inspect the HTML source using
@@ -119,15 +96,11 @@
 				differences of the exported HTML against a regular
 				HTML document created with a plain text editor.
 				</dt>
-		  		<dd><p>The main difference is that, as for exported HTML,
-					the word processor will automatically generate many
-					other contents or flies like stylesheet and xml. This styling information is
-				  used to make the page look exactly as it does in the Word application,
-					so that the fonts are the same etc.
-					Meanwhile a regular HTML document created with a plain
-					text editor will not do that.</p>
-					For example, the code below is generated by Microsoft Word:
-					<pre><code>
+        <dd>
+            <p>The main difference is that, as for exported HTML, the word processor will automatically generate many other contents or flies like stylesheet and xml. This styling information is used to make the page look exactly as it does in the Word application,
+                so that the fonts are the same etc. Meanwhile a regular HTML document created with a plain text editor will not do that.</p>
+            For example, the code below is generated by Microsoft Word:
+            <pre><code>
 	&lt;style&gt;
 	&lt;!--
 	 /* Font Definitions */
@@ -232,9 +205,9 @@
 	&lt;/html&gt;
 					</code></pre>
 
-				</dd>
+        </dd>
 
-			<dt>5. Find out which port (according to the current IANA
+        <dt>5. Find out which port (according to the current IANA
 				assignment) is used for the following protocols:
 				<ul id="protocols">
 					<li>HTTP</li>
@@ -246,120 +219,91 @@
 				for each description, and why you think your source is
 				authoritative for this topic.
 			</dt>
-		  		<dd>
-					<b><i>The source is from the RFC of IETF (Internet Engineering Task Force),
+        <dd>
+            <b><i>The source is from the RFC of IETF (Internet Engineering Task Force),
 						which is an open standards organization. They are an authoritative
 						group in the field.
 					</i></b>
-					<table id="protocolTable">
-						<tr>
-							<th>Protocol Name</th>
-							<th>Port Number</th>
-							<th>Description </th>
-							<th>Authoritative Source</th>
-						</tr>
-						<tr>
-							<td>HTTP</td>
-							<td>80</td>
-							<td>The Hypertext Transfer Protocol (HTTP) is an application-level
-   							protocol for distributed, collaborative, hypermedia information
-   							systems. It is a generic, stateless, protocol which can be used for
-   							many tasks beyond its use for hypertext</td>
-							<td><a href="https://tools.ietf.org/html/rfc2616">HTTP</a></td>
-						</tr>
-						<tr>
-							<td>SSH</td>
-							<td>22</td>
-							<td>The Secure Shell (SSH) is a protocol for secure remote login and
-   							other secure network services over an insecure network.</td>
-							<td><a href="https://tools.ietf.org/html/rfc4253">SSH</a></td>
-						</tr>
-						<tr>
-							<td>FTP</td>
-							<td>20,21</td>
-							<td>The objectives of FTP are 1) to promote sharing of files (computer
-   							programs and/or data), 2) to encourage indirect or implicit (via
-   							programs) use of remote computers, 3) to shield a user from
-   							variations in file storage systems among hosts, and 4) to transfer
-   							data reliably and efficiently.</td>
-							<td><a href="https://tools.ietf.org/html/rfc959">FTP</a></td>
-						</tr>
+            <table id="protocolTable">
+                <tr>
+                    <th>Protocol Name</th>
+                    <th>Port Number</th>
+                    <th>Description </th>
+                    <th>Authoritative Source</th>
+                </tr>
+                <tr>
+                    <td>HTTP</td>
+                    <td>80</td>
+                    <td>The Hypertext Transfer Protocol (HTTP) is an application-level protocol for distributed, collaborative, hypermedia information systems. It is a generic, stateless, protocol which can be used for many tasks beyond its use for hypertext</td>
+                    <td><a href="https://tools.ietf.org/html/rfc2616">HTTP</a></td>
+                </tr>
+                <tr>
+                    <td>SSH</td>
+                    <td>22</td>
+                    <td>The Secure Shell (SSH) is a protocol for secure remote login and other secure network services over an insecure network.</td>
+                    <td><a href="https://tools.ietf.org/html/rfc4253">SSH</a></td>
+                </tr>
+                <tr>
+                    <td>FTP</td>
+                    <td>20,21</td>
+                    <td>The objectives of FTP are 1) to promote sharing of files (computer programs and/or data), 2) to encourage indirect or implicit (via programs) use of remote computers, 3) to shield a user from variations in file storage systems among
+                        hosts, and 4) to transfer data reliably and efficiently.</td>
+                    <td><a href="https://tools.ietf.org/html/rfc959">FTP</a></td>
+                </tr>
 
-					</table>
-				</dd>
+            </table>
+        </dd>
 
-			<dt>6. Explain why some prefer the the HTML of the first paragraph
+        <dt>6. Explain why some prefer the the HTML of the first paragraph
 				over the second, and give an example where this could be important.
 				Also, identify another pair of HTML constructs for which
 				the same rationale holds.
 			</dt>
-		  		<dd><p>I think it is because &lt;b&gt; only refers to style,
-					which means we use &lt;b&gt; to make the text look bold purely for
-					stylistic reasons. Meanwhile we use &lt;strong&gt; if we wanted that
-					bit of text to look bold and have emphasis. That means
-					that &lt;strong&gt; indicates an important piece of information.
-					In other words, &lt;strong&gt; is a semantic tag (carrieis meaning),
-					whilst &lt;b&gt; is not semantic.</p>
+        <dd>
+            <p>I think it is because &lt;b&gt; only refers to style, which means we use &lt;b&gt; to make the text look bold purely for stylistic reasons. Meanwhile we use &lt;strong&gt; if we wanted that bit of text to look bold and have emphasis. That
+                means that &lt;strong&gt; indicates an important piece of information. In other words, &lt;strong&gt; is a semantic tag (carrieis meaning), whilst &lt;b&gt; is not semantic.</p>
 
-					<p>Example: In terms of you looking at the output on a page,
-					there is no visual difference. They look exactly the same.
-					The difference comes with text-to-speech programs, often used by
-					blind people. When blind people look at a website, all the text
-					is spoken to them. If you use &lt;b&gt;, the voice program will not
-					do anything differently when reading the text. But if you use
-					&lt;strong&gt;, the voice program might speak the text
-					differently—with emphasis, or in a different tone of voice.
-					This is done to convey to the blind person that the text is
-					important in some way. </p>
+            <p>Example: In terms of you looking at the output on a page, there is no visual difference. They look exactly the same. The difference comes with text-to-speech programs, often used by blind people. When blind people look at a website, all the
+                text is spoken to them. If you use &lt;b&gt;, the voice program will not do anything differently when reading the text. But if you use &lt;strong&gt;, the voice program might speak the text differently—with emphasis, or in a different
+                tone of voice. This is done to convey to the blind person that the text is important in some way. </p>
 
-					<p>Another pair: &lt;i&gt; and &lt;em&gt; </p>
-				</dd>
+            <p>Another pair: &lt;i&gt; and &lt;em&gt; </p>
+        </dd>
 
-			<dt>7. Identify one similarity and one difference between
+        <dt>7. Identify one similarity and one difference between
 				the HTML elements span and div.
 			</dt>
-		  		<dd>
-					<ul>
-						<li><b>Similarity: </b>Both span and div can separate things
-							from the other elements.</li>
-						<li><b>Difference: </b>div creates a line break, while span
-							does not.</li>
-					</ul>
-				</dd>
+        <dd>
+            <ul>
+                <li><b>Similarity: </b>Both span and div can separate things from the other elements.</li>
+                <li><b>Difference: </b>div creates a line break, while span does not.</li>
+            </ul>
+        </dd>
 
-			<dt>8. List potential benefits of using CSS over
+        <dt>8. List potential benefits of using CSS over
 				HTML style markup.
 			</dt>
-		  		<dd>
-					<ol>
-						<li>CSS can be used to apply style to the whole page or the website
-							without changing much of the core code. The look and layout of a
-							site can be changed beyond recognition just by altering the
-							CSS file;</li>
-						<li>This will improved web page download times;</li>
-						<li>This allows us to position our element anywhere in the webpage;</li>
-						<li>It can help us handle dynamic web design that aims to make sites
-							accessible for various media, by permitting the same
-							markup page to be exhibited in various review styles;</li>
-						<li>This allows consistency to all web pages, which means we need not to
-							worry about the change in characteristics of the elements</li>
-						<li>This helps us save time as we can reuse css files for multiple
-						html files. For example if each page on our website always shows
-						&lt;h1&gt; tags with a font-family of arial, we can simply link a single
-						css file to each html file instead of editing each html file individually</li>
-					</ol>
-				</dd>
+        <dd>
+            <ol>
+                <li>CSS can be used to apply style to the whole page or the website without changing much of the core code. The look and layout of a site can be changed beyond recognition just by altering the CSS file;</li>
+                <li>This will improved web page download times;</li>
+                <li>This allows us to position our element anywhere in the webpage;</li>
+                <li>It can help us handle dynamic web design that aims to make sites accessible for various media, by permitting the same markup page to be exhibited in various review styles;</li>
+                <li>This allows consistency to all web pages, which means we need not to worry about the change in characteristics of the elements</li>
+                <li>This helps us save time as we can reuse css files for multiple html files. For example if each page on our website always shows &lt;h1&gt; tags with a font-family of arial, we can simply link a single css file to each html file instead
+                    of editing each html file individually</li>
+            </ol>
+        </dd>
 
-			<dt>9. How would you expect a Web browser to render an emphasized word
+        <dt>9. How would you expect a Web browser to render an emphasized word
 				(i.e., included in an em element) in a paragraph with an italic font style?
 				Check whether your browser behaves according to your expectation.
 			</dt>
-		  		<dd>
-					There should be no difference even if the font has an italic font style.
-					Our browsers show that this is in fact the case.
-				</dd>
+        <dd>
+            There should be no difference even if the font has an italic font style. Our browsers show that this is in fact the case.
+        </dd>
 
-			<dt>10. Pick two web browsers from the list below.
+        <dt>10. Pick two web browsers from the list below.
 				What are in your view the key differences between the two browsers?
 				<ul id="browsers">
 					<li>Apple Safari</li>
@@ -369,325 +313,263 @@
 					<li>Opera Web Browser</li>
 				</ul>
 			</dt>
-				<dd>
-					The differences between any two browsers are:
-					<ol>
-						<li>Default style sheet</li>
-						<li>Loading speed (browsing performance)</li>
-						<li>User interface</li>
-						<li>Customization options</li>
-					</ol>
-					If we take choose Apple's Safari, and Google's Chrome the differences are as follow
-					<ol>
-						<li>Safari and Chrome's radio buttons differ in style</li>
-						<li>Safari is a lot more optimized, and as such faster and less ram heavy, than Chrome</li>
-						<li>Safari has a cleaner look than Chrome</li>
-						<li>Safari has almost no customization, whilst Chrome offers different themes etc</li>
+        <dd>
+            The differences between any two browsers are:
+            <ol>
+                <li>Default style sheet</li>
+                <li>Loading speed (browsing performance)</li>
+                <li>User interface</li>
+                <li>Customization options</li>
+            </ol>
+            If we take choose Apple's Safari, and Google's Chrome the differences are as follow
+            <ol>
+                <li>Safari and Chrome's radio buttons differ in style</li>
+                <li>Safari is a lot more optimized, and as such faster and less ram heavy, than Chrome</li>
+                <li>Safari has a cleaner look than Chrome</li>
+                <li>Safari has almost no customization, whilst Chrome offers different themes etc</li>
 
-					</ol>
-				</dd>
+            </ol>
+        </dd>
 
-		</dl>
-		<hr>
-		<h1>Preparation lab session 2: Accessibility and HTTP server basics</h1>
-		<dl>
-			<dt>1. Read the article by Axel Schmetzke, (2001),"Web accessibility at
+    </dl>
+    <hr>
+    <h1>Preparation lab session 2: Accessibility and HTTP server basics</h1>
+    <dl>
+        <dt>1. Read the article by Axel Schmetzke, (2001),"Web accessibility at
 				university libraries and library schools" (See Reader on Canvas).
 				Schmetzke found that the most prevalent accessibility error is not
 				having ALT texts for images. With which WCAG guideline does this correspond?
 			</dt>
-				<dd>The Guideline1 of Web Content Accessibility Guidelines correspond
-					to this problem:
-					<div>
-						<cite>"Guideline 1. Provide equivalent alternatives to
+        <dd>The Guideline1 of Web Content Accessibility Guidelines correspond to this problem:
+            <div>
+                <cite>"Guideline 1. Provide equivalent alternatives to
 						auditory and visual content."</cite>
-						<a href="https://www.w3.org/TR/WAI-WEBCONTENT/#gl-provide-equivalents">
+                <a href="https://www.w3.org/TR/WAI-WEBCONTENT/#gl-provide-equivalents">
 						http://www.w3.org/WAI/wcag-curric/</a>
-					</div>
-				</dd>
+            </div>
+        </dd>
 
-			<dt>2. The Web Accessibility checker 'Bobby' that Schmetzke used has been taken offline,
+        <dt>2. The Web Accessibility checker 'Bobby' that Schmetzke used has been taken offline,
 				but its predecessor WAVE (Links to an external site.)Links to an external site
 				can be found online. Run the tool on a web site you think should be accessible.
 				Briefly write down your key observations.
 			</dt>
-				<dd>
-					We checked the EU's internet handbook's page on Web Accessibility in the EU
-					<a href="http://wave.webaim.org/report#/http://ec.europa.eu/ipg/standards/accessibility/index_en.htm">(Link)</a>
-				 <p>Here are our findings:</p>
-					<ul>
-						<li>The website only has 1 Error and 7 Alerts</li>
-						<li>The 1 Error is attributed to a search box missing a label</li>
-						<li>Some of the Alerts seem to not be important, such as one stating
-							that a header level has been skipped, how is this less accessible?</li>
-						<li>Overall the page is very accessible, containing alternate text labels
-							and access keys. This is expected, as this is a webpage about web accessibility</li>
-					</ul>
-				</dd>
+        <dd>
+            We checked the EU's internet handbook's page on Web Accessibility in the EU
+            <a href="http://wave.webaim.org/report#/http://ec.europa.eu/ipg/standards/accessibility/index_en.htm">(Link)</a>
+            <p>Here are our findings:</p>
+            <ul>
+                <li>The website only has 1 Error and 7 Alerts</li>
+                <li>The 1 Error is attributed to a search box missing a label</li>
+                <li>Some of the Alerts seem to not be important, such as one stating that a header level has been skipped, how is this less accessible?</li>
+                <li>Overall the page is very accessible, containing alternate text labels and access keys. This is expected, as this is a webpage about web accessibility</li>
+            </ul>
+        </dd>
 
-			<dt>3. Acquaint yourself with principles of color contrast, e.g. through the
+        <dt>3. Acquaint yourself with principles of color contrast, e.g. through the
 				Color Contrast Check (Links to an external site.)Links to an external site.
 				Test three color combinations and write a short report of the results and how
 				these should be interpreted.
 			</dt>
-				<dd>
-					<table>
-						<tr>
-							<th>Color Combination</th>
-							<th>Result</th>
-							<th>Interpretation</th>
-						</tr>
+        <dd>
+            <table>
+                <tr>
+                    <th>Color Combination</th>
+                    <th>Result</th>
+                    <th>Interpretation</th>
+                </tr>
 
-						<tr>
-							<td>
-								<div>F: #0088BE</div>
-								<div>B: #333333</div>
-							</td>
-							<td>
-								<div>Brightness Difference = 50.492</div>
-								<div>Colour Difference = 275</div>
-								<div>Contrast Ratio = 3.167</div>
-							</td>
-							<td>
-								The colors are not compliant at all and this color combination
-								is bad because it cannot even satisfy
-								AA compliance which requires the text to have a ratio of
-								at least 4.5:1 (larger text, at least 3:1).
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<div>F: #75D2BE</div>
-								<div>B: #333333</div>
-							</td>
-							<td>
-								<div>Brightness Difference = 128.913364</div>
-								<div>Colour Difference = 364</div>
-								<div>Contrast Ratio = 7.050</div>
-							</td>
-							<td>
-								The colors are sort of compliant but this color combination
-								is not very good because, although, it is
-								AA compliant, it can not satisfy AAA compliance which requires
-								the text to have a ratio of at least 7:1 (larger text, at least 4.5:1).
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<div>F: #A5FFEB</div>
-								<div>B: #333333</div>
-							</td>
-							<td>
-								<div>Brightness Difference = 174.81502</div>
-								<div>Colour Difference = 502</div>
-								<div>Contrast Ratio = 10.891</div>
-							</td>
-							<td>
-								The colors are compliant and this color combination
-								is very good because they are
-								AA and AAA compliant.
-							</td>
-						</tr>
-					</table>
-				</dd>
+                <tr>
+                    <td>
+                        <div>F: #0088BE</div>
+                        <div>B: #333333</div>
+                    </td>
+                    <td>
+                        <div>Brightness Difference = 50.492</div>
+                        <div>Colour Difference = 275</div>
+                        <div>Contrast Ratio = 3.167</div>
+                    </td>
+                    <td>
+                        The colors are not compliant at all and this color combination is bad because it cannot even satisfy AA compliance which requires the text to have a ratio of at least 4.5:1 (larger text, at least 3:1).
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div>F: #75D2BE</div>
+                        <div>B: #333333</div>
+                    </td>
+                    <td>
+                        <div>Brightness Difference = 128.913364</div>
+                        <div>Colour Difference = 364</div>
+                        <div>Contrast Ratio = 7.050</div>
+                    </td>
+                    <td>
+                        The colors are sort of compliant but this color combination is not very good because, although, it is AA compliant, it can not satisfy AAA compliance which requires the text to have a ratio of at least 7:1 (larger text, at least 4.5:1).
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div>F: #A5FFEB</div>
+                        <div>B: #333333</div>
+                    </td>
+                    <td>
+                        <div>Brightness Difference = 174.81502</div>
+                        <div>Colour Difference = 502</div>
+                        <div>Contrast Ratio = 10.891</div>
+                    </td>
+                    <td>
+                        The colors are compliant and this color combination is very good because they are AA and AAA compliant.
+                    </td>
+                </tr>
+            </table>
+        </dd>
 
-			<dt>
+        <dt>
 				4. Make sure you understand the difference between a Native app versus
 				a (responsive) Web app. Discuss at least one advantage of native apps
 				over web apps and vice versa.
 			</dt>
-				<dd>
-					<ul>
-						<li>Advantage of native apps over web apps:
-							<div>Since native apps work with the device’s built-in
-								features — like the camera, microphone, location services, etc.
-								they're easier to work with and perform faster on the device.
-							</div>
-						</li>
-						<li>Advantage of web apps over native apps:
-							<div>Web apps are much easier to maintain because they have a
-								common code base across multiple mobile platforms. They are also
-								much more versatile and transportable.
-							</div>
-						</li>
-					</ul>
-				</dd>
+        <dd>
+            <ul>
+                <li>Advantage of native apps over web apps:
+                    <div>Since native apps work with the device’s built-in features — like the camera, microphone, location services, etc. they're easier to work with and perform faster on the device.
+                    </div>
+                </li>
+                <li>Advantage of web apps over native apps:
+                    <div>Web apps are much easier to maintain because they have a common code base across multiple mobile platforms. They are also much more versatile and transportable.
+                    </div>
+                </li>
+            </ul>
+        </dd>
 
-			<dt>
+        <dt>
 				5. Summarize the key multilingual issues that W3C (Links to an external site.)
 				Links to an external site. is addressing within the "Internationalization" activity.
 			</dt>
-				<dd>
-					<p>
-						The multilingual issues that the web is facing and that the W3C is
-						trying to resolve are plentiful. The root of the issues stem from
-						the fact that languages around the world are all very different. Just
-						because the web started out in English does not mean that it should be
-						limited to that one language. After all, how could the web truly be
-						"World Wide" if only one language was involved? Because this is the case
-						many groups, including the W3C aim at involving other languages in the web.
-						This is what internationalization refers to. The issues are plenty but we've
-						listed a few here:
-					</p>
-					<ul>
-						<li><b>Character Sets</b></li>
-						<p>
-						Whilst the English alphabet consists of 26 letters, this is certainly
-						not the case for other languages. Some alphabetical systems, such as Korean,
-						have a different amount of letters in their alphabet, or some, like Chinese,
-						don't use an alphabetical system, instead consisting of thousands of characters.
-						As such the W3C tasks itself with correctly displaying these foreign
-						characters on the web. This is difficult to do, especially with encorporating
-						fonts and the rest.
-						</p>
-						<li><b>Reading order</b></li>
-						<p>
-						In English we read left to right, but in certain languages that is
-						not the case. For example, Japanese is read right to left, or even sometimes
-						top to bottom. This creates problems with displaying this text on websites.
-						By simply using standards meant for the English language this would be difficult,
-						this is why the W3C is interested in standartising bidirectional text.
-						</p>
-						<li><b>Time Zones</b></li>
-						<p>
-						Time zones are a large issue in internationalization as not all countries
-						are in the same time zone. Because of this, when time is displayed on
-						a web app or web page, there is a possibility that it is the incorrect
-						time for a user in a different time zone. There are many ways to address
-						this issue including using floating time. Floating time refers to time
-						that is not tied to a specific time zone. By using this time format
-						we can altogether avoid the issue of time zones. However almost nobody
-						uses a floating time system. As such a better solution could be location
-						service tracking which can convert between time zones in order to always
-						display the correct time. This is what is used most commonly nowadays.
-						</p>
-					</ul>
+        <dd>
+            <p>
+                The multilingual issues that the web is facing and that the W3C is trying to resolve are plentiful. The root of the issues stem from the fact that languages around the world are all very different. Just because the web started out in English does not
+                mean that it should be limited to that one language. After all, how could the web truly be "World Wide" if only one language was involved? Because this is the case many groups, including the W3C aim at involving other languages in the
+                web. This is what internationalization refers to. The issues are plenty but we've listed a few here:
+            </p>
+            <ul>
+                <li><b>Character Sets</b>
+                    <div>Whilst the English alphabet consists of 26 letters, this is certainly not the case for other languages. Some alphabetical systems, such as Korean, have a different amount of letters in their alphabet, or some, like Chinese, don't use
+                        an alphabetical system, instead consisting of thousands of characters. As such the W3C tasks itself with correctly displaying these foreign characters on the web. This is difficult to do, especially with encorporating fonts and
+                        the rest.</div>
+                </li>
+                <li><b>Reading order</b>
+                    <div>In English we read left to right, but in certain languages that is not the case. For example, Japanese is read right to left, or even sometimes top to bottom. This creates problems with displaying this text on websites. By simply using
+                        standards meant for the English language this would be difficult, this is why the W3C is interested in standartising bidirectional text.
+                    </div>
+                </li>
+                <li><b>Time Zones</b>
+                    <div>Time zones are a large issue in internationalization as not all countries are in the same time zone. Because of this, when time is displayed on a web app or web page, there is a possibility that it is the incorrect time for a user
+                        in a different time zone. There are many ways to address this issue including using floating time. Floating time refers to time that is not tied to a specific time zone. By using this time format we can altogether avoid the issue
+                        of time zones. However almost nobody uses a floating time system. As such a better solution could be location service tracking which can convert between time zones in order to always display the correct time. This is what is used
+                        most commonly nowadays.</div>
+                </li>
+            </ul>
 
 
-				<dd>
+            <dd>
 
-			<dt>
+                <dt>
 				6. What is the IP address of the server running on  www.few.vu.nl?
 				And the IP address behind www.cs.vu.nl? Explain how you found the answer.
 				How could the results you find influence the web servers' functionality?
 			</dt>
-				<dd>
-					<div>(1) The IP address of the server is <b>127.0.0.53</b>.</div>
-					<div>(2) The IP address behind www.cs.vu.nl is <b>130.37.164.154</b>.</div>
-					<div>(3) I found the answer via <i>nslookup</i> and <i>ping</i> commands.</div>
-					<div>(4) Not exactly sure, but by obtaining this information we could be able to
-					access admin pages <i>(phpmyadmin style)</i>, as such the functionality to us changes</div>
-				</dd>
+                <dd>
+                    <div>(1) The IP address of the server is <b>127.0.0.53</b>.</div>
+                    <div>(2) The IP address behind www.cs.vu.nl is <b>130.37.164.154</b>.</div>
+                    <div>(3) I found the answer via <i>nslookup</i> and <i>ping</i> commands.</div>
+                    <div>(4) Not exactly sure, but by obtaining this information we could be able to access admin pages <i>(phpmyadmin style)</i>, as such the functionality to us changes</div>
+                </dd>
 
-			<dt>
+                <dt>
 				7. Look up information about the new protocol for IP addresses (IPv6, IP version 6).
 				Describe the main features of this protocol and indicate what the reasons are to
 				move from version 4 to version 6.
 			</dt>
-				<dd>
-					<p>Main features of IPv6:</p>
-					<ul>
-						<li><div>Larger Address Space</div>
-							In contrast to IPv4, IPv6 uses 4 times more bits to address a
-							device on the Internet. This much of extra bits can provide
-							approximately 3.4×1038 different combinations of addresses.
-							This address can accomodate the aggressive requirement of address
-							allotment for almost everything in this world. According to an
-							estimate, 1564 addresses can be allocated to every square meter
-							of this earth.</li>
-						<li><div>Simplified Header</div>
-							IPv6’s header has been simplified by moving all unnecessary information
-							and options (which are present in IPv4 header) to the end of the IPv6 header.
-							IPv6 header is only twice as big as IPv4 provided the fact that IPv6 address
-							is four times longer.</li>
-						<li><div>Auto-configuration</div>
-							IPv6 supports both stateful and stateless auto configuration mode of its host
-							devices. This way, the absence of a DHCP server does not put a halt on inter
-							segment communication.</li>
-						<li><div>Faster Forwarding/Routing</div>
-							Simplified header puts all unnecessary information at the end of the header.
-							The information contained in the first part of the header is adequate for a
-							Router to take routing decisions, thus making routing decision quickly as
-							it only looks at the important part of the header.</li>
-						<li><div>IPSec</div>
-							Initially it was decided that IPv6 must have IPSec security, making it more secure
-							than IPv4. This feature has now been made optional.</li>
-						<li><div>No Broadcast</div>
-							Though Ethernet/Token Ring are considered as broadcast network because they support
-							Broadcasting, IPv6 does not have any broadcast support any more. It uses multicast
-							to communicate with multiple hosts.</li>
-						<li><div>Anycast Support</div>
-							This is another characteristic of IPv6. IPv6 has introduced Anycast mode of packet routing.
-							In this mode, multiple interfaces over the Internet are assigned the same Anycast
-							IP address. Routers, whilst routing, send the packet to the nearest destination.</li>
-						<li><div>Mobility</div>
-							IPv6 was designed to keep mobility in mind. This feature enables hosts (such as mobile phones)
-							to roam around in different geographical areas and remain connected with the same
-							IP address. The mobility feature of IPv6 takes advantage of auto IP configuration
-							and Extension headers.</li>
-						<li><div>Enhanced Priority Support</div>
-							IPv4 used 6 bits DSCP (Differential Service Code Point) and 2 bits ECN
-							(Explicit Congestion Notification) to provide Quality of Service but it
-							could only be used if the end-to-end devices support it, that is, the
-							source and destination device and underlying network must support it.
-							In IPv6, Traffic class and Flow label are used to tell the underlying
-							routers how to efficiently process the packet and route it.</li>
-						<li><div>Smooth Transition</div>
-							Large IP address scheme in IPv6 enables us to allocate devices with globally
-							unique IP addresses. This mechanism saves IP addresses and NAT is not required.
-							So devices can send/receive data amongst each other, for example, VoIP and/or any
-							streaming media can be used much efficiently.
-							The other fact is that the header is less loaded, so routers can take forwarding decisions
-							and forward them much faster.</li>
-						<li><div>Extensibility</div>
-							One of the major advantages of IPv6 header is that
-							it is extensible, meaning it is possible to add more information
-							in the option part of the packet. IPv4 provides only 40-bytes for options,
-							whereas options in IPv6 can be as much as the size of IPv6 packet
-							itself.</li>
-					</ul>
-					<p>The reasons of moving from version 4 to version 6:</p>
-					<ol>
-						<li>Publicly available IPv4 addresses have been exhausted.</li>
-						<li>Technological innovation has become the key to business success in the 21st century,
-							so IPv6 is necessary for business growth.</li>
-						<li>Unlike an IPv4 network in which fragmentation is handled by the router, source devices
-							handle fragmentation in an IPv6 network and they are also responsible for
-							discovering the paths maximum transmission unit. So, by reducing the size of routing tables,
-							IPv6 makes routing more efficient and hierarchical. ISPs can aggregate the prefixes of their customers
-							networks into a single prefix that they can announce to the IPv6 Internet. </li>
-						<li>Unlike IPv4, IP-level checksum is not included in IPv6, the new Internet Protocol can handle packets more
-							efficiently and deliver better performance.</li>
-						<li>In IPv6, multicast entirely replaces broadcast. This makes multicast an integrated and necessary function of an IPv6 network.
-							The benefit to this is that multicast saves network bandwidth by allowing bandwidth-intensive packet flows to be sent to multiple
-							destinations simultaneously. While, in IPv4, IPv4, multicast was primarily used to deliver multimedia on IPv4 networks. </li>
-					</ol>
-				</dd>
+                <dd>
+                    <p>Main features of IPv6:</p>
+                    <ul>
+                        <li>
+                            <div>Larger Address Space</div>
+                            In contrast to IPv4, IPv6 uses 4 times more bits to address a device on the Internet. This much of extra bits can provide approximately 3.4×1038 different combinations of addresses. This address can accomodate the aggressive requirement of address allotment
+                            for almost everything in this world. According to an estimate, 1564 addresses can be allocated to every square meter of this earth.</li>
+                        <li>
+                            <div>Simplified Header</div>
+                            IPv6’s header has been simplified by moving all unnecessary information and options (which are present in IPv4 header) to the end of the IPv6 header. IPv6 header is only twice as big as IPv4 provided the fact that IPv6 address is four times longer.</li>
+                        <li>
+                            <div>Auto-configuration</div>
+                            IPv6 supports both stateful and stateless auto configuration mode of its host devices. This way, the absence of a DHCP server does not put a halt on inter segment communication.</li>
+                        <li>
+                            <div>Faster Forwarding/Routing</div>
+                            Simplified header puts all unnecessary information at the end of the header. The information contained in the first part of the header is adequate for a Router to take routing decisions, thus making routing decision quickly as it only looks at the important
+                            part of the header.</li>
+                        <li>
+                            <div>IPSec</div>
+                            Initially it was decided that IPv6 must have IPSec security, making it more secure than IPv4. This feature has now been made optional.</li>
+                        <li>
+                            <div>No Broadcast</div>
+                            Though Ethernet/Token Ring are considered as broadcast network because they support Broadcasting, IPv6 does not have any broadcast support any more. It uses multicast to communicate with multiple hosts.</li>
+                        <li>
+                            <div>Anycast Support</div>
+                            This is another characteristic of IPv6. IPv6 has introduced Anycast mode of packet routing. In this mode, multiple interfaces over the Internet are assigned the same Anycast IP address. Routers, whilst routing, send the packet to the nearest destination.</li>
+                        <li>
+                            <div>Mobility</div>
+                            IPv6 was designed to keep mobility in mind. This feature enables hosts (such as mobile phones) to roam around in different geographical areas and remain connected with the same IP address. The mobility feature of IPv6 takes advantage of auto IP configuration
+                            and Extension headers.</li>
+                        <li>
+                            <div>Enhanced Priority Support</div>
+                            IPv4 used 6 bits DSCP (Differential Service Code Point) and 2 bits ECN (Explicit Congestion Notification) to provide Quality of Service but it could only be used if the end-to-end devices support it, that is, the source and destination device and underlying
+                            network must support it. In IPv6, Traffic class and Flow label are used to tell the underlying routers how to efficiently process the packet and route it.</li>
+                        <li>
+                            <div>Smooth Transition</div>
+                            Large IP address scheme in IPv6 enables us to allocate devices with globally unique IP addresses. This mechanism saves IP addresses and NAT is not required. So devices can send/receive data amongst each other, for example, VoIP and/or any streaming media
+                            can be used much efficiently. The other fact is that the header is less loaded, so routers can take forwarding decisions and forward them much faster.</li>
+                        <li>
+                            <div>Extensibility</div>
+                            One of the major advantages of IPv6 header is that it is extensible, meaning it is possible to add more information in the option part of the packet. IPv4 provides only 40-bytes for options, whereas options in IPv6 can be as much as the size of IPv6 packet
+                            itself.
+                        </li>
+                    </ul>
+                    <p>The reasons of moving from version 4 to version 6:</p>
+                    <ol>
+                        <li>Publicly available IPv4 addresses have been exhausted.</li>
+                        <li>Technological innovation has become the key to business success in the 21st century, so IPv6 is necessary for business growth.</li>
+                        <li>Unlike an IPv4 network in which fragmentation is handled by the router, source devices handle fragmentation in an IPv6 network and they are also responsible for discovering the paths maximum transmission unit. So, by reducing the
+                            size of routing tables, IPv6 makes routing more efficient and hierarchical. ISPs can aggregate the prefixes of their customers networks into a single prefix that they can announce to the IPv6 Internet. </li>
+                        <li>Unlike IPv4, IP-level checksum is not included in IPv6, the new Internet Protocol can handle packets more efficiently and deliver better performance.</li>
+                        <li>In IPv6, multicast entirely replaces broadcast. This makes multicast an integrated and necessary function of an IPv6 network. The benefit to this is that multicast saves network bandwidth by allowing bandwidth-intensive packet
+                            flows to be sent to multiple destinations simultaneously. While, in IPv4, IPv4, multicast was primarily used to deliver multimedia on IPv4 networks. </li>
+                    </ol>
+                </dd>
 
-			<dt>
+                <dt>
 				8. What are MIME types? Name the most common subtypes of type text.
 				Provide a link to the most authoritative source with the complete list.
 			</dt>
-				<dd>
-					<ol type="I">
-						<li>A Multipurpose Internet Mail Extensions (MIME) type is a standard that indicates the nature and format of a document, file, or
-							assortment of bytes.</li>
-						<li>Subtypes of type <i>text</i>:
-							<ul>
-								<li>text/plain</li>
-								<li>text/html</li>
-								<li>text/css</li>
-								<li>text/javascript</li>
-								<li>text/markdown</li>
-							</ul>
-						</li>
-						<li>
-							<a href="https://www.iana.org/assignments/media-types/media-types.xhtml#text">
+                <dd>
+                    <ol type="I">
+                        <li>A Multipurpose Internet Mail Extensions (MIME) type is a standard that indicates the nature and format of a document, file, or assortment of bytes.</li>
+                        <li>Subtypes of type <i>text</i>:
+                            <ul>
+                                <li>text/plain</li>
+                                <li>text/html</li>
+                                <li>text/css</li>
+                                <li>text/javascript</li>
+                                <li>text/markdown</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="https://www.iana.org/assignments/media-types/media-types.xhtml#text">
 								Here is the complete list for type "text"</a>
-						</li>
-					</ol>
-				</dd>
-			<dt>
+                        </li>
+                    </ol>
+                </dd>
+                <dt>
 				9. Make sure you have read the blog post What Is A Web Server?
 				as described in the Reader on
 				Canvas. Knupp states that the GET method is the most common HTTP request
@@ -695,24 +577,22 @@
 				differences are between GET and the one you picked. Which authoritative
 				source(s) have you used?
 			</dt>
-				<dd>
-					<ol type="I">
-						<li>Other HTTP request method: HEAD</li>
-						<li>Differences between GET and head:
-							<p>The HEAD method is identical to GET except that
-								the server does NOT return a message-body in the response.
-								The metainformation contained in the HTTP headers in response
-								to a HEAD request SHOULD be identical to the information sent
-								in response to a GET request. </p>
-						</li>
-						<li><a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html">Authoritative source</a></li>
-					</ol>
-				</dd>
-			<dt>10. Most of the well-known HTTP web servers serve HTML and other content to end users. But behind the scenes,
+                <dd>
+                    <ol type="I">
+                        <li>Other HTTP request method: HEAD</li>
+                        <li>Differences between GET and head:
+                            <p>The HEAD method is identical to GET except that the server does NOT return a message-body in the response. The metainformation contained in the HTTP headers in response to a HEAD request SHOULD be identical to the information
+                                sent in response to a GET request. </p>
+                        </li>
+                        <li><a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html">Authoritative source</a></li>
+                    </ol>
+                </dd>
+                <dt>10. Most of the well-known HTTP web servers serve HTML and other content to end users. But behind the scenes,
 				there are many HTTP servers that provide services for other web sites. To manage who is allowed to do what on these services, they often deploy keys: short sequences of characters that are used to uniquely identify you. We will use an example of such a web site in the assignments, for which your need a key. So please go the page at https://wt.ops.labs.vu.nl/keys and generate a key. Please record the value of the key generated as the answer to this question, so you can use it later in the assignments.
 			</dt>
-				<dd>My Key: <b>6bb9b56b</b></dd>
-		</dl>
+                <dd>My Key: <b>6bb9b56b</b></dd>
+    </dl>
 
-	</body>
+</body>
+
 </html>
