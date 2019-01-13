@@ -132,10 +132,8 @@ a:active {
 
 
 hr {
-    filter: alpha(opacity=100, finishopacity=0, style=3);
     width: 100%;
     color: #987cb9;
-    size: 16;
 }
 
 
