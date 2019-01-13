@@ -3,7 +3,8 @@
 
 <head>
     <title>Miko and Ray's Online Store</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset = "utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
     <link rel="stylesheet" media="print" href="print_style.css">
     <link rel="stylesheet" href="screen_style.css">
@@ -193,7 +194,9 @@
                         <input id="origin" name="origin" type="text" placeholder="Origin">
                     </td>
                     <td>
-                        <input id="bestBeforeDate" name="best_before_date" type="date">
+                        <input id="bestBeforeDate" name="best_before_date" type="text" placeholder = "Best Before Date">
+                        <!-- Originally we had this field as type "date", but the HTML validator showed an error because
+                      not all browsers support that type, as such we changed it to name  -->
                     </td>
                     <td class="Button">
                         <button id="Submit">Submit</button>
