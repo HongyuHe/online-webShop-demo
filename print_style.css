@@ -11,7 +11,7 @@
         display: none;
     }
     table {
-        page-break-after: always;
+        page-break-after: avoid;
     }
     body {
         font: 12pt Georgia, "Times New Roman", Times, serif;
