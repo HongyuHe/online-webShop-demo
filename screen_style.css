@@ -10,51 +10,55 @@
 
 ol {
     font-style: italic;
-    list-style-position: inside;
+    list-style: upper-roman inside none;
 }
 
 ul {
+    list-style-position: inside;
     list-style-image: url(https://russianchicagomag.com/wp-content/uploads/2015/07/Editor_avatar_1438098395-25x25.jpg);
+    list-style-type: none;
 }
 
-h1,
-h2 {
-    font-variant: small-caps;
+body {
+    background-image: url(https://background-tiles.com/overview/white/textures/large/5008.png);
+    background-repeat: repeat;
+    font: 12px/22px Verdana, Arial, sans-serif, "Times New Roman";
+    text-indent: 0px;
+}
+
+.main img {
+    width: 100%;
 }
 
 h1 {
-    font-size: 26px;
+    font-size: 1.625em;
+    font-variant: normal;
 }
 
 h2 {
-    font-size: 23px;
-}
-
-p {
-    font-size: 20px;
-    font-family: DengXian;
+    font-size: 1.375em;
+    font-variant: small-caps;
 }
 
 strong {
     text-transform: uppercase;
 }
 
-html,
-body {
-    color: #000;
-    background-image: url(https://static.designboom.com/wp-content/uploads/2016/12/carlo-ratti-supermarket-of-the-future-milan-designboom-006.jpg);
-    background-repeat: repeat;
-    font: 12px/22px Verdana, Arial, sans-serif, "Times New Roman", 思源宋体;
-    width: 100%;
-    text-indent: 0px;
+img {
+    border: none;
+    vertical-align: center;
+    height: 300px;
+    width: 400px;
+    display: inline-flex;
+    max-width: 86%;
 }
 
 section {
-    padding: 3%;
-    margin-top: 2%;
+    padding: 0%;
+    margin-top: 3%;
     margin-bottom: 0%;
-    margin-left: 3%;
-    margin-right: 3%;
+    margin-left: 0.1%;
+    margin-right: 0.1%;
 }
 
 input,
@@ -82,7 +86,7 @@ button {
     /* Do not display contours  */
     font-family: Microsoft YaHei;
     color: white;
-    font-size: 17px;
+    font-size: 85%;
 }
 
 button:hover {
@@ -97,7 +101,6 @@ table {
 }
 
 td {
-    /* padding: 30%; */
     text-align: center;
 }
 
@@ -107,100 +110,129 @@ td {
     vertical-align: middle;
 }
 
-img {
-    border: none;
-    vertical-align: center;
-    height: 300px;
-    width: 400px;
-    /* display: inline-flex; */
-    max-width: 100%;
-    /* text-align: center; */
-    /* margin-left: 10%;
-    margin-right: 0%; */
-}
-
 a,
 a:link,
 a:visited {
     text-decoration: none;
 }
 
-a:hover {
-    color: #000;
-    text-decoration: seagreen;
-}
-
-a:active {
-    color: blue;
-    text-decoration: seagreen;
-}
-
-
-/* General */
-
-#home,
-#about,
-#topSellingProducts {
-    background-color: white;
-}
-
-#dailySpecial,
-#physicalLocations {
-    background-color: #f3f3f3;
-}
-
-#headline h1 {
-    position: absolute;
-    top: 11%;
-    left: 10%;
-    right: 10%;
-    font: bold 30px Helvetica;
-    text-align: center;
-    color: whitesmoke;
-    overflow-y: no-display;
-}
-
-
-/* NavigationBar */
-
-ul.NaviBar {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    border: 1px solid #e7e7e7;
-    background-color: #f3f3f3;
-    list-style: none inside none;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    text-align: center;
-    font-size: 90%;
+.menuitem a {
+    color: rgb(63, 122, 65);
     font-weight: bold;
-}
-
-li.NaviBar {
-    float: left;
-    list-style-image: none;
-    text-align: center;
-}
-
-li a {
-    color: #000;
     display: block;
-    color: #666;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
 }
 
-li a:hover:not(.active) {
-    background-color: #ddd;
-}
-
-li a.active {
+a:active {
     color: white;
     background-color: #4CAF50;
+}
+
+#welcome {
+    font-size: 90%;
+    font-weight: bold;
+}
+
+hr {
+    filter: alpha(opacity=100, finishopacity=0, style=3);
+    width: 100%;
+    color: #987cb9;
+    size: 16;
+}
+
+
+/* General */
+
+#welcome {
+    font-size: 90%;
+    font-weight: bold;
+}
+
+
+/* Class */
+
+.header {
+    color: white;
+    padding: 1.0121457489878542510121457489879%;
+    background-color: #93b478;
+    border: 1px solid #e9e9e9;
+}
+
+.menuitem {
+    margin: 4.310344827586206896551724137931%;
+    margin-left: 0;
+    margin-top: 0;
+    padding: 4.310344827586206896551724137931%;
+    border-bottom: 1px solid #e9e9e9;
+    cursor: pointer;
+}
+
+.main {
+    padding: 2.0661157024793388429752066115702%;
+}
+
+.right {
+    padding: 4.310344827586206896551724137931%;
+    background-color: #bfd6ac;
+}
+
+.footer {
+    padding: 1.0121457489878542510121457489879%;
+    text-align: center;
+    background-color: #f1f1f1;
+    border: 1px solid #e9e9e9;
+    font-size: 0.625em;
+}
+
+.gridcontainer {
+    width: 100%;
+}
+
+.gridwrapper {
+    overflow: auto;
+}
+
+.gridbox {
+    margin-bottom: 2.0242914979757085020242914979757%;
+    margin-right: 2.0242914979757085020242914979757%;
+    float: left;
+}
+
+.gridheader {
+    width: 100%;
+}
+
+.gridmenu {
+    width: 23.481781376518218623481781376518%;
+    border-width: 3px;
+    border-color: #000;
+    font-size: 90%;
+    font-weight: bold;
+    /* background-color: #bfd6ac; */
+}
+
+.gridmenu div:hover:not(#active) {
+    background-color: #bfd6ac;
+}
+
+#active {
+    background-color: rgb(194, 214, 194);
+}
+
+.gridmain {
+    width: 48.987854251012145748987854251012%;
+}
+
+.gridright {
+    width: 23.481781376518218623481781376518%;
+    margin-right: 0;
+}
+
+.gridfooter {
+    width: 100%;
+    margin-bottom: 0;
 }
 
 
@@ -263,7 +295,7 @@ li a.active {
 
 .TopSellTable #title {
     font-weight: bold;
-    background-color: rgb(76, 194, 61);
+    background-color: rgb(194, 214, 194);
     color: rgb(0, 0, 0);
 }
 
@@ -310,20 +342,35 @@ input:focus {
     background-color: yellow;
 }
 
-
-/* Media */
-
-@media screen and (max-width: 700px) and (min-width: 350px) {
-    #headline h1 {
-        display: none;
+@media only screen and (max-width: 500px) {
+    /* For Tablet */
+    .gridmenu {
+        width: 100%;
     }
-    .TopSellTable th,
-    .TopSellTable td {
-        font-size: 60%;
+    .menuitem {
+        margin: 1.0121457489878542510121457489879%;
+        padding: 1.0121457489878542510121457489879%;
+    }
+    .gridmain {
+        width: 100%;
+    }
+    .main {
+        padding: 1.0121457489878542510121457489879%;
+    }
+    .gridright {
+        width: 100%;
+    }
+    .right {
+        padding: 1.0121457489878542510121457489879%;
+    }
+    .gridbox {
+        margin-right: 0;
+        float: left;
     }
 }
 
-@media screen and (max-width: 320px) {
+@media only screen and (max-width: 320px) {
+    /* For Phone */
     * {
         text-indent: 3px;
     }
