@@ -130,10 +130,6 @@ a:active {
     background-color: #4CAF50;
 }
 
-#welcome {
-    font-size: 90%;
-    font-weight: bold;
-}
 
 hr {
     filter: alpha(opacity=100, finishopacity=0, style=3);
@@ -214,6 +210,10 @@ hr {
 }
 
 .gridmenu div:hover:not(#active) {
+    background-color: #bfd6ac;
+}
+
+.gridmenu nav:hover:not(#active) {
     background-color: #bfd6ac;
 }
 
