@@ -1,0 +1,38 @@
+@media print {
+    * {
+        filter: gray;
+        filter: grayscale(100%);
+    }
+    h2 {
+        page-break-before: always;
+    }
+    #home h2,
+    pre {
+        display: none;
+    }
+    table {
+        page-break-after: avoid;
+    }
+    body {
+        font: 12pt Georgia, "Times New Roman", Times, serif;
+        line-height: 1.3;
+    }
+    p {
+        orphans: 3;
+        widows: 3;
+    }
+    nav,
+    #inputRow {
+        /* No need to display nav bar or interactive elements when printing */
+        display: none;
+    }
+    .Button {
+        /* No need to display operation column */
+        display: none;
+    }
+    #shopOwners {
+        /* Images are decreased in size to save printing costs */
+        width: 40%;
+        height: 40%;
+    }
+}
