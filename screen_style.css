@@ -27,7 +27,7 @@ body {
 }
 
 .main img {
-    width: 100%;
+    width: 90%;
 }
 
 h1 {
@@ -45,6 +45,7 @@ strong {
 }
 
 img {
+    width: 80%;
     border: none;
     vertical-align: center;
     height: 300px;
@@ -129,7 +130,6 @@ a:active {
     color: white;
     background-color: #4CAF50;
 }
-
 
 hr {
     width: 100%;
@@ -374,6 +374,7 @@ input:focus {
     }
     img {
         max-width: 100%;
+        float: left;
     }
     pre {
         display: none;
@@ -407,6 +408,7 @@ input:focus {
     .TopSellTable tr td img {
         width: 30px;
         height: 50px;
+        float: left;
     }
     .PhyLocTable th,
     .PhyLocTable td {

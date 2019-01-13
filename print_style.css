@@ -7,6 +7,7 @@
         page-break-before: always;
     }
     #home h2,
+    hr,
     pre {
         display: none;
     }
@@ -26,13 +27,17 @@
         /* No need to display nav bar or interactive elements when printing */
         display: none;
     }
+    .header {
+        /* put title in the middle*/
+        text-align: center;
+    }
     .Button {
         /* No need to display operation column */
         display: none;
     }
     #shopOwners {
         /* Images are decreased in size to save printing costs */
-        width: 40%;
-        height: 40%;
+        width: 80%;
+        height: 80%;
     }
 }
