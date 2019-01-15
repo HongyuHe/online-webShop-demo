@@ -292,7 +292,7 @@ hr {
     border: 0;
 }
 
-.TopSellTable #tableHead {
+.TableHead th {
     font-weight: bold;
     background-color: rgb(211, 223, 211);
     color: rgb(0, 0, 0);
