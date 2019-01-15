@@ -1,5 +1,5 @@
-function sortTable(n, id) {
-  var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0, offSet = 1;
+function sortTable(n, id, isNumber) {
+  var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0, offSet = 1, tempx, tempy;
   if(id == "TopSell"){
     offSet = 2;
   }
@@ -29,17 +29,40 @@ function sortTable(n, id) {
       }
       /* Check if the two rows should switch place,
       based on the direction, asc or desc: */
+
       if (dir == "asc") {
-        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-          // If so, mark as a switch and break the loop:
-          shouldSwitch = true;
-          break;
+        if(!isNumber){
+          if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+            // If so, mark as a switch and break the loop:
+            shouldSwitch = true;
+            break;
+          }
+        } else { //if column is a number
+          tempx = x.innerHTML.substring(0, x.innerHTML.length-2);
+          tempy = y.innerHTML.substring(0, y.innerHTML.length-2);
+          console.log(tempx);
+          console.log(tempy);
+          if (Number(tempx) > Number(tempy)) {
+            shouldSwitch = true;
+            break;
+          }
         }
       } else if (dir == "desc") {
-        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-          // If so, mark as a switch and break the loop:
-          shouldSwitch = true;
-          break;
+        if (!isNumber){
+          if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+            // If so, mark as a switch and break the loop:
+            shouldSwitch = true;
+            break;
+          }
+        } else { //If column is a number
+          tempx = x.innerHTML.substring(0, x.innerHTML.length-2);
+          tempy = y.innerHTML.substring(0, y.innerHTML.length-2);
+          console.log(tempx);
+          console.log(tempy);
+          if (Number(tempx) < Number(tempy)) {
+            shouldSwitch = true;
+            break;
+          }
         }
       }
     }

@@ -117,9 +117,9 @@ __          __  _
                         <table class="PhyLocTable" id = "PhysTable">
                             <caption>Physical Locations</caption>
                             <tr>
-                                <th onclick="sortTable(0, &quot;PhysTable&quot;)">Location</th>
-                                <th onclick="sortTable(1, &quot;PhysTable&quot;)">Open on Sundays?</th>
-                                <th onclick="sortTable(2, &quot;PhysTable&quot;)">Size</th>
+                                <th onclick="sortTable(0, &quot;PhysTable&quot;, false)">Location</th>
+                                <th onclick="sortTable(1, &quot;PhysTable&quot;, false)">Open on Sundays?</th>
+                                <th onclick="sortTable(2, &quot;PhysTable&quot;, false)">Size</th>
                             </tr>
                             <tr>
                                 <td>Amsterdam, <abbr title="The Netherlands">NL </abbr></td>
@@ -147,11 +147,11 @@ __          __  _
                             <table class="TopSellTable" id = "TopSell">
                                 <tr id="title">
                                     <!-- <td>&nbsp;</td> -->
-                                    <th onclick="sortTable(0, &quot;TopSell&quot;)">Image</th>
-                                    <th onclick="sortTable(1, &quot;TopSell&quot;)">Product</th>
-                                    <th onclick="sortTable(2, &quot;TopSell&quot;)">Amount</th>
-                                    <th onclick="sortTable(3, &quot;TopSell&quot;)">Origin</th>
-                                    <th onclick="sortTable(4, &quot;TopSell&quot;)">Best Before Date</th>
+                                    <th onclick="sortTable(0, &quot;TopSell&quot;, false)">Image</th>
+                                    <th onclick="sortTable(0, &quot;TopSell&quot;, false)">Product</th>
+                                    <th onclick="sortTable(1, &quot;TopSell&quot;, true)">Amount</th>
+                                    <th onclick="sortTable(2, &quot;TopSell&quot;, false)">Origin</th>
+                                    <th onclick="sortTable(3, &quot;TopSell&quot;, false)">Best Before Date</th>
                                     <th class="Button">Operation</th>
 
                                 </tr>
