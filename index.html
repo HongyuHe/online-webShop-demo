@@ -117,12 +117,19 @@ __          __  _
                     <section id="physicalLocations">
                         <!-- This section is the physical locations of the store -->
                         <h3> Physical Locations </h3>
-                        <table class="PhyLocTable">
+                        <table class="PhyLocTable" id = "PhysTable">
                             <caption>Physical Locations</caption>
+<<<<<<< HEAD
                             <tr class="TableHead">
                                 <th>Location</th>
                                 <th>Open on Sundays?</th>
                                 <th>Size</th>
+=======
+                            <tr>
+                                <th id = "phys_loc">Location</th>
+                                <th id = "phys_sun">Open on Sundays?</th>
+                                <th id = "phys_siz">Size</th>
+>>>>>>> 2e02765fed6bc05f526f527fa37d4c81e4686eb1
                             </tr>
                             <tr>
                                 <td>Amsterdam, <abbr title="The Netherlands">NL </abbr></td>
@@ -145,12 +152,88 @@ __          __  _
                     <hr>
                     <section id="topSellingProducts">
                         <!-- This section is the top selling products of the store -->
+<<<<<<< HEAD
                         <h3 id="topSellTitle">Top Selling Products</h3>
                         <table class="TopSellTable">
 
                         </table>
                         <button id="latestData">Latest data</button>
                         <button id="reset">Reset data</button>
+=======
+                        <h3>Top Selling Products</h3>
+                        <form action="https://wt.ops.labs.vu.nl/api19/6bb9b56b " method="post">
+                            <table class="TopSellTable" id = "TopSell">
+                                <tr id="title">
+                                    <!-- <td>&nbsp;</td> -->
+                                    <th id = "top_img">Image</th>
+                                    <th id = "top_pro">Product</th>
+                                    <th id = "top_amo">Amount</th>
+                                    <th id = "top_ori">Origin</th>
+                                    <th id = "top_dat">Best Before Date</th>
+                                    <th class="Button">Operation</th>
+
+                                </tr>
+                                <tr>
+                                    <td><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Apples.jpg/512px-Apples.jpg" alt="Apples">
+                                    </td>
+                                    <th>Apple</th>
+                                    <td>120kg</td>
+                                    <td>Netherland</td>
+                                    <td>November 2019</td>
+                                    <td class="Button">
+                                        <button>Delete</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Bananas.jpg/640px-Bananas.jpg" alt="Banana ">
+                                    </td>
+                                    <th>Banana</th>
+                                    <td>80kg</td>
+                                    <td>India</td>
+                                    <td>February 2019</td>
+                                    <td class="Button">
+                                        <button>Delete</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img src="https://www.browneyedbaker.com/wp-content/uploads/2016/05/white-bread-51-550.jpg" alt="Bread">
+                                    </td>
+                                    <th>Bread</th>
+                                    <td>60kg</td>
+                                    <td>France</td>
+                                    <td>March 2019</td>
+                                    <td class="Button">
+                                        <button>Delete</button>
+                                    </td>
+                                </tr>
+                                <tr id="inputRow">
+                                    <td>
+                                        <input id="image" name="image" type="url" placeholder="Image URL">
+                                    </td>
+                                    <th>
+                                        <input id="products" name="product" type="text" placeholder="Product's Name" required>
+                                    </th>
+                                    <td>
+                                        <input id="amount" name="amount" type="number" placeholder="Amount(kg)">
+                                    </td>
+                                    <td>
+                                        <input id="origin" name="origin" type="text" placeholder="Origin">
+                                    </td>
+                                    <td>
+                                        <input id="bestBeforeDate" name="best_before_date" type="text" placeholder="Best Before Date">
+                                        <!-- Originally we had this field as type "date", but the HTML validator showed an error because
+                                          not all browsers support that type, as such we changed it to name  -->
+                                    </td>
+                                    <td class="Button">
+                                        <button id="Submit">Submit</button>
+                                        <button id="Reset">Reset</button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </form>
+>>>>>>> 2e02765fed6bc05f526f527fa37d4c81e4686eb1
                     </section>
                 </div>
             </div>
@@ -169,8 +252,14 @@ __          __  _
                     <p>This web page is Miko and Hongyu's Assignment for Web Technology.</p>
                 </div>
             </div>
+            <!-- Fun javascript plaything -->
+            <span id="collisionDetection">
+              <script src="https://d3js.org/d3.v3.min.js"></script>
+              <script src="collisionDetection.js"></script>
+            </span>
         </div>
     </div>
+    <script src="sortTable.js"></script>
 </body>
 
 </html>
