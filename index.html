@@ -2,14 +2,18 @@
 <html lang="en">
 
 <head>
+    <title>Miko and Honngyu's Online Store</title>
     <meta charset="utf-8" />
     <meta name="description" content="Miko and Hongyu's assignment for Web Technology">
     <meta name="author" content="Miko and Hongyu">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="table.js"></script>
+
     <link rel="stylesheet" media="print" href="print_style.css">
     <link rel="stylesheet" href="screen_style.css">
-    <title>Miko and Honngyu's Online Store</title>
+
 </head>
 
 <body>
@@ -115,7 +119,7 @@ __          __  _
                         <h3> Physical Locations </h3>
                         <table class="PhyLocTable">
                             <caption>Physical Locations</caption>
-                            <tr>
+                            <tr class="TableHead">
                                 <th>Location</th>
                                 <th>Open on Sundays?</th>
                                 <th>Size</th>
@@ -141,78 +145,12 @@ __          __  _
                     <hr>
                     <section id="topSellingProducts">
                         <!-- This section is the top selling products of the store -->
-                        <h3>Top Selling Products</h3>
-                        <form action="https://wt.ops.labs.vu.nl/api19/6bb9b56b " method="post">
-                            <table class="TopSellTable">
-                                <tr id="title">
-                                    <!-- <td>&nbsp;</td> -->
-                                    <th>Image</th>
-                                    <th>Product</th>
-                                    <th>Amount</th>
-                                    <th>Origin</th>
-                                    <th>Best Before Date</th>
-                                    <th class="Button">Operation</th>
+                        <h3 id="topSellTitle">Top Selling Products</h3>
+                        <table class="TopSellTable">
 
-                                </tr>
-                                <tr>
-                                    <td><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Apples.jpg/512px-Apples.jpg" alt="Apples">
-                                    </td>
-                                    <th>Apple</th>
-                                    <td>120kg</td>
-                                    <td>Netherland</td>
-                                    <td>November 2019</td>
-                                    <td class="Button">
-                                        <button>Delete</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Bananas.jpg/640px-Bananas.jpg" alt="Banana ">
-                                    </td>
-                                    <th>Banana</th>
-                                    <td>80kg</td>
-                                    <td>India</td>
-                                    <td>February 2019</td>
-                                    <td class="Button">
-                                        <button>Delete</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <img src="https://www.browneyedbaker.com/wp-content/uploads/2016/05/white-bread-51-550.jpg" alt="Bread">
-                                    </td>
-                                    <th>Bread</th>
-                                    <td>60kg</td>
-                                    <td>France</td>
-                                    <td>March 2019</td>
-                                    <td class="Button">
-                                        <button>Delete</button>
-                                    </td>
-                                </tr>
-                                <tr id="inputRow">
-                                    <td>
-                                        <input id="image" name="image" type="url" placeholder="Image URL">
-                                    </td>
-                                    <th>
-                                        <input id="products" name="product" type="text" placeholder="Product's Name" required>
-                                    </th>
-                                    <td>
-                                        <input id="amount" name="amount" type="number" placeholder="Amount(kg)">
-                                    </td>
-                                    <td>
-                                        <input id="origin" name="origin" type="text" placeholder="Origin">
-                                    </td>
-                                    <td>
-                                        <input id="bestBeforeDate" name="best_before_date" type="text" placeholder="Best Before Date">
-                                        <!-- Originally we had this field as type "date", but the HTML validator showed an error because
-                                          not all browsers support that type, as such we changed it to name  -->
-                                    </td>
-                                    <td class="Button">
-                                        <button id="Submit">Submit</button>
-                                    </td>
-                                </tr>
-                            </table>
-                        </form>
+                        </table>
+                        <button id="latestData">Latest data</button>
+                        <button id="reset">Reset data</button>
                     </section>
                 </div>
             </div>

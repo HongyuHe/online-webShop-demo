@@ -144,6 +144,11 @@ hr {
     font-weight: bold;
 }
 
+.TableHead th:hover {
+    background-color: #bfd6ac;
+    cursor: pointer;
+}
+
 
 /* Class */
 
@@ -208,10 +213,6 @@ hr {
 }
 
 .gridmenu div:hover:not(#active) {
-    background-color: #bfd6ac;
-}
-
-.gridmenu nav:hover:not(#active) {
     background-color: #bfd6ac;
 }
 
@@ -285,15 +286,20 @@ hr {
 
 /* Top Selling Products table */
 
+
+/* .TopSellTable {
+    display: none;
+} */
+
 .TopSellTable table {
     width: 90%;
     margin: auto;
     border: 0;
 }
 
-.TopSellTable #title {
+.TopSellTable #tableHead {
     font-weight: bold;
-    background-color: rgb(194, 214, 194);
+    background-color: rgb(211, 223, 211);
     color: rgb(0, 0, 0);
 }
 
