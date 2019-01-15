@@ -13,7 +13,6 @@
 </head>
 
 <body>
-    <script src="sortTable.js"></script>
     <div class="gridcontainer">
         <div class="gridwrapper">
             <div class="gridbox gridheader">
@@ -117,9 +116,9 @@ __          __  _
                         <table class="PhyLocTable" id = "PhysTable">
                             <caption>Physical Locations</caption>
                             <tr>
-                                <th onclick="sortTable(0, &quot;PhysTable&quot;, false)">Location</th>
-                                <th onclick="sortTable(1, &quot;PhysTable&quot;, false)">Open on Sundays?</th>
-                                <th onclick="sortTable(2, &quot;PhysTable&quot;, false)">Size</th>
+                                <th id = "phys_loc">Location</th>
+                                <th id = "phys_sun">Open on Sundays?</th>
+                                <th id = "phys_siz">Size</th>
                             </tr>
                             <tr>
                                 <td>Amsterdam, <abbr title="The Netherlands">NL </abbr></td>
@@ -147,11 +146,11 @@ __          __  _
                             <table class="TopSellTable" id = "TopSell">
                                 <tr id="title">
                                     <!-- <td>&nbsp;</td> -->
-                                    <th onclick="sortTable(0, &quot;TopSell&quot;, false)">Image</th>
-                                    <th onclick="sortTable(0, &quot;TopSell&quot;, false)">Product</th>
-                                    <th onclick="sortTable(1, &quot;TopSell&quot;, true)">Amount</th>
-                                    <th onclick="sortTable(2, &quot;TopSell&quot;, false)">Origin</th>
-                                    <th onclick="sortTable(3, &quot;TopSell&quot;, false)">Best Before Date</th>
+                                    <th id = "top_img">Image</th>
+                                    <th id = "top_pro">Product</th>
+                                    <th id = "top_amo">Amount</th>
+                                    <th id = "top_ori">Origin</th>
+                                    <th id = "top_dat">Best Before Date</th>
                                     <th class="Button">Operation</th>
 
                                 </tr>
@@ -240,6 +239,7 @@ __          __  _
             </span>
         </div>
     </div>
+    <script src="sortTable.js"></script>
 </body>
 
 </html>

@@ -1,8 +1,25 @@
-function sortTable(n, id, isNumber) {
-  var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0, offSet = 1, tempx, tempy;
+//Function adapted from w3Schools https://www.w3schools.com/howto/howto_js_sort_table.asp
+
+//Physical Table Headers
+document.getElementById("phys_loc").addEventListener("click", function(){ sortTable(0, "PhysTable", "string")});
+document.getElementById("phys_sun").addEventListener("click", function(){ sortTable(1, "PhysTable", "string")});
+document.getElementById("phys_siz").addEventListener("click", function(){ sortTable(2, "PhysTable", "string")});
+
+//Top Selling Table Headers
+document.getElementById("top_img").addEventListener("click", function(){ sortTable(0, "TopSell", "string")});
+document.getElementById("top_pro").addEventListener("click", function(){ sortTable(0, "TopSell", "string")});
+document.getElementById("top_amo").addEventListener("click", function(){ sortTable(1, "TopSell", "number")});
+document.getElementById("top_ori").addEventListener("click", function(){ sortTable(2, "TopSell", "string")});
+document.getElementById("top_dat").addEventListener("click", function(){ sortTable(3, "TopSell", "date")});
+
+function sortTable(n, id, dataType) {
+  var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0,
+    offSet = 1, tempx, tempy;
+
   if(id == "TopSell"){
     offSet = 2;
   }
+
   table = document.getElementById(id);
   switching = true;
   // Set the sorting direction to ascending:
@@ -31,37 +48,59 @@ function sortTable(n, id, isNumber) {
       based on the direction, asc or desc: */
 
       if (dir == "asc") {
-        if(!isNumber){
+        if(dataType == "string"){
           if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
             // If so, mark as a switch and break the loop:
             shouldSwitch = true;
             break;
           }
-        } else { //if column is a number
-          tempx = x.innerHTML.substring(0, x.innerHTML.length-2);
+        } else if(dataType == "number") { //if column is a number
+          tempx = x.innerHTML.substring(0, x.innerHTML.length-2); //Removes last two characters ('kg')
           tempy = y.innerHTML.substring(0, y.innerHTML.length-2);
-          console.log(tempx);
-          console.log(tempy);
           if (Number(tempx) > Number(tempy)) {
             shouldSwitch = true;
             break;
           }
+        } else if (dataType == "date"){
+          var splitOne = x.innerHTML.split(" "); //split date by spaces
+          var splitTwo = y.innerHTML.split(" ");
+
+          if (splitOne[1] > splitTwo[1]){ //if year 1 is bigger than year 2
+            shouldSwitch = true;
+            break;
+          } else if (splitOne[1] == splitTwo[1]){ //if the years are equal, look at the month
+            if(getMonthFromString(splitOne[0]) > getMonthFromString(splitTwo[0])){
+              shouldSwitch = true;
+              break;
+            }
+          }
         }
       } else if (dir == "desc") {
-        if (!isNumber){
+        if (dataType == "string"){
           if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
             // If so, mark as a switch and break the loop:
             shouldSwitch = true;
             break;
           }
-        } else { //If column is a number
-          tempx = x.innerHTML.substring(0, x.innerHTML.length-2);
+        } else if(dataType == "number") { //If column is a number
+          tempx = x.innerHTML.substring(0, x.innerHTML.length-2); //Removes last two characters ('kg')
           tempy = y.innerHTML.substring(0, y.innerHTML.length-2);
-          console.log(tempx);
-          console.log(tempy);
           if (Number(tempx) < Number(tempy)) {
             shouldSwitch = true;
             break;
+          }
+        } else if (dataType == "date"){
+          var splitOne = x.innerHTML.split(" "); //split date by spaces
+          var splitTwo = y.innerHTML.split(" ");
+
+          if (splitOne[1] < splitTwo[1]){ //if year 1 is bigger than year 2
+            shouldSwitch = true;
+            break;
+          } else if (splitOne[1] == splitTwo[1]){ //if the years are equal, look at the month
+            if(getMonthFromString(splitOne[0]) < getMonthFromString(splitTwo[0])){
+              shouldSwitch = true;
+              break;
+            }
           }
         }
       }
@@ -82,4 +121,8 @@ function sortTable(n, id, isNumber) {
       }
     }
   }
+}
+
+function getMonthFromString(mon){
+   return new Date(Date.parse(mon +" 1, 2012")).getMonth()+1
 }
