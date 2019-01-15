@@ -13,6 +13,7 @@
 </head>
 
 <body>
+    <script src="sortTable.js"></script>
     <div class="gridcontainer">
         <div class="gridwrapper">
             <div class="gridbox gridheader">
@@ -113,12 +114,12 @@ __          __  _
                     <section id="physicalLocations">
                         <!-- This section is the physical locations of the store -->
                         <h3> Physical Locations </h3>
-                        <table class="PhyLocTable">
+                        <table class="PhyLocTable" id = "PhysTable">
                             <caption>Physical Locations</caption>
                             <tr>
-                                <th>Location</th>
-                                <th>Open on Sundays?</th>
-                                <th>Size</th>
+                                <th onclick="sortTable(0, &quot;PhysTable&quot;)">Location</th>
+                                <th onclick="sortTable(1, &quot;PhysTable&quot;)">Open on Sundays?</th>
+                                <th onclick="sortTable(2, &quot;PhysTable&quot;)">Size</th>
                             </tr>
                             <tr>
                                 <td>Amsterdam, <abbr title="The Netherlands">NL </abbr></td>
@@ -143,14 +144,14 @@ __          __  _
                         <!-- This section is the top selling products of the store -->
                         <h3>Top Selling Products</h3>
                         <form action="https://wt.ops.labs.vu.nl/api19/6bb9b56b " method="post">
-                            <table class="TopSellTable">
+                            <table class="TopSellTable" id = "TopSell">
                                 <tr id="title">
                                     <!-- <td>&nbsp;</td> -->
-                                    <th>Image</th>
-                                    <th>Product</th>
-                                    <th>Amount</th>
-                                    <th>Origin</th>
-                                    <th>Best Before Date</th>
+                                    <th onclick="sortTable(0, &quot;TopSell&quot;)">Image</th>
+                                    <th onclick="sortTable(1, &quot;TopSell&quot;)">Product</th>
+                                    <th onclick="sortTable(2, &quot;TopSell&quot;)">Amount</th>
+                                    <th onclick="sortTable(3, &quot;TopSell&quot;)">Origin</th>
+                                    <th onclick="sortTable(4, &quot;TopSell&quot;)">Best Before Date</th>
                                     <th class="Button">Operation</th>
 
                                 </tr>
@@ -209,6 +210,7 @@ __          __  _
                                     </td>
                                     <td class="Button">
                                         <button id="Submit">Submit</button>
+                                        <button id="Reset">Reset</button>
                                     </td>
                                 </tr>
                             </table>
