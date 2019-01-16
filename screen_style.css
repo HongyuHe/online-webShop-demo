@@ -136,6 +136,13 @@ hr {
     color: #987cb9;
 }
 
+svg {
+    width: 70%;
+    height: 70%;
+    margin-left: 1%;
+    margin-right: 1%;
+}
+
 
 /* General */
 

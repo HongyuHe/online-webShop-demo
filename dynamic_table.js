@@ -1,21 +1,56 @@
 document.addEventListener('DOMContentLoaded', () => {
-    var updated = false;
+    var updated = false; // Dirty flag;
 
-    $(".TopSellTable").css("display", "none");
+    $("#TopSell").css("display", "none");
+
+    // Update data:
     $("#latestData").on('click', () => {
         if (!updated) {
 
             UpdateTable();
+            $(".TopSellTable").fadeIn(1500);
             updated = true;
         }
     });
 
+    // Reset table:
     $("#reset").on('click', () => {
 
         ResetDatabase();
+        $(".TopSellTable").fadeOut(1500);
         UpdateTable();
+        $(".TopSellTable").fadeIn(1500);
+        updated = true;
     });
 
+    // Submit new item:
+    $("#TopSell").delegate("#submit", "click", () => {
+        PostData();
+        $(".TopSellTable").fadeOut(1500);
+        UpdateTable();
+        $(".TopSellTable").fadeIn(1500);
+        update = false;
+
+        // Do not reloading the entire page:
+        return false;
+    });
+
+    // Delete data (Fake):
+    $("#TopSell").delegate(".Delete", "click", function() {
+        // console.log(this.parentElement.parentElement.childNodes);
+        // let ancestor = this.parentElement.parentElement;
+        let ancestor = $(this).closest("tr");
+        ancestor.fadeOut(500, () => {
+            ancestor.remove();
+        });
+        updated = false;
+
+        // let childs = this.parentElement.parentElement.childNodes;
+        // for (var i = 0; i < childs.length; i++) {
+        //     // alert(childs[i].nodeName);
+        //     ancestor.removeChild(childs[i]);
+        // }
+    });
 });
 
 function UpdateTable() {
@@ -26,6 +61,7 @@ function UpdateTable() {
 
             InitTable(products);
             InitSort();
+            InitButton();
         },
     });
 }
@@ -36,8 +72,29 @@ function ResetDatabase() {
         url: 'https://wt.ops.labs.vu.nl/api19/6bb9b56b/reset',
         success: function(products) {
 
-            $(".TopSellTable").fadeOut("slow");
             alert(`${products.Success}`);
+        },
+    });
+}
+
+function PostData() {
+    var new_data = {
+        "image": `${$("#image").val()}`,
+        "product": `${$("#product").val()}`,
+        "amount": `${$("#amount").val()}`,
+        "origin": `${$("#origin").val()}`,
+        "best_before_date": `${$("#best_before_date").val()}`,
+    };
+
+    $.ajax({
+        type: 'POST',
+        url: 'https://wt.ops.labs.vu.nl/api19/6bb9b56b',
+        data: new_data,
+        success: function(data) {
+
+            // $(".TopSellTable").fadeOut("slow");
+            // alert(`${upi.URI}`);
+            alert("Submit success!");
         },
     });
 }
@@ -58,7 +115,7 @@ function InitTable(products) {
         "top_img", "top_pro", "top_amo", "top_ori", "top_dat", "top_opr"
     ];
     const input_row =
-        "</tr><tr id='inputRow'><td><input id='image' name='image' type='url' placeholder='Image URL'></td><th><input id='products' name='product' type='text' placeholder='Product's Name' required></th><td><input id='amount' name='amount' type='number' placeholder='Amount(kg)'></td><td><input id='origin' name='origin' type='text' placeholder='Origin'></td><td><input id='bestBeforeDate' name='best_before_date' type='text' placeholder='Best Before Date'></td><td class='Button'><button id='Submit'>Submit</button></td></tr>";
+        "<tr id='inputRow'><form><td><input id='image' name='image' type='url' placeholder='Image URL'></td><th><input id='product' name='product' type='text' placeholder='Product's Name' required></th><td><input id='amount' name='amount' type='number' placeholder='Amount(kg)' ></td><td><input id='origin' name='origin' type='text' placeholder='Origin' ></td><td><input id='best_before_date' name='best_before_date' type='text' placeholder='Best Before Date' ></td><td class='Button'><button id='submit'>Submit</button></td></form></tr>";
 
     // Genrate template:
     for (let i = 0; i < col_num; i++) {
@@ -104,7 +161,7 @@ function InitTable(products) {
         $(this).attr("class", "best_before_date");
     });
     $(".TopSellTable tr:gt(0) td:nth-child(6)").each(function() {
-        $(this).html("<button class='Button'>Delete</button>");
+        $(this).html("<button class='Delete'>Delete</button>");
     });
     $topsell_table.append(input_row);
 
@@ -113,11 +170,12 @@ function InitTable(products) {
         $.each(_product, (key, value) => {
             if (key == "image")
                 $(".image").eq(_index).attr("src", `${_product.image}`);
+            else if (key == "amount" && _index > 1)
+                $(`.${key}`).eq(_index).text(`${value}kg`);
             else
                 $(`.${key}`).eq(_index).text(`${value}`);
         });
     });
-    $(".TopSellTable").fadeIn(3000);
 }
 
 function InitSort() {
@@ -126,4 +184,24 @@ function InitSort() {
     $("#top_amo").on("click", () => { sortTable(1, "TopSell", "string"); });
     $("#top_ori").on("click", () => { sortTable(2, "TopSell", "string"); });
     $("#top_dat").on("click", () => { sortTable(3, "TopSell", "string"); });
+}
+
+function InitButton() {
+    // By default, submit button is disabled
+    document.querySelector('#submit').disabled = true;
+    $("#submit").css({ "background": "gray", "cursor": "not-allowed" });
+    // Enable button only if there is text in the input field
+    $("#TopSell").delegate("#inputRow", "keyup", () => {
+        // document.querySelector('#task').onkeyup = () => {
+        if (document.querySelector('#image').value.length > 0 &&
+            document.querySelector('#product').value.length > 0 &&
+            document.querySelector('#amount').value.length > 0 &&
+            document.querySelector('#origin').value.length > 0 &&
+            document.querySelector('#best_before_date').value.length > 0) {
+
+            document.querySelector('#submit').disabled = false;
+            $("#submit").css({ "background": "rgb(76, 194, 61)", "cursor": "pointer" });
+        } else
+            document.querySelector('#submit').disabled = true;
+    });
 }

@@ -31,7 +31,8 @@
         /* put title in the middle*/
         text-align: center;
     }
-    .Button {
+    .Button,
+    .Delete {
         /* No need to display operation column */
         display: none;
     }
