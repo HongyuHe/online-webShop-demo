@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     var updated = false; // Dirty flag;
+    //By default site is not updated, user must press button
 
     $("#TopSell").css("display", "none");
 
@@ -31,42 +32,37 @@ document.addEventListener('DOMContentLoaded', () => {
         $(".TopSellTable").fadeIn(1500);
         update = false;
 
-        // Do not reloading the entire page:
+        // Do not reload the entire page:
         return false;
     });
 
-    // Delete data (Fake):
+    // Delete data (fake) allows a user to hide a product
     $("#TopSell").delegate(".Delete", "click", function() {
-        // console.log(this.parentElement.parentElement.childNodes);
-        // let ancestor = this.parentElement.parentElement;
         let ancestor = $(this).closest("tr");
         ancestor.fadeOut(500, () => {
             ancestor.remove();
         });
         updated = false;
 
-        // let childs = this.parentElement.parentElement.childNodes;
-        // for (var i = 0; i < childs.length; i++) {
-        //     // alert(childs[i].nodeName);
-        //     ancestor.removeChild(childs[i]);
-        // }
     });
 });
 
 function UpdateTable() {
+  /* AJAX request for the data stored in the database */
     $.ajax({
         type: 'GET',
         url: 'https://wt.ops.labs.vu.nl/api19/6bb9b56b',
         success: function(products) {
 
-            InitTable(products);
-            InitSort();
-            InitButton();
+            InitTable(products); //Initialize table with received variables
+            InitSort(); //Initialise new sort
+            InitButton(); //Initialise submit button
         },
     });
 }
 
 function ResetDatabase() {
+  /* Send reset command to server, resets to banana and apple */
     $.ajax({
         type: 'GET',
         url: 'https://wt.ops.labs.vu.nl/api19/6bb9b56b/reset',
@@ -85,15 +81,13 @@ function PostData() {
         "origin": `${$("#origin").val()}`,
         "best_before_date": `${$("#best_before_date").val()}`,
     };
-
+/* AJAX post request to server with input data */
     $.ajax({
         type: 'POST',
         url: 'https://wt.ops.labs.vu.nl/api19/6bb9b56b',
         data: new_data,
         success: function(data) {
 
-            // $(".TopSellTable").fadeOut("slow");
-            // alert(`${upi.URI}`);
             alert("Submit success!");
         },
     });
@@ -111,10 +105,10 @@ function InitTable(products) {
     const table_titles = [
         "Image", "Product", "Amount", "Origin", "Best Before Date", "Operstion"
     ];
-    const title_id = [
+    const title_id = [ //Top row ids
         "top_img", "top_pro", "top_amo", "top_ori", "top_dat", "top_opr"
     ];
-    const input_row =
+    const input_row = // Final input row HTML code
         "<tr id='inputRow'><form><td><input id='image' name='image' type='url' placeholder='Image URL'></td><th><input id='product' name='product' type='text' placeholder='Product's Name' required></th><td><input id='amount' name='amount' type='number' placeholder='Amount(kg)' ></td><td><input id='origin' name='origin' type='text' placeholder='Origin' ></td><td><input id='best_before_date' name='best_before_date' type='text' placeholder='Best Before Date' ></td><td class='Button'><button id='submit'>Submit</button></td></form></tr>";
 
     // Genrate template:
@@ -144,7 +138,7 @@ function InitTable(products) {
             _th.id = `${title_id[_index]}`;
         });
 
-    // Set falgs:
+    // Set classes:
     $(".TopSellTable tr:gt(0) td:nth-child(1)").each(function() {
         $(this).append("<image class=image></image>")
     });
@@ -179,11 +173,11 @@ function InitTable(products) {
 }
 
 function InitSort() {
-    $("#top_img").on("click", () => { sortTable(0, "TopSell", "string"); });
-    $("#top_pro").on("click", () => { sortTable(0, "TopSell", "string"); });
-    $("#top_amo").on("click", () => { sortTable(1, "TopSell", "string"); });
-    $("#top_ori").on("click", () => { sortTable(2, "TopSell", "string"); });
-    $("#top_dat").on("click", () => { sortTable(3, "TopSell", "string"); });
+    $("#top_img").on("click", () => { sortTable(0, "TopSell", "string"); }); //Image
+    $("#top_pro").on("click", () => { sortTable(0, "TopSell", "string"); }); //Product
+    $("#top_amo").on("click", () => { sortTable(1, "TopSell", "number"); }); //Amount
+    $("#top_ori").on("click", () => { sortTable(2, "TopSell", "string"); }); //Origin
+    $("#top_dat").on("click", () => { sortTable(3, "TopSell", "date"); }); //Best Before
 }
 
 function InitButton() {
@@ -192,7 +186,6 @@ function InitButton() {
     $("#submit").css({ "background": "gray", "cursor": "not-allowed" });
     // Enable button only if there is text in the input field
     $("#TopSell").delegate("#inputRow", "keyup", () => {
-        // document.querySelector('#task').onkeyup = () => {
         if (document.querySelector('#image').value.length > 0 &&
             document.querySelector('#product').value.length > 0 &&
             document.querySelector('#amount').value.length > 0 &&

@@ -4,17 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById("phys_sun").addEventListener("click", function() { sortTable(1, "PhysTable", "string") });
     document.getElementById("phys_siz").addEventListener("click", function() { sortTable(2, "PhysTable", "string") });
 
-    //Top Selling Table Headers
-    // $("#TopSell").delegate("#top_img", "click", () => { sortTable(0, "TopSell", "string") });
-    // $("#TopSell").delegate("#top_pro", "click", () => { sortTable(0, "TopSell", "string") });
-    // $("#TopSell").delegate("#top_amo", "click", () => { sortTable(1, "TopSell", "string") });
-    // $("#TopSell").delegate("#top_ori", "click", () => { sortTable(2, "TopSell", "string") });
-    // $("#TopSell").delegate("#top_dat", "click", () => { sortTable(3, "TopSell", "string") });
-    // document.getElementById("top_img").addEventListener("click", function() { sortTable(0, "TopSell", "string") });
-    // document.getElementById("top_pro").addEventListener("click", function() { sortTable(0, "TopSell", "string") });
-    // document.getElementById("top_amo").addEventListener("click", function() { sortTable(1, "TopSell", "number") });
-    // document.getElementById("top_ori").addEventListener("click", function() { sortTable(2, "TopSell", "string") });
-    // document.getElementById("top_dat").addEventListener("click", function() { sortTable(3, "TopSell", "date") });
+    //Event Listeners for TopSellingTable are added in dynamic_table.js
 
 });
 
@@ -54,6 +44,7 @@ function sortTable(n, id, dataType) {
             }
             /* Check if the two rows should switch place,
             based on the direction, asc or desc: */
+
 
             if (dir == "asc") {
                 if (dataType == "string") {
@@ -132,5 +123,7 @@ function sortTable(n, id, dataType) {
 }
 
 function getMonthFromString(mon) {
+  /* Function is used to translate string month to number
+  version for easier comparisons for data_type = data */
     return new Date(Date.parse(mon + " 1, 2012")).getMonth() + 1
 }
