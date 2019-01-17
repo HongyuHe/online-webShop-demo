@@ -26,9 +26,17 @@ body {
 }
 
 .main img {
-    width: 90%;
-    height: 90%;
+    width: 50%;
+    height: 50%;
 }
+
+#map {
+   width: 100%;
+   height: 400px;
+   background-color: grey;
+   border: 2px solid;
+   margin-bottom: 10px;
+ }
 
 h1 {
     font-size: 1.625em;
