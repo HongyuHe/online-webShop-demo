@@ -1,41 +1,30 @@
 document.addEventListener('DOMContentLoaded', () => {
     var updated = false; // Dirty flag;
-    //By default site is not updated, user must press button
 
     $("#TopSell").css("display", "none");
     if (!updated) {
 
-        UpdateTable();
+        UpdateData();
         $(".TopSellTable").fadeIn(1500);
         updated = true;
     }
 
-    // Update data:
-    // $("#latestData").on('click', () => {
-    //     if (!updated) {
-
-    //         UpdateTable();
-    //         $(".TopSellTable").fadeIn(1500);
-    //         updated = true;
-    //     }
-    // });
-
     // Reset table:
     $("#reset").on('click', () => {
 
-        ResetDatabase();
+        ResetData();
         $(".TopSellTable").fadeOut(1500);
-        UpdateTable();
+
+        UpdateData();
+
         $(".TopSellTable").fadeIn(1500);
         updated = true;
     });
 
     // Submit new item:
     $("#TopSell").delegate("#submit", "click", () => {
-        PostData();
-        $(".TopSellTable").fadeOut(1500);
-        UpdateTable();
-        $(".TopSellTable").fadeIn(1500);
+
+        SubmitData();
         update = false;
 
         // Do not reload the entire page:
@@ -49,11 +38,10 @@ document.addEventListener('DOMContentLoaded', () => {
             ancestor.remove();
         });
         updated = false;
-
     });
 });
 
-function UpdateTable() {
+function UpdateData() {
     /* AJAX request for the data stored in the database */
     $.ajax({
         type: 'GET',
@@ -67,19 +55,19 @@ function UpdateTable() {
     });
 }
 
-function ResetDatabase() {
+function ResetData() {
     /* Send reset command to server, resets to banana and apple */
     $.ajax({
         type: 'GET',
         url: 'https://wt.ops.labs.vu.nl/api19/6bb9b56b/reset',
         success: function(products) {
 
-            alert(`${products.Success}`);
+            // alert(`${products.Success}`);
         },
     });
 }
 
-function PostData() {
+function SubmitData() {
     var new_data = {
         "image": `${$("#image").val()}`,
         "product": `${$("#product").val()}`,
@@ -92,9 +80,35 @@ function PostData() {
         type: 'POST',
         url: 'https://wt.ops.labs.vu.nl/api19/6bb9b56b',
         data: new_data,
-        success: function(data) {
+        success: function(sourse) {
 
-            alert("Submit success!");
+            // alert("Submit success!");
+            AddNewData(sourse);
+        },
+    });
+}
+
+
+function AddNewData(sourse) {
+    const new_row = "<tr>" +
+        "<td><image class='image'></image></td>" +
+        "<th class='product'></th>" +
+        "<td class='amount'></td>" +
+        "<td class='origin'></td>" +
+        "<td class='best_before_date'></td>" +
+        "<td><button class='Delete'>Delete</button></td>" +
+        "</td>";
+
+    $.ajax({
+        type: 'GET',
+        url: `${sourse.URI}`,
+        success: function(products) {
+            let cur_index = $(".TopSellTable").children().length - 2;
+
+            $("#inputRow").before(new_row);
+            $(".TopSellTable").children().eq(cur_index + 1).css("display", "none");
+            FillData(cur_index, products);
+            $(".TopSellTable").children().eq(cur_index + 1).fadeIn(1500);
         },
     });
 }
@@ -166,16 +180,7 @@ function InitTable(products) {
     $topsell_table.append(input_row);
 
     // Fill in data:
-    $.each(products, (_index, _product) => {
-        $.each(_product, (key, value) => {
-            if (key == "image")
-                $(".image").eq(_index).attr("src", `${_product.image}`);
-            else if (key == "amount" && _index > 1)
-                $(`.${key}`).eq(_index).text(`${value}kg`);
-            else
-                $(`.${key}`).eq(_index).text(`${value}`);
-        });
-    });
+    FillData(0, products);
 }
 
 function InitSort() {
@@ -203,4 +208,32 @@ function InitButton() {
         } else
             document.querySelector('#submit').disabled = true;
     });
+}
+
+function FillData(cur_index, products) {
+    if (!cur_index) {
+        $.each(products, (_index, _product) => {
+            _fillRow(_index, _product);
+            cur_index++;
+        });
+    } else {
+        _fillRow(2, products);
+    }
+
+    // Clear input feilds:
+    $.each($("#inputRow input"), function() {
+        $(this).val("");
+    });
+
+    function _fillRow(_index, _product) {
+        $.each(_product, (key, value) => {
+            if (key == "image")
+                $(".image").eq(cur_index).attr("src", `${_product.image}`);
+            else if (key == "amount" && _index > 1)
+                $(`.${key}`).eq(cur_index).text(`${value}kg`);
+            else
+                $(`.${key}`).eq(cur_index).text(`${value}`);
+        });
+    }
+
 }
