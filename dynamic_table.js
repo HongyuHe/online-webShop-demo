@@ -3,16 +3,22 @@ document.addEventListener('DOMContentLoaded', () => {
     //By default site is not updated, user must press button
 
     $("#TopSell").css("display", "none");
+    if (!updated) {
+
+        UpdateTable();
+        $(".TopSellTable").fadeIn(1500);
+        updated = true;
+    }
 
     // Update data:
-    $("#latestData").on('click', () => {
-        if (!updated) {
+    // $("#latestData").on('click', () => {
+    //     if (!updated) {
 
-            UpdateTable();
-            $(".TopSellTable").fadeIn(1500);
-            updated = true;
-        }
-    });
+    //         UpdateTable();
+    //         $(".TopSellTable").fadeIn(1500);
+    //         updated = true;
+    //     }
+    // });
 
     // Reset table:
     $("#reset").on('click', () => {
@@ -48,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function UpdateTable() {
-  /* AJAX request for the data stored in the database */
+    /* AJAX request for the data stored in the database */
     $.ajax({
         type: 'GET',
         url: 'https://wt.ops.labs.vu.nl/api19/6bb9b56b',
@@ -62,7 +68,7 @@ function UpdateTable() {
 }
 
 function ResetDatabase() {
-  /* Send reset command to server, resets to banana and apple */
+    /* Send reset command to server, resets to banana and apple */
     $.ajax({
         type: 'GET',
         url: 'https://wt.ops.labs.vu.nl/api19/6bb9b56b/reset',
@@ -81,7 +87,7 @@ function PostData() {
         "origin": `${$("#origin").val()}`,
         "best_before_date": `${$("#best_before_date").val()}`,
     };
-/* AJAX post request to server with input data */
+    /* AJAX post request to server with input data */
     $.ajax({
         type: 'POST',
         url: 'https://wt.ops.labs.vu.nl/api19/6bb9b56b',
