@@ -4,10 +4,300 @@
 <head>
     <title>Prep Questions</title>
     <meta charset="utf-8" />
+
     <link rel="stylesheet" href="prep.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="prep2.js"></script>
 </head>
 
 <body>
+  <h1>Lab4</h1>
+  <dl>
+      <dt>
+        Q1.a) Have a closer look at the term frequency matrix. Given this table, how well do you think the tokenizer did its job? Do you see any room for improvement?
+      </dt>
+      <dd>
+        <p>
+          A quick look at the term frequency matrix shows a promising, yet non-perfect
+           table. Certain words such as "a" are perfectly caught, and the matrix shows
+            the expected high frequency for such a word. However we can also see "words"
+            such as "_i_", "0", and "3" which do not seem to be correct "words" for any
+            analysis. The numbers seem to be outliers, mentioned only once or twice in the book.
+            However it is hard to say whether or not this is wrong. After all, those
+            numbers did appear in the book. As such, should they be in the frequency
+            table? Personally I would say yes, as "real" words such as "accidentally"
+            also appear in the book only once, and I would not sort them out as simply
+            an outlier. However, the "_i_" seems to be a mistake. As such, the term
+            frequency matrix seems to be working correctly, with exception to the
+            seemingly special character "_i_".
+        </p>
+      </dd>
+      <dt>
+        Q1.b) Looking at the top 30, does it make sense to include all of them in the stop words list? Explain your answer.
+      </dt>
+
+      <dd>
+        <p>
+          "Stop Words" are a group of words that are so common, and carry little enough meaning
+          that something like a natural language processor usually ignors them.
+          In the case of the top 30 words in "Alice in Wonderland", some words
+            this criteria, however others carry too much importance. For example
+            words such as "the", "and", or "a" are simply too common, and carry
+            so little meaning, that they perfectly fit the category of a "stop word."
+            However common words such as "alice" are important because they carry
+            a strong meaning. "alice" refers to one specific character, and this is
+            important if one were to understand the text. As such, the top 30 Words
+            do not all fit in the "stop words" category, however, most of them do.
+        </p>
+      </dd>
+
+      <dt>
+        Q1.c) Looking at the top 30, do you think the frequency follows Zipf’s law? You can run z-&lt; zipf(alice_index$total) to find out. Explain in your own words what "following Zipf’s law" means in this case.
+      </dt>
+
+      <dd>
+          <q>Zipf's law states that given a large sample of words used, the frequency of any word is inversely proportional to its rank in the frequency table. So word number n has a frequency proportional to 1/n.</q>
+
+         <p>
+          If we use the above definition of Zipf's law, in order for Alice in Wonderland
+          to fit Zipf's law, the top 30 words should have a frequencies proportional to around 1/30
+        </p>
+        <p>
+          By looking at the top 30 words we can see an exponential decrease in the
+          frequency of the words. Most notably the quick dropoff from "the" to "and"
+          As such, we believe that this text follows Zipf's law.
+        </p>
+        <p>
+          Running the given command, we can see that a straight-ish line is formed
+          showing the relationship between frequency and rank. As such the text loosely
+          follows zipf's law.
+        </p>
+      </dd>
+
+    <dt>
+      Q1.d) Similarly, run h &lt;- heaps(alice_index$total) to determine whether Heaps law applies. Explain in your own words what "Heaps’ law applies" means in this case.
+    </dt>
+
+    <dd>
+      <q>[Heap's Law] is an empirical law which describes the number of distinct words in a document (or set of documents) as a function of the document length</q>
+
+      <p>
+        Heap's law, in this case, would mean that as we search through Alice in Wonderland
+        we will find more and more distinct vocabulary terms (new words). Or, in other words,
+        how many new words would exist in the book, should it have been made longer.
+      </p>
+
+      <p>
+        Running the given command shows a graph showing the relationship between
+        input tokens (text length) and dictionary size (number of distinct words in text).
+        This graph looks similar to other Heap's law graphs found online, overall the relationship
+        looks logarithmic.
+      </p>
+
+    </dd>
+
+    <dt>
+      Q2.a) How do you assess the quality of the TF-based search. What can you say about precision and recall?
+    </dt>
+
+    <dd>
+      <p>
+        The TF-based search does not seem to work very well. When I searched for
+        the quote "Who in the World am I?" the TF search returned over a thousand hits.
+        This is obviously incorrect, there were many false positives.
+      </p>
+
+      <p>
+        The precision of the TF Search is low, the number of true positives
+        (maybe one or two times the phrase appears) compared to over a thousand
+        false positives tells us the precision is poor.
+      </p>
+
+      <p>
+        The recall of the TF Search is not too bad, recall is the number of
+        true positives over the number of false negatives. As there are only a few
+        instances of our test phrase, there aren't many false negatives (we have
+        double checked if the quote appears in the hits)
+      </p>
+    </dd>
+
+    <dt>
+      Q2.b) Computing the TFIDF matrix takes quite some time. Why is that, do you think?
+    </dt>
+
+    <dd>
+      <p>
+        We believe that the reason why the TFIDF matrix takes so long to compute
+        is because of the nature of the inverse document frequency equation. The
+        equation used to calculate the TFIDIF matrix is complicated as it contains a
+        logarithm, which increases the time to compute the table.
+      </p>
+    </dd>
+
+    <dt>
+      Q2.c) Compare the TF-based search with the TFIDF-based search. What has changed? How do you compare the quality of the searches. What can you say about precision and recall?
+    </dt>
+
+    <dd>
+      <p>
+        For this exercise we continued to use our main testing phrase "Who in the world am I?"
+        from Question 2 part B. TFIDF will rank which chapter our phrase is "rarest" in.
+        When running the search, we end up getting results showing Chapter 6 Pig and Pepper
+        as the chapter in which our phrase is the rarest, or carries the most meaning in.
+        This is a different search from the TF search, and returns different results. TF
+        was simply trying to show the frequency, but the TFIDF search tries to encorportate
+        rarity and meaning to it as well. This makes words like "a" rank lower.
+        This search largely outperforms TF in finding the correct chapter however.
+        Our quote appears in chapter 2 of the book, which is the chapter in second place
+        using TFIDF search, with a score of 1.43. Meanwhile in the TF search chapter 2
+        was ranked 9th.
+      </p>
+
+      <p>
+        In terms of precision this search is a lot better than TF, it doesn't have as many
+        false positives. More chapters have values of 0, or simply low values.
+      </p>
+
+      <p>
+        In terms of recall as well, it is hard to say as the tested phrase only appears once.
+        This does not leave much room for false negatives. However, the correct chapter was ranked
+        highly in TFIDF, which means that the recall is most likly better than TF.
+      </p>
+    </dd>
+
+    <dt>
+      Q2.d) Alice in Wonderland only has 11 chapters, what can you say about the precision at k where k=5 for both types of searches. That is, what if you would only look at the 5 highest ranked results, and discard the other results as irrelevant.
+    </dt>
+    <dd>
+      <p>
+        If we were to only use the top 5 chapters for precision calculation, TFIDF
+        would still rank better. Especially since there are 0 true positives in the TF's
+        top 5 results. TFIDF's precision would not change by much.
+      </p>
+    </dd>
+
+    <dt>
+      Q2.e) What would happen to precision and recall if you implemented the improvements to the tokenizer you suggested in question 1a.?
+    </dt>
+    <dd>
+      <p>
+        Implementing the improvements mentioned in Question 1 A would change
+        almost nothing in recall and precision for both searches as my improvement
+        was pertain to the "_i_", "3", and "0" tokens found. These only appear 4
+        times throughout the whole book, and as such carry little impact.
+      </p>
+
+      <p>
+        However, an improvement that would increase precision and recall would be to
+        include "made up" words or names such as Absolem. Character's names, whilst
+        not always in dictionaries, are vital to searches such as these and should
+        not be treated as irrelevant. This will decrease the number of false negatives,
+        leading to an improved recall, and will also lead to an increase in true positives,
+        increasing precision
+      </p>
+    </dd>
+  </dl>
+  <h1>Lab3</h1>
+  <dl>
+      <dt>
+          2. Show how you can use JavaScript and the DOM API to change the background of the body element to the color red. Also show how you can override the behavior of clicking on an a element, using only JavaScript and the DOM API, without other libraries.
+      </dt>
+      <dd>
+          <ul>
+              <li><button id="changeBgc">Chang Background Color</button></li>
+              <li><a id="myLink" , href="https://www.google.com/">Overided &lt;a&gt;</a></li>
+          </ul>
+
+      </dd>
+
+      <dt>3. List pros and cons of both methods.</dt>
+      <dd>
+          <dl>
+              <dt>Pros JQuery: </dt>
+              <dd>
+                  <ul>
+                      <li>Simplification of usually complicated operations </li>
+                      <li>Code reuse, documentation, support</li>
+                      <li>Browser independence</li>
+                      <li>Easyer DOM selection</li>
+                  </ul>
+              </dd>
+              <dt>Cons JQuery: </dt>
+              <dd>
+                  <ul>
+                      <li>Need to learn another technology</li>
+                      <li>More dependencies on other code</li>
+                  </ul>
+              </dd>
+              <dt>Pros JavaScript: </dt>
+              <dd>
+                  <ul>
+                      <li>Higher code quality leads to higher performance</li>
+                      <li>Do not depend on other libraries.</li>
+                  </ul>
+              </dd>
+              <dt>Cons JavaScript: </dt>
+              <dd>
+                  <ul>
+                      <li>More complex code.</li>
+                      <li>Cannot access to future features - things like .indexOf and .bind are native javascript, but not yet supported by many browsers. </li>
+                  </ul>
+              </dd>
+
+          </dl>
+      </dd>
+
+      <dt>4. Describe the major similarities and differences between Python and JavaScript.</dt>
+      <dd>Python's "object-based" subset is roughly equivalent to JavaScript. Like JavaScript (and unlike Java), Python supports a programming style that uses simple functions and variables without engaging in class definitions. However, for JavaScript,
+          that's all there is. Python, on the other hand, supports writing much larger programs and better code reuse through a true object-oriented programming style, where classes and inheritance play an important role.</dd>
+
+      <dt>5. What does the acronym "AJAX" stand for? Explain the role of the term the first "A" refers to.</dt>
+      <dd>
+          <ol>
+              <li>AJAX stands for Asynchronous JavaScript And XML.</li>
+              <li>"A" refers to "Asynchronous", which is a technique that allows web pages to be updated asynchronously, which means that the browser doesn't need to reload the entire page when only a small bit of data on the page has changed. AJAX passes
+                  only the updated information to and from the server.</li>
+          </ol>
+
+      </dd>
+
+      <dt>
+          6.What is the role of the host objects in JavaScript? Name two often used host objects. Why are there no equivalents in Java or Python?
+      </dt>
+      <dd><cite>Host objects are the objects which are created and provided to JavaScript by the environment (host) which hosts the code. Be it in Node environment or in browser, the JavaScript code will behave differently when executed in different JavaScript engines. Since JavaScript always works in the context of the hosting environment, the result of executed code may differ depending on the current host.
+          <a href="http://thewebstop.blogspot.com/2017/01/host-objects-and-native-objects.html">▶</a>
+          <ol><li>document</li>
+          <li>console</li></ol>
+          <div>Neither Python or Java need an environment that host the code, while JavaScript needs, because it is an embeded language.</div>
+      </cite></dd>
+
+      <dt>
+          7. Name two objects that are built into the JavaScript language. Briefly explain their role.
+      </dt>
+      <dd>
+          <ol>
+              <li>The String global object is a constructor for strings or a sequence of characters.</li>
+              <li>Math is a built-in object that has properties and methods for mathematical constants and functions. Not a function object.</li>
+          </ol>
+
+      </dd>
+
+      <dt>8. Briefly explain the role of events and event listeners in JavaScript.</dt>
+      <dd>
+          <ol>
+              <li>An event is a signal that something has happened. All DOM nodes generate such signals (but events are not limited to DOM</li>
+              <li>The EventListener interface represents an object that can handle an event dispatched by an EventTarget object.</li>
+          </ol>
+      </dd>
+
+      <dt>
+          9. Explain in 3 lines the functionality of the autocomplete component that Marks describes.
+      </dt>
+      <dd>The Google Autocomplete component is a component of a google library, which offers suggestions while we are typing. It will try to compare the characters that already typed with the content of the library.
+      </dd>
+  </dl>
+
+  <hr>
 
     <h1>Browser Report for Assignment 1 Website</h1>
     <p>&nbsp; &nbsp; &nbsp; &nbsp; The two browsers we chose to test our website on was Google Chrome and Microsoft Edge. The two browsers show the content in a very similar way, however when inputting data into the table, the two browsers have different

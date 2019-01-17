@@ -14,7 +14,7 @@ function sortTable(n, id, dataType) {
         offSet = 1,
         tempx, tempy;
 
-    if (id == "TopSell") {
+    if (id == "TopSell") { //Offset is 2 for interactive table as we don't want the input row to move
         offSet = 2;
     }
 
