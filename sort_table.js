@@ -5,10 +5,11 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById("phys_siz").addEventListener("click", function() { sortTable(2, "PhysTable", "string") });
 
     //Event Listeners for TopSellingTable are added in dynamic_table.js
-
 });
 
-// Function adapted from w3Schools https://www.w3schools.com/howto/howto_js_sort_table.asp
+/**
+ * Function partialy adapted from w3Schools https://www.w3schools.com/howto/howto_js_sort_table.asp
+ */
 function sortTable(n, id, dataType) {
     var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0,
         offSet = 1,
@@ -123,7 +124,7 @@ function sortTable(n, id, dataType) {
 }
 
 function getMonthFromString(mon) {
-  /* Function is used to translate string month to number
-  version for easier comparisons for data_type = data */
+    /* Function is used to translate string month to number
+    version for easier comparisons for data_type = data */
     return new Date(Date.parse(mon + " 1, 2012")).getMonth() + 1
 }

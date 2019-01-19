@@ -10,7 +10,9 @@
 
 ol {
     font-style: italic;
-    list-style: upper-roman inside none;1 43}
+    list-style: upper-roman inside none;
+    1 43
+}
 
 ul {
     list-style-position: inside;
@@ -31,12 +33,12 @@ body {
 }
 
 #map {
-   width: 100%;
-   height: 400px;
-   background-color: grey;
-   border: 2px solid;
-   margin-bottom: 10px;
- }
+    width: 100%;
+    height: 400px;
+    background-color: grey;
+    border: 2px solid;
+    margin-bottom: 10px;
+}
 
 h1 {
     font-size: 1.625em;
@@ -166,6 +168,10 @@ svg {
 
 
 /* Class */
+
+.id {
+    display: none;
+}
 
 .header {
     color: white;
@@ -356,7 +362,7 @@ input:focus {
     background-color: yellow;
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 600px) {
     /* For Tablet */
     .gridmenu {
         width: 100%;
@@ -383,7 +389,7 @@ input:focus {
     }
 }
 
-@media only screen and (max-width: 320px) {
+@media only screen and (max-width: 500px) {
     /* For Phone */
     * {
         text-indent: 3px;
