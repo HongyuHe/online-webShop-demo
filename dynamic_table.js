@@ -103,7 +103,7 @@ function InitTable(products) {
     let new_title = "<tr>";
     let new_row = "<tr>";
     const table_titles = [
-        "Image", "Product", "Amount", "Origin", "Best Before Date", "Operstion"
+        "Image", "Product", "Amount", "Origin", "Best Before Date", "Operation"
     ];
     const title_id = [ //Top row ids
         "top_img", "top_pro", "top_amo", "top_ori", "top_dat", "top_opr"
