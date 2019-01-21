@@ -46,7 +46,7 @@ function UpdateData() {
     /* AJAX request for the data stored in the database */
     $.ajax({
         type: 'GET',
-        url: 'https://wt.ops.labs.vu.nl/api19/6bb9b56b',
+        url: 'http://localhost:8874/products',
         success: function(products) {
 
             InitTable(products); //Initialize table with received variables
@@ -76,15 +76,18 @@ function SubmitData() {
         "origin": `${$("#origin").val()}`,
         "best_before_date": `${$("#best_before_date").val()}`,
     };
+    console.log(new_data);
     /* AJAX post request to server with input data */
     $.ajax({
         type: 'POST',
-        url: 'https://wt.ops.labs.vu.nl/api19/6bb9b56b',
+        url: 'http://localhost:8874/products/create',
         data: new_data,
+        // contentType: 'application/json',
+        // dataType: 'json',
         success: function(sourse) {
 
             // alert("Submit success!");
-            AddNewData(sourse);
+            // AddNewData(sourse);
         },
     });
 }

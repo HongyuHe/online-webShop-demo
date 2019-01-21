@@ -96,8 +96,15 @@ def products_create(db):
     return json.dumps({'URI': 'http://localhost:8880/products/%d'%rand_id})
 
 # Functionality_3: to list the data of a specific item (Retrieve)
-@route('/products/<id>', method='GET')
-def products_id(db, id):
+@route('/products/id', method='GET')
+def products_id(db):
+
+    try:
+        id = (json.load(request.body))['id']
+    except:
+        #  Internal Server Error         
+        abort(500)
+        return
 
     try:
         db.execute("SELECT * FROM supermarket WHERE id=%s"%id)
@@ -118,8 +125,15 @@ def products_id(db, id):
     return json.dumps(product)
 
 # Functionality_4: to change data of a specific item (Update)
-@route('/products/edit/<id>', method='PUT')
-def products_edit(db, id):
+@route('/products/edit', method='PUT')
+def products_edit(db):
+
+    try:
+        id = (json.load(request.body))['id']
+    except:
+        #  Internal Server Error         
+        abort(500)
+        return
 
     # Check existence
     all_id = []
@@ -165,8 +179,15 @@ def products_edit(db, id):
     return
 
 # Functionality_5: to remove data of a specific item (Delete)
-@route('/products/delete/<id>', method='DELETE')
-def products_delete(db, id):
+@route('/products/delete', method='DELETE')
+def products_delete(db):
+
+    try:
+        id = (json.load(request.body))['id']
+    except:
+        #  Internal Server Error         
+        abort(500)
+        return
 
     all_id = []
     print('\ndelete')
@@ -235,4 +256,4 @@ if __name__ == "__main__":
     install(WtDbPlugin())
     install(WtCorsPlugin())
 
-    run(host='localhost', port=8880, reloader=True, debug=False, autojson=False)
+    run(host='localhost', port=8880, reloader=True, debug=True, autojson=False)
