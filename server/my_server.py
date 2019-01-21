@@ -1,5 +1,5 @@
 from bottle import route, response, error, get
-# from bottle import *
+from bottle import *
 import json
 import random
 
@@ -87,8 +87,8 @@ def products_create(db):
         response.status = 500	#  Internal Server Error
         return
 
-    # return a response with an empty body and a 200 status code
-    return 
+    response.headers['Content-Type'] = 'application/json'
+    return json.dumps({'URI': 'http://localhost:8880/products/%d'%rand_id})
 
 # Functionality_3: to list the data of a specific item (Retrieve)
 @route('/products/<id>', method='GET')
@@ -154,6 +154,7 @@ def products_edit(db, id):
         response.status = 500	#  Internal Server Error
         return
 
+    # return a response with an empty body and a 200 status code
     return
 
 # Functionality_5: to remove data of a specific item (Delete)
