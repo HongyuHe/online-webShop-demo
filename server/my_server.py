@@ -22,7 +22,8 @@ def products(db):
         db.execute("SELECT * FROM supermarket")
         products = db.fetchall()
     except:
-        response.status = 500	#  Internal Server Error
+        #  Internal Server Error
+        abort(500)
         return
     
 
@@ -40,7 +41,8 @@ def products_create(db):
         db.execute("select * from supermarket")
         products_attrs = [tuple[0] for tuple in db.description]
     except:
-        response.status = 500	#  Internal Server Error
+        #  Internal Server Error         
+        abort(500)
         return
 
     try:
@@ -62,10 +64,12 @@ def products_create(db):
             if _key not in new_item.keys():
                 raise KeyError
 
-    except (ValueError, KeyError):
-        # if bad request data or attributs missing, return 400 Bad Request
-        response.status = 400
-        return
+    except ValueError:
+        # if bad request data, return 400 Bad Request
+        abort(400, 'Bad request data')
+    except KeyError:
+        # if attributs missing, return 404 Not found
+        abort(400, 'Missing attributs. Please check your submission again!')
 
     # Genarate random id:
     rand_id = random.randint(1,1000)
@@ -84,7 +88,8 @@ def products_create(db):
         VALUES('%s', '%s', '%s', '%s', '%s', '%s');
         '''%( new_item['origin'], new_item['product'], new_item['best_before_date'], new_item['image'], new_item['amount'], rand_id))
     except:
-        response.status = 500	#  Internal Server Error
+        #  Internal Server Error         
+        abort(500)
         return
 
     response.headers['Content-Type'] = 'application/json'
@@ -98,14 +103,15 @@ def products_id(db, id):
         db.execute("SELECT * FROM supermarket WHERE id=%s"%id)
         product = db.fetchall()
     except:
-        response.status = 500	#  Internal Server Error
+        #  Internal Server Error         
+        abort(500)
         return
 
     try:
         if not product:
             raise ValueError      
     except ValueError:
-        response.status = 400
+        abort(404, 'The ID is wrong')
         return 
 
     response.headers['Content-Type'] = 'application/json'
@@ -122,7 +128,8 @@ def products_edit(db, id):
         db.execute("SELECT id FROM supermarket")
         products_id = db.fetchall()
     except:
-        response.status = 500	#  Internal Server Error
+        #  Internal Server Error         
+        abort(500)
         return
 
     try:
@@ -141,17 +148,17 @@ def products_edit(db, id):
             raise KeyError
         
     except ValueError:
-        response.status = 400
-        return
+        # if bad request data, return 400 Bad Request
+        abort(400, 'Bad request data')
     except KeyError:
-        response.status = 404
-        return
+        abort(404, 'The ID dose not exist!')
+        return 
     try:
         for key, values in new_item.items():
-            # print(("UPDATE supermarket SET %s = %s WHERE id = %s"%(key, values, id)))
             db.execute("UPDATE supermarket SET %s = '%s' WHERE id = %s"%(key, values, id))
     except:
-        response.status = 500	#  Internal Server Error
+        #  Internal Server Error         
+        abort(500)
         return
 
     # return a response with an empty body and a 200 status code
@@ -168,7 +175,8 @@ def products_delete(db, id):
         db.execute("SELECT id FROM supermarket")
         products_id = db.fetchall()
     except:
-        response.status = 500	#  Internal Server Error
+        #  Internal Server Error         
+        abort(500)
         return
 
     # Check existence
@@ -179,13 +187,14 @@ def products_delete(db, id):
         if int(id) not in all_id:
             raise KeyError     
     except KeyError:
-        response.status = 404
+        abort(404, 'The ID dose not exist!')
         return
 
     try:
         db.execute("DELETE from supermarket where id=%s"%id)
     except:
-        response.status = 500	#  Internal Server Error
+        #  Internal Server Error         
+        abort(500)
         return
 
     return
@@ -197,7 +206,7 @@ def Error_400(error):
     response.headers['Content-Type'] = 'application/json'
     return json.dumps({
         'error_status': 400,
-        'response': 'Bad request data often because of attributs missing. Please Check your request!'
+        'response': error.body
         })
 
 @error(404)
@@ -205,7 +214,7 @@ def Error_404(error):
     response.headers['Content-Type'] = 'application/json'
     return json.dumps({
         'error_status': 404,
-        'response': 'Cannot find your request data. Please Check yotheur id in request!'
+        'response': error.body
         })
 
 @error(500)
@@ -226,4 +235,4 @@ if __name__ == "__main__":
     install(WtDbPlugin())
     install(WtCorsPlugin())
 
-    run(host='localhost', port=8880, reloader=True, debug=True, autojson=False)
+    run(host='localhost', port=8880, reloader=True, debug=False, autojson=False)
