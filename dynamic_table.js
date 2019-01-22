@@ -76,18 +76,15 @@ function SubmitData() {
         "origin": `${$("#origin").val()}`,
         "best_before_date": `${$("#best_before_date").val()}`,
     };
-    console.log(new_data);
     /* AJAX post request to server with input data */
     $.ajax({
         type: 'POST',
         url: 'http://localhost:8874/products/create',
-        data: new_data,
-        // contentType: 'application/json',
-        // dataType: 'json',
+        data: JSON.stringify(new_data),
         success: function(sourse) {
 
             // alert("Submit success!");
-            // AddNewData(sourse);
+            AddNewData(sourse);
         },
     });
 }
@@ -242,11 +239,16 @@ function AddNewData(sourse) {
         type: 'GET',
         url: `${sourse.URI}`,
         success: function(products) {
+            // console.log(products);
+            // console.log("attr", Object.getOwnPropertyNames(products[0]));
+            // var arr = Object.keys(products[0]);
+            // console.log('arr', arr);
+
             let cur_index = $(".TopSellTable").children().length - 2;
 
             $("#inputRow").before(new_row);
             $(".TopSellTable").children().eq(cur_index + 1).css("display", "none");
-            FillData(cur_index, products);
+            FillData(cur_index, products[0]);
             $(".TopSellTable").children().eq(cur_index + 1).fadeIn(1500);
         },
     });

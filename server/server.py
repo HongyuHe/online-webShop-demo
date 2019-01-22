@@ -93,7 +93,7 @@ def products_create(db):
         return
 
     response.headers['Content-Type'] = 'application/json'
-    return json.dumps({'URI': 'http://localhost:8880/products/%d'%rand_id})
+    return json.dumps({'id': rand_id})
 
 # Functionality_3: to list the data of a specific item (Retrieve)
 @route('/products/id', method='GET')

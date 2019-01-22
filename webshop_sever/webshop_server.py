@@ -2,6 +2,7 @@ from bottle import route, response, error, get
 from bottle import *
 import json
 import random
+import os
 
 @get('/')
 def hello_world():
@@ -34,13 +35,14 @@ def products(db):
 @route('/products/create', method='POST')
 def products_create(db):
 
-    # print (request.json())
+    # print ('\nHere')
+    print (json.load(request.body))
 
     try:
         db.execute("SELECT id FROM supermarket")
         products_id = db.fetchall()
         all_id = []
-        db.execute("select * from supermarket")
+        db.execute("SELECT * FROM supermarket")
         products_attrs = [tuple[0] for tuple in db.description]
     except:
         #  Internal Server Error         
@@ -98,6 +100,7 @@ def products_create(db):
     return json.dumps({'URI': 'http://localhost:8874/products/%d'%rand_id})
 
 # Functionality_3: to list the data of a specific item (Retrieve)
+
 @route('/products/<id>', method='GET')
 def products_id(db, id):
 
@@ -237,4 +240,5 @@ if __name__ == "__main__":
     install(WtDbPlugin())
     install(WtCorsPlugin())
 
+    print("PID: ",os.getpid())
     run(host='localhost', port=8874, reloader=True, debug=True, autojson=False)
