@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Miko and Hongyu's Online Store -- API DOCUMENTATION</title>
+        <meta charset="utf-8" />
+        <meta name="description" content="Documentation for Miko and Hongyu's assignment 3 for Web Technology">
+        <meta name="author" content="Miko and Hongyu">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    </head>
+    <body>
+        <h1>Miko and Hongyu's Online Store API Documentation</h1>
+        <p></p>
+
+        <h1>Get Products</h1>
+        <h2>About</h2>
+        <p>The Get Products request will read every item in the database and send each item in the response's JSON file</p>
+        <h2>Endpoint URI</h2>
+        <code>http://localhost:8880/products</code>
+        <h2>HTTP Method</h2>
+        <p>GET</p>
+        <h2>Example Request</h2>
+        <p>GET http://localhost:8880/products</p>
+        <h2>Example Response</h2>
+        <p>Response is a JSON file with origin, product, best_before_date, image, amount, and id</p>
+        <pre>
+            <code>
+    [
+        {
+            "origin": "The Netherlands",
+            "product": "Apples",
+            "best_before_date": "November 2019",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Apples.jpg/512px-Apples.jpg",
+            "amount": "100kg",
+            "id": 27959
+        },
+        {
+            "origin": "India",
+            "product": "Banana",
+            "best_before_date": "February 2019",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Bananas.jpg/640px-Bananas.jpg",
+            "amount": "120kg",
+            "id": 27960
+        }
+    ]
+            </code>
+        </pre>
+        <h2>Response Codes</h2>
+        <table>
+            <tr>
+                <th>Response Code</th>
+                <th>Meaning</th>
+            </tr>
+            <tr>
+                <td>200</td>
+                <td>Success!</td>
+            </tr>
+            <tr>
+                <td>500</td>
+                <td>Internal server errror: Our services may be down</td>
+            </tr>
+        </table>
+    
+
+    
+        <h1>Add Product</h1>
+        <h2>About</h2>
+        <p>The Add Product request will add the item specified in the request's JSON file to the database</p>
+        <h2>Endpoint URI</h2>
+        <code>http://localhost:8880/products/create</code>
+        <h2>HTTP Method</h2>
+        <p>POST</p>
+        <h2>Example Request</h2>
+        <p>POST http://localhost:8880/products/create</p>
+        <p>Example Body:</p>
+        <pre>
+            <code>
+                {
+                    "origin": "Thailand",
+                    "product": "Red Bull",
+                    "best_before_date": "November 2024",
+                    "image": "https://www.drinks.ng/wp-content/uploads/2018/06/262ed0d2a77c2d85aa843d902973ae0a70cbe479.png",
+                    "amount": "100kg",
+                    "id": 420
+                }
+            </code>
+        </pre>
+        <h2>Example Response</h2>
+            <code>
+                {
+                    "URI": "http://localhost:8880/products/439"
+                }
+            </code>
+        <h2>Response Codes</h2>
+        <table>
+            <tr>
+                <th>Response Code</th>
+                <th>Meaning</th>
+            </tr>
+            <tr>
+                <td>200</td>
+                <td>Success!</td>
+            </tr>
+            <tr>
+                <td>500</td>
+                <td>Internal server errror: Our services may be down</td>
+            </tr>
+            <tr>
+                <td>400</td>
+                <td>Bad request data: Item's parameters are invalid</td>
+            </tr>
+            <tr>
+                <td>404</td>
+                <td>Missing attributes. Please check your submission again!</td>
+            </tr>
+        </table>
+    
+
+    
+        <h1>Retrieve Product</h1>
+        <h2>About</h2>
+        <p>The Retrieve Product request will send the specified (in request's JSON file) ID's corresponding database entry as a JSON object</p>
+        <h2>Endpoint URI</h2>
+        <code>/products/id</code>
+        <h2>HTTP Method</h2>
+        <p>GET</p>
+        <h2>Example Request</h2>
+        <p>GET http://localhost:8880/products/id</p>
+        <p>Example Body:</p>
+        <pre>
+            <code>
+                {
+                    "id": 1
+                }
+            </code>
+        </pre>
+        <h2>Example Response</h2>
+        <p>The Example request specified an id of '1', the response is the following JSON object</p>
+        <pre>
+            <code>
+    [
+        {
+            "origin": "The Netherlands",
+            "product": "Apples",
+            "best_before_date": "November 2019",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Apples.jpg/512px-Apples.jpg",
+            "amount": "100kg",
+            "id": 1
+        }
+    ]
+            </code>
+        </pre>
+        <h2>Response Codes</h2>
+        <table>
+            <tr>
+                <th>Response Code</th>
+                <th>Meaning</th>
+            </tr>
+            <tr>
+                <td>200</td>
+                <td>Success!</td>
+            </tr>
+            <tr>
+                <td>500</td>
+                <td>Internal server errror: Our services may be down</td>
+            </tr>
+            <tr>
+                <td>404</td>
+                <td>Invalid ID specified</td>
+            </tr>
+        </table>
+    
+
+    
+        <h1>Update Product</h1>
+        <h2>About</h2>
+        <p>The Update Product request lets you change specific values of a given product ID in the database</p>
+        <h2>Endpoint URI</h2>
+        <code>/products/edit</code>
+        <h2>HTTP Method</h2>
+        <p>PUT</p>
+        <h2>Example Request</h2>
+        <p>PUT http://localhost:8880/products/edit</p>
+        <p>Body Example: </p>
+        <pre>
+            <code>
+                {
+                    "origin": "Portugal",
+                    "product": "Apples",
+                    "best_before_date": "November 2019",
+                    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Apples.jpg/512px-Apples.jpg",
+                    "amount": "100kg",
+                    "id": 1
+                }
+            </code>
+        </pre>
+        <h2>Example Response</h2>
+        <p>No Response</p>
+        <h2>Response Codes</h2>
+        <table>
+            <tr>
+                <th>Response Code</th>
+                <th>Meaning</th>
+            </tr>
+            <tr>
+                <td>200</td>
+                <td>Success!</td>
+            </tr>
+            <tr>
+                <td>500</td>
+                <td>Internal server errror: Our services may be down</td>
+            </tr>
+            <tr>
+                <td>400</td>
+                <td>Bad request data: Item's parameters are invalid</td>
+            </tr>
+            <tr>
+                <td>404</td>
+                <td>Invalid ID specified</td>
+            </tr>
+        </table>
+    
+
+    
+        <h1>Delete Product</h1>
+        <h2>About</h2>
+        <p>The Delete Product request is used to delete objects in the database specified in the request's JSON file</p>
+        <h2>Endpoint URI</h2>
+        <code>/products/delete</code>
+        <h2>HTTP Method</h2>
+        <p>DELETE</p>
+        <h2>Example Request</h2>
+        <p>DELETE http://localhost:8880/products/delete</p>
+        <p>JSON File in Request:</p>
+        <pre>
+            <code>
+                {
+                    "id": 1
+                }
+            </code>
+        </pre>
+        <h2>Example Response</h2>
+        <p>No response body on success</p>
+        <h2>Response Codes</h2>
+        <table>
+            <tr>
+                <th>Response Code</th>
+                <th>Meaning</th>
+            </tr>
+            <tr>
+                <td>200</td>
+                <td>Success!</td>
+            </tr>
+            <tr>
+                <td>500</td>
+                <td>Internal server errror: Our services may be down</td>
+            </tr>
+            <tr>
+                <td>404</td>
+                <td>Invalid ID specified</td>
+            </tr>
+        </table>
+        
+    </body>
+</html>
