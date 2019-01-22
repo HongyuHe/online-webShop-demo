@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Miko and Hongyu's Online Store -- API DOCUMENTATION</title>
+        <meta charset="utf-8" />
+        <meta name="description" content="Documentation for Miko and Hongyu's assignment 3 for Web Technology">
+        <meta name="author" content="Miko and Hongyu">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="APIdocumentation.css">
+    </head>
+    <body>
+        <h1>Miko and Hongyu's Online Store API Documentation</h1>
+        <p>
+            Quick Note on how this API is RESTful: All GET calls are safe, all requests, 
+            except for "Create Product" (which uses POST) are idempotent. The API uses 
+            the most appropriate HTTP methods for each request. Our service utilises 
+            JSON files in request bodies as well as response bodies. Our service uses 
+            appropriate HTTP Headers as well as Response Codes for each response.
+        </p>
+
+        <div>
+            <a href="#getProducts">Get Products</a>
+            <a href="#addProduct">Add Product</a>
+            <a href="#retrieveProduct">Retrieve Product</a>
+            <a href="#updateProduct">Update Product</a>
+            <a href="#deleteProduct">Delete Product</a>
+        </div>
+
+        <div>
+            <h1 id = "getProducts">Get Products</h1>
+            <h2>About</h2>
+            <p>The Get Products request will read every item in the database and send each item in the response's JSON file</p>
+            <p>This method complies with the REST principles, for example it is a safe GET request.</p>
+            <h2>Endpoint URI</h2>
+            <code>http://localhost:8880/products</code>
+            <h2>HTTP Method</h2>
+            <p>GET</p>
+            <h2>Example Request</h2>
+            <p>If you would want to get a list of all the products you would send the following request:</p>
+            <p>GET http://localhost:8880/products</p>
+            <h2>Example Response</h2>
+            <p>Response is a JSON file with origin, product, best_before_date, image, amount, and id of all the products</p>
+            <pre>
+                <code>
+    [
+        {
+            "origin": "The Netherlands",
+            "product": "Apples",
+            "best_before_date": "November 2019",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Apples.jpg/512px-Apples.jpg",
+            "amount": "100kg",
+            "id": 1
+        },
+        {
+            "origin": "India",
+            "product": "Banana",
+            "best_before_date": "February 2019",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Bananas.jpg/640px-Bananas.jpg",
+            "amount": "120kg",
+            "id": 2
+        }
+    ]
+                </code>
+            </pre>
+            <h2>Response Codes</h2>
+            <table>
+                <tr>
+                    <th>Response Code</th>
+                    <th>Meaning</th>
+                </tr>
+                <tr>
+                    <td>200</td>
+                    <td>Success!</td>
+                </tr>
+                <tr>
+                    <td>500</td>
+                    <td>Internal server errror: Our services may be down</td>
+                </tr>
+            </table>
+        </div>
+    
+
+        <div>
+            <h1 id = "addProduct">Add Product</h1>
+            <h2>About</h2>
+            <p>The Add Product request will add the item specified in the request's JSON file to the database</p>
+            <p>
+                This method complies with the REST principles, for example it is not idempotent, and has descriptive
+                response codes in the case of errors and success.
+            </p>
+            <h2>Endpoint URI</h2>
+            <code>http://localhost:8880/products/create</code>
+            <h2>HTTP Method</h2>
+            <p>POST</p>
+            <h2>Example Request</h2>
+            <p>If you would want to add a new Red Bull Product you would send the following request with the example body:</p>
+            <p>POST http://localhost:8880/products/create</p>
+            <p>Example Body:</p>
+            <pre>
+                <code>
+    {
+        "origin": "Thailand",
+        "product": "Red Bull",
+        "best_before_date": "November 2024",
+        "image": "https://www.drinks.ng/wp-content/uploads/2018/06/262ed0d2a77c2d85aa843d902973ae0a70cbe479.png",
+        "amount": "100kg",
+        "id": 3
+    }
+                </code>
+            </pre>
+            <h2>Example Response</h2>
+            <pre>
+                <code>
+    {
+        "id": 3
+    }
+                </code>
+            </pre>
+            <h2>Response Codes</h2>
+            <table>
+                <tr>
+                    <th>Response Code</th>
+                    <th>Meaning</th>
+                </tr>
+                <tr>
+                    <td>200</td>
+                    <td>Success!</td>
+                </tr>
+                <tr>
+                    <td>500</td>
+                    <td>Internal server errror: Our services may be down</td>
+                </tr>
+                <tr>
+                    <td>400</td>
+                    <td>Bad request data: Item's parameters are invalid</td>
+                </tr>
+                <tr>
+                    <td>404</td>
+                    <td>Missing attributes. Please check your submission again!</td>
+                </tr>
+            </table>
+        </div>
+    
+
+        <div>
+            <h1 id = "retrieveProduct">Retrieve Product</h1>
+            <h2>About</h2>
+            <p>The Retrieve Product request will send the specified (in request's JSON file) ID's corresponding database entry as a JSON object</p>
+            <p>
+                This method complies with the REST principles, for example it is idempotenet, meaning that you can send multiple copies 
+                of the same request with no side-effects.
+            </p>
+            <h2>Endpoint URI</h2>
+            <code>/products/id</code>
+            <h2>HTTP Method</h2>
+            <p>GET</p>
+            <h2>Example Request</h2>
+            <p>If you would want to retrieve the information for a specific product you would send the following request, with 
+                the body specifying the id of the product:
+            </p>
+            <p>GET http://localhost:8880/products/id</p>
+            <p>Example Body:</p>
+            <pre>
+                <code>
+    {
+        "id": 1
+    }
+                </code>
+            </pre>
+            <h2>Example Response</h2>
+            <p>The Example request specified an id of '1', the response is the following JSON object</p>
+            <pre>
+                <code>
+    [
+        {
+            "origin": "The Netherlands",
+            "product": "Apples",
+            "best_before_date": "November 2019",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Apples.jpg/512px-Apples.jpg",
+            "amount": "100kg",
+            "id": 1
+        }
+    ]
+                </code>
+            </pre>
+            <h2>Response Codes</h2>
+            <table>
+                <tr>
+                    <th>Response Code</th>
+                    <th>Meaning</th>
+                </tr>
+                <tr>
+                    <td>200</td>
+                    <td>Success!</td>
+                </tr>
+                <tr>
+                    <td>500</td>
+                    <td>Internal server errror: Our services may be down</td>
+                </tr>
+                <tr>
+                    <td>404</td>
+                    <td>Invalid ID specified</td>
+                </tr>
+            </table>
+        </div>
+    
+
+        <div>
+            <h1 id = "updateProduct">Update Product</h1>
+            <h2>About</h2>
+            <p>The Update Product request lets you change specific values of a given product ID in the database</p>
+            <p>
+                This method complies with the REST principles, for example it is idempotenet, meaning that you can send multiple copies 
+                of the same request with no side-effects, in this case, only one item is updated, not many.
+            </p>
+            <h2>Endpoint URI</h2>
+            <code>/products/edit</code>
+            <h2>HTTP Method</h2>
+            <p>PUT</p>
+            <h2>Example Request</h2>
+            <p>If you would want to update the information for a product you would send the following request, alongside a body 
+                specifying what id you want to change, and which fields:
+            </p>
+            <p>PUT http://localhost:8880/products/edit</p>
+            <p>Body Example: </p>
+            <pre>
+                <code>
+    {
+        "origin": "Portugal",
+        "product": "Apples",
+        "best_before_date": "November 2019",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Apples.jpg/512px-Apples.jpg",
+        "amount": "100kg",
+        "id": 1
+    }
+                </code>
+            </pre>
+            <h2>Example Response</h2>
+            <p>No Response</p>
+            <h2>Response Codes</h2>
+            <table>
+                <tr>
+                    <th>Response Code</th>
+                    <th>Meaning</th>
+                </tr>
+                <tr>
+                    <td>200</td>
+                    <td>Success!</td>
+                </tr>
+                <tr>
+                    <td>500</td>
+                    <td>Internal server errror: Our services may be down</td>
+                </tr>
+                <tr>
+                    <td>400</td>
+                    <td>Bad request data: Item's parameters are invalid</td>
+                </tr>
+                <tr>
+                    <td>404</td>
+                    <td>Invalid ID specified</td>
+                </tr>
+            </table>
+        </div>
+    
+
+        <div>
+            <h1 id = "deleteProduct">Delete Product</h1>
+            <h2>About</h2>
+            <p>The Delete Product request is used to delete objects in the database specified in the request's JSON file</p>
+            <p>
+                    This method complies with the REST principles, for example it is idempotenet, meaning that you can send multiple copies 
+                    of the same request with no side-effects, in this case, only one item is deleted, not multiple.
+                </p>
+            <h2>Endpoint URI</h2>
+            <code>/products/delete</code>
+            <h2>HTTP Method</h2>
+            <p>DELETE</p>
+            <h2>Example Request</h2>
+            <p>If you would want to delete a product you would send the following request, alongside a body specifying the id 
+                of the product to be deleted:
+            </p>
+            <p>DELETE http://localhost:8880/products/delete</p>
+            <p>JSON File in Request:</p>
+            <pre>
+                <code>
+    {
+        "id": 1
+    }
+                </code>
+            </pre>
+            <h2>Example Response</h2>
+            <p>No response body on success</p>
+            <h2>Response Codes</h2>
+            <table>
+                <tr>
+                    <th>Response Code</th>
+                    <th>Meaning</th>
+                </tr>
+                <tr>
+                    <td>200</td>
+                    <td>Success!</td>
+                </tr>
+                <tr>
+                    <td>500</td>
+                    <td>Internal server errror: Our services may be down</td>
+                </tr>
+                <tr>
+                    <td>404</td>
+                    <td>Invalid ID specified</td>
+                </tr>
+            </table>
+        </div>
+        
+    </body>
+</html>
