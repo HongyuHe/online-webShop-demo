@@ -69,7 +69,7 @@ def products_create(db):
         abort(400, 'Bad request data')
     except KeyError:
         # if attributs missing, return 404 Not found
-        abort(400, 'Missing attributs. Please check your submission again!')
+        abort(404, 'Missing attributs. Please check your submission again!')
 
     # Genarate random id:
     rand_id = random.randint(1,1000)
