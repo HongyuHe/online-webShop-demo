@@ -1,0 +1,55 @@
+* {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-right: 30px;
+    margin-left: 30px;
+  }
+
+div, section {
+    background-color: rgb(247, 247, 247);
+    margin-bottom: 50px;
+    margin-top: 50px;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+pre {
+    background-color: white;
+    font-family: consolas;
+}
+
+body {
+      background-color: rgb(255, 251, 201);
+}
+
+table, td {
+    background-color: white;
+    border: 1px solid black;
+    text-align: center;
+}
+
+a {
+    background-color: white;
+    padding: 5px;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+h1 {
+      color: #2F4F4F;
+      text-align: center;
+      background-color: white;
+      padding: 5px;
+      border-radius: 10px;
+      font-family: arial;
+}
+
+h2 {
+    border-bottom: 1px solid black;
+    font-family: arial;
+}
+
+.intro {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
