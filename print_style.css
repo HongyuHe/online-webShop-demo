@@ -32,7 +32,7 @@
         text-align: center;
     }
     .Button,
-    .Delete {
+    .Delete .Edite {
         /* No need to display operation column */
         display: none;
     }

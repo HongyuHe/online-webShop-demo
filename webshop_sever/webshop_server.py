@@ -123,8 +123,15 @@ def products_id(db, id):
     return json.dumps(product)
 
 # Functionality_4: to change data of a specific item (Update)
-@route('/products/edit/<id>', method='PUT')
-def products_edit(db, id):
+@route('/products/edit', method='PUT')
+def products_edit(db):
+
+    try:
+        id = (json.load(request.body))['id']
+    except:
+        #  Internal Server Error         
+        abort(500)
+        return
 
     # Check existence
     all_id = []
@@ -139,7 +146,8 @@ def products_edit(db, id):
 
     try:
         try:
-            new_item = json.load(request.body)                 
+            new_item = json.load(request.body) 
+            print (new_item)                
         except:
             raise ValueError
         
@@ -170,12 +178,18 @@ def products_edit(db, id):
     return
 
 # Functionality_5: to remove data of a specific item (Delete)
-@route('/products/delete/<id>', method='DELETE')
-def products_delete(db, id):
+@route('/products/delete', method='DELETE')
+def products_delete(db):
 
     all_id = []
     print('\ndelete')
-    
+    try:
+        id = (json.load(request.body))['id']
+    except:
+        #  Internal Server Error         
+        abort(500)
+        return
+
     try:
         db.execute("SELECT id FROM supermarket")
         products_id = db.fetchall()
@@ -202,6 +216,17 @@ def products_delete(db, id):
         abort(500)
         return
 
+    return
+
+# Reset Database:
+@route('/products/reset', method='DELETE')
+def products_reset(db):
+    try:
+        db.execute("DELETE FROM supermarket WHERE id <> 1 AND id <> 2;")
+    except:
+        #  Internal Server Error         
+        abort(500)
+        return
     return
 
 ###############################################################################

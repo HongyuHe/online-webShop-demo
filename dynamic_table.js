@@ -29,12 +29,46 @@ document.addEventListener('DOMContentLoaded', () => {
         return false;
     });
 
-    // Delete data (fake) allows a user to hide a product
+    // Delete data allows a user to delete a product from database
     $("#TopSell").delegate(".Delete", "click", function() {
+
+        // let id = Number($(this).closest('.id').text());
         let ancestor = $(this).closest("tr");
+        let id = Number(ancestor.children().eq(5).text());
+
+        DeleteData(id);
         ancestor.fadeOut(500, () => {
             ancestor.remove();
         });
+        updated = false;
+    });
+
+    // Delete data (fake) allows a user to hide a product
+    $("#TopSell").delegate(".Edit", "click", function() {
+
+        let ancestor = $(this).closest("tr");
+        let id = Number(ancestor.children().eq(5).text());
+        const im_src = ancestor.children().eq(0).children()[0].src;
+        const edit_row =
+            "<tr id='editRow'><form>" +
+            `<td><input id='e_image' name='image' type='url' placeholder=${im_src}></td>` +
+            `<th><input id='e_product' value=${ancestor.children().eq(1).text()} name='product' type='text' required></th>` +
+            `<td><input id='e_amount' value=${parseInt(ancestor.children().eq(2).text())} name='amount' type='number' ></td>` +
+            `<td><input id='e_origin'value=${ancestor.children().eq(3).text()} name='origin' type='text' ></td>` +
+            `<td><input id='e_best_before_date'value=${ancestor.children().eq(4).text()} name='best_before_date' type='text' ></td>` +
+            `<td class='Button'><button id='save'>Save</button>` +
+            "</td></form></tr>";
+
+        ancestor.empty();
+        ancestor.after(edit_row);
+        $("#editRow").css('display', 'none');
+        $("#editRow").fadeIn(1000);
+
+        $('#save').on('click', () => {
+            EditData(id, im_src);
+            // UpdateData();
+        });
+
         updated = false;
     });
 });
@@ -59,12 +93,8 @@ function UpdateData() {
 function ResetData() {
     /* Send reset command to server, resets to banana and apple */
     $.ajax({
-        type: 'GET',
-        url: 'https://wt.ops.labs.vu.nl/api19/6bb9b56b/reset',
-        success: function(products) {
-
-            // alert(`${products.Success}`);
-        },
+        type: 'DELETE',
+        url: 'http://localhost:8874/products/reset'
     });
 }
 
@@ -74,7 +104,7 @@ function SubmitData() {
         "product": `${$("#product").val()}`,
         "amount": `${$("#amount").val()}`,
         "origin": `${$("#origin").val()}`,
-        "best_before_date": `${$("#best_before_date").val()}`,
+        "best_before_date": `${$("#best_before_date").val()}`
     };
     /* AJAX post request to server with input data */
     $.ajax({
@@ -82,10 +112,38 @@ function SubmitData() {
         url: 'http://localhost:8874/products/create',
         data: JSON.stringify(new_data),
         success: function(sourse) {
-
-            // alert("Submit success!");
             AddNewData(sourse);
         },
+    });
+}
+
+function DeleteData(id) {
+
+    let id_msg = { 'id': id };
+    $.ajax({
+        type: 'DELETE',
+        url: 'http://localhost:8874/products/delete',
+        data: JSON.stringify(id_msg)
+    });
+}
+
+function EditData(id, im_src) {
+
+    var edit_data = {
+        "image": `${im_src}`,
+        "product": `${$("#e_product").val()}`,
+        "amount": `${$("#e_amount").val()}`,
+        "origin": `${$("#e_origin").val()}`,
+        "best_before_date": `${$("#e_best_before_date").val()}`,
+        "id": id
+    };
+    $.ajax({
+        type: 'PUT',
+        url: 'http://localhost:8874/products/edit',
+        data: JSON.stringify(edit_data),
+        success: function(data) {
+            UpdateData();
+        }
     });
 }
 
@@ -158,7 +216,9 @@ function InitTable(products) {
         $(this).attr("class", "id");
     });
     $(".TopSellTable tr:gt(0) td:nth-child(7)").each(function() {
-        $(this).html("<button class='Delete'>Delete</button>");
+        $(this).html("<div><button class='Edit'>Edit</button></div>" +
+            "<div><button class='Delete'>Delete</button></div>"
+        );
     });
     $topsell_table.append(input_row);
 
@@ -232,17 +292,13 @@ function AddNewData(sourse) {
         "<td class='origin'></td>" +
         "<td class='best_before_date'></td>" +
         "<td class='id'></td>" +
-        "<td><button class='Delete'>Delete</button></td>" +
-        "</td>";
+        "<td><div><button class='Edit'>Edit</button></div>" +
+        "<div><button class='Delete'>Delete</button></div></td>";
 
     $.ajax({
         type: 'GET',
         url: `${sourse.URI}`,
         success: function(products) {
-            // console.log(products);
-            // console.log("attr", Object.getOwnPropertyNames(products[0]));
-            // var arr = Object.keys(products[0]);
-            // console.log('arr', arr);
 
             let cur_index = $(".TopSellTable").children().length - 2;
 
