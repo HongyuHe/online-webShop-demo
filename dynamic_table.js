@@ -15,17 +15,22 @@ document.addEventListener('DOMContentLoaded', () => {
     $("#reset").on('click', () => {
 
         ResetData();
-        $(".TopSellTable").fadeOut(1500);
-        UpdateData();
-        $(".TopSellTable").fadeIn(1500);
+
         updated = true;
     });
 
     // Submit new item:
     $("#TopSell").delegate("#submit", "click", () => {
 
-        SubmitData();
-        update = false;
+        // let form_check = CheckFrom();
+        if (CheckFrom()) {
+            SubmitData();
+            update = false;
+        } else {
+            alert('Sorry, the form is not complete!');
+            // console.log(CheckFrom());
+            // $(form_check).css('background-color', 'red');
+        }
 
         // Do not reload the entire page:
         return false;
@@ -87,7 +92,7 @@ function UpdateData() {
 
             InitTable(products); //Initialize table with received variables
             InitSortTopSell(); //Initialise new sort
-            InitButton(); //Initialise submit button
+            // InitButton(); //Initialise submit button
         },
     });
 }
@@ -96,7 +101,12 @@ function ResetData() {
     /* Send reset command to server, resets to banana and apple */
     $.ajax({
         type: 'DELETE',
-        url: 'http://localhost:8874/products/reset'
+        url: 'http://localhost:8874/products/reset',
+        success: function(data) {
+            $(".TopSellTable").fadeOut(1500);
+            UpdateData();
+            $(".TopSellTable").fadeIn(1500);
+        }
     });
 }
 
@@ -262,6 +272,32 @@ function InitButton() {
             document.querySelector('#submit').disabled = true;
     });
 }
+
+/* Check form completeness */
+function CheckFrom() {
+    if (document.querySelector('#image').value.length > 0 &&
+        document.querySelector('#product').value.length > 0 &&
+        document.querySelector('#amount').value.length > 0 &&
+        document.querySelector('#origin').value.length > 0 &&
+        document.querySelector('#best_before_date').value.length > 0) {
+
+        return true;
+    } else
+        return false;
+    //     if (!document.querySelector('#image').value.length) {
+    //         return '#image';
+    //     } else if (!document.querySelector('#product').value.length) {
+    //         return '#product';
+    //     } else if (!document.querySelector('#amount').value.length) {
+    //         return '#amount';
+    //     } else if (!document.querySelector('#origin').value.length) {
+    //         return '#origin';
+    //     } else if (!document.querySelector('#best_before_date').value.length) {
+    //         return "#best_before_date";
+    //     } else
+    //         return 'ready';
+}
+
 
 /* Fill in data using DOM */
 function FillData(cur_index, products) {

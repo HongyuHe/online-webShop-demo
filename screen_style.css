@@ -358,7 +358,7 @@ svg {
 }
 
 input:focus {
-    background-color: yellow;
+    background-color: rgb(229, 245, 205);
 }
 
 @media only screen and (max-width: 600px) {
