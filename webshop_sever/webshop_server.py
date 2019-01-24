@@ -2,7 +2,7 @@ from bottle import route, response, error, get
 from bottle import *
 import json
 import random
-import os
+# import os
 
 @get('/')
 def hello_world():
@@ -35,9 +35,6 @@ def products(db):
 @route('/products/create', method='POST')
 def products_create(db):
 
-    # print ('\nHere')
-    print (json.load(request.body))
-
     try:
         db.execute("SELECT id FROM supermarket")
         products_id = db.fetchall()
@@ -51,7 +48,6 @@ def products_create(db):
 
     try:
         try:
-            print('\n create')
             new_item = json.load(request.body)                   
         except:
             raise ValueError
@@ -136,7 +132,6 @@ def products_edit(db):
     # Check existence
     all_id = []
     try:
-        print('\nedit')
         db.execute("SELECT id FROM supermarket")
         products_id = db.fetchall()
     except:
@@ -146,8 +141,7 @@ def products_edit(db):
 
     try:
         try:
-            new_item = json.load(request.body) 
-            print (new_item)                
+            new_item = json.load(request.body)              
         except:
             raise ValueError
         
@@ -182,7 +176,6 @@ def products_edit(db):
 def products_delete(db):
 
     all_id = []
-    print('\ndelete')
     try:
         id = (json.load(request.body))['id']
     except:
@@ -265,5 +258,5 @@ if __name__ == "__main__":
     install(WtDbPlugin())
     install(WtCorsPlugin())
 
-    print("PID: ",os.getpid())
+    # print("PID: ",os.getpid())
     run(host='localhost', port=8874, reloader=True, debug=True, autojson=False)

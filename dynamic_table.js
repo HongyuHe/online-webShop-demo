@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
     $("#reset").on('click', () => {
 
         ResetData();
-
         updated = true;
     });
 
@@ -73,7 +72,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         $('#save').on('click', () => {
             EditData(id, im_src);
-            // UpdateData();
         });
 
         updated = false;
@@ -103,9 +101,9 @@ function ResetData() {
         type: 'DELETE',
         url: 'http://localhost:8874/products/reset',
         success: function(data) {
-            $(".TopSellTable").fadeOut(1500);
+            $(".TopSellTable").fadeOut(500);
             UpdateData();
-            $(".TopSellTable").fadeIn(1500);
+            $(".TopSellTable").fadeIn(500);
         }
     });
 }
@@ -284,18 +282,6 @@ function CheckFrom() {
         return true;
     } else
         return false;
-    //     if (!document.querySelector('#image').value.length) {
-    //         return '#image';
-    //     } else if (!document.querySelector('#product').value.length) {
-    //         return '#product';
-    //     } else if (!document.querySelector('#amount').value.length) {
-    //         return '#amount';
-    //     } else if (!document.querySelector('#origin').value.length) {
-    //         return '#origin';
-    //     } else if (!document.querySelector('#best_before_date').value.length) {
-    //         return "#best_before_date";
-    //     } else
-    //         return 'ready';
 }
 
 
@@ -354,9 +340,9 @@ function AddNewData(sourse) {
     });
 }
 
-/**
+/*****************************************
  * Function: Sorting tables;
- */
+ *****************************************/
 function sortTable(n, id, dataType) {
     var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0,
         offSet = 1,

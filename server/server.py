@@ -47,7 +47,6 @@ def products_create(db):
 
     try:
         try:
-            print('\n create')
             new_item = json.load(request.body)                   
         except:
             raise ValueError
@@ -138,7 +137,6 @@ def products_edit(db):
     # Check existence
     all_id = []
     try:
-        print('\nedit')
         db.execute("SELECT id FROM supermarket")
         products_id = db.fetchall()
     except:
@@ -190,8 +188,6 @@ def products_delete(db):
         return
 
     all_id = []
-    print('\ndelete')
-    
     try:
         db.execute("SELECT id FROM supermarket")
         products_id = db.fetchall()

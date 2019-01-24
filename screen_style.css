@@ -96,11 +96,27 @@ button {
     /* Do not display contours  */
     font-family: Microsoft YaHei;
     color: white;
-    font-size: 85%;
+    font-size: 90%;
 }
 
 button:hover {
     background: #5599FF;
+}
+
+.Delete {
+    background: rgb(226, 22, 22);
+}
+
+#save {
+    background: rgb(151, 21, 134);
+}
+
+.Edit {
+    background: rgb(71, 21, 151);
+}
+
+#reset {
+    background: rgb(19, 121, 112);
 }
 
 table {
