@@ -3,14 +3,6 @@ from bottle import *
 import json
 import random
 
-@get('/')
-def hello_world():
-
-    response_body = {'Hello': 'World'}
-
-    response.headers['Content-Type'] = 'application/json'
-    return json.dumps(response_body)
-
 ###############################################################################
 # CRUD operations
 

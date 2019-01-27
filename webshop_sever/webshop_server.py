@@ -2,15 +2,7 @@ from bottle import route, response, error, get
 from bottle import *
 import json
 import random
-# import os
-
-@get('/')
-def hello_world():
-
-    response_body = {'Hello': 'World'}
-
-    response.headers['Content-Type'] = 'application/json'
-    return json.dumps(response_body)
+# import os     # Debug using PID
 
 ###############################################################################
 # CRUD operations
