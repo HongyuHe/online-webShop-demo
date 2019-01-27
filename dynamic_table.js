@@ -208,7 +208,7 @@ function InitTable(products) {
 
     // Set classes:
     $(".TopSellTable tr:gt(0) td:nth-child(1)").each(function() {
-        $(this).append("<image class=image></image>")
+        $(this).append("<image class=image></image>");
     });
     $(".TopSellTable tr:gt(0) th").each(function() {
         $(this).attr("class", "product");
@@ -304,7 +304,10 @@ function FillData(cur_index, products) {
     function _fillRow(_index, _product) {
         $.each(_product, (key, value) => {
             if (key == "image")
-                $(".image").eq(cur_index).attr("src", `${_product.image}`);
+                $(".image").eq(cur_index).attr({
+                    "src": `${_product.image}`,
+                    "alt": `${_product.product}`
+                });
             else if (key == "amount" && _index > 1)
                 $(`.${key}`).eq(cur_index).text(`${value}kg`);
             else
