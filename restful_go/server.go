@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 	"log"     // Debug
-	"os"      // Check if "./inventory.db" is exist
+	"os"      // Only used to Check if "./inventory.db" is exist
 	"reflect" // Range over structure
 
 	"database/sql"
