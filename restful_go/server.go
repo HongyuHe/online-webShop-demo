@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 	"log"     // Debug
-	"os"      // Only used to Check if "./inventory.db" is exist
+	"os"      // This package is only used to Check if "./inventory.db" is exist
 	"reflect" // Range over structure
 
 	"database/sql"
@@ -13,6 +13,8 @@ import (
 
 	_ "github.com/mattn/go-sqlite3"
 )
+
+//Setting up structures for productcs, errors, and HTTP response
 
 type Product struct {
 	ID             int    `json:"id"`
@@ -39,7 +41,7 @@ func main() {
 	var is_exist bool
 	is_exist, _ = PathExists("./inventory.db")
 
-	if !is_exist {
+	if !is_exist { //generate new default database
 		database, _ = sql.Open("sqlite3", "./inventory.db")
 		database.Exec(`CREATE TABLE IF NOT EXISTS supermarket
 							(id INTEGER PRIMARY KEY,
@@ -65,7 +67,7 @@ func main() {
 
 }
 
-/* Check if database is exist */
+/* Check if database exists */
 func PathExists(path string) (bool, error) {
 	_, err := os.Stat(path)
 	if err == nil {
@@ -111,7 +113,7 @@ func Products(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(products)
 }
 
-/* Functionality_2: to add data for a new product item (Create) */
+/* Functionality_2 [Create]: Add a new product to the database */
 func ProductsCreate(w http.ResponseWriter, r *http.Request) {
 	log.Printf("[%s] %q\n", r.Method, r.URL.String())
 
@@ -122,7 +124,7 @@ func ProductsCreate(w http.ResponseWriter, r *http.Request) {
 
 		return
 	}
-	// Read body
+	// Read request body
 	b, err := ioutil.ReadAll(r.Body)
 	defer r.Body.Close()
 	if err != nil {
@@ -172,7 +174,7 @@ func ProductsCreate(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(Response{new_product.ID})
 }
 
-/* Functionality_3: to list the data of a specific item (Retrieve) */
+/* Functionality_3[Retrieve]: list the data of a specific item */
 func ProductsID(w http.ResponseWriter, r *http.Request) {
 	log.Printf("[%s] %q\n", r.Method, r.URL.String())
 
@@ -183,7 +185,7 @@ func ProductsID(w http.ResponseWriter, r *http.Request) {
 
 		return
 	}
-	// Read body
+	// Read request body
 	b, err := ioutil.ReadAll(r.Body)
 	defer r.Body.Close()
 	if err != nil {
@@ -222,7 +224,7 @@ func ProductsID(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(item)
 }
 
-/* Functionality_4: to change data of a specific item (Update) */
+/* Functionality_4 [Update]: change the data of a specific item  */
 func ProductsEdit(w http.ResponseWriter, r *http.Request) {
 	log.Printf("[%s] %q\n", r.Method, r.URL.String())
 
@@ -233,7 +235,7 @@ func ProductsEdit(w http.ResponseWriter, r *http.Request) {
 
 		return
 	}
-	// Read body
+	// Read request body
 	b, err := ioutil.ReadAll(r.Body)
 	defer r.Body.Close()
 	if err != nil {
@@ -292,7 +294,7 @@ func ProductsEdit(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-/* Functionality_5: to remove data of a specific item (Delete) */
+/* Functionality_5 [Delete]: remove data of a specific product (Delete) */
 func ProductsDelete(w http.ResponseWriter, r *http.Request) {
 	log.Printf("[%s] %q\n", r.Method, r.URL.String())
 
@@ -303,7 +305,7 @@ func ProductsDelete(w http.ResponseWriter, r *http.Request) {
 
 		return
 	}
-	// Read body
+	// Read request body
 	b, err := ioutil.ReadAll(r.Body)
 	defer r.Body.Close()
 	if err != nil {
