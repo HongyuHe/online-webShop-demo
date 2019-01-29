@@ -11,290 +11,458 @@
     <link rel="stylesheet" href="evaluation.css">
 </head>
 
-<body>
-    <section id="selfEvaluation">
-        <h1>Miko and HongYu's Online Store Self Evaluation Report</h1>
+<p>
+    &nbsp;&nbsp;&nbsp;&nbsp;Our website attempts to provide a great user experience, it has so far managed to do well, however, there are possible improvements to make the site more accessible, and more usable for users. First of all our page fails to provide
+    alt attributes for all images. It only provides them for the static images present on the site and fails to do so for the dynamic table. Second of all, whilst the input form of the dynamic table includes many useful placeholder and name tags for understanding
+    its purpose, some short text explaining the usage would make the page more accessible. Finally, our page is not fully functional through a keyboard alone, the Google Maps and Interactive Widget are not accessible. However, we believe that this is
+    not the core functionality of our web page, and as such does not merit fixes, especially since they are out of reach. We worked hard to make the page as intuitive as possible which allowed us to make the page highly usable. One example of this is
+    in the different colored Edit, Delete, and Submit buttons.
+</p>
+<p>
+    &nbsp;&nbsp;&nbsp;&nbsp;We believe that one of the most important WCAG guidelines for our web page to follow is Guideline 1.3.1 "Info and Relationships: Information, structure, and relationships conveyed through presentation can be programmatically determined
+    or are available in text. (Level A)" In order to fulfill this guideline we used semantic tags throughout our web page such as &lt;abbr&gt; in order to convey the relationships and meaning of text on our website. We also carefully used the header and
+    section tags in order to properly sequence our web page. This decision also lead to a more accessible and usable site. We also believe that Guideline 2.4.4 "Link Purpose (In Context): The purpose of each link can be determined from the link text alone
+    or from the link text together with its programmatically determined link context, except where the purpose of the link would be ambiguous to users in general. (Level A)" is especially important for accessibility. We strived hard to meet this guideline
+    by using a navigation bar for most of our links. However during this self evaluation report we realized that we had a link under our "Physical Locations" table which did not have a clear purpose. The link leads to a Krakow Post article explaining
+    how stores in Poland are closed on Sundays. However, we should make this link much more clean and make the purpose more clear. This can be accomplished with special accessiblity tags. We also believe that this change will better the overall usability
+    of our site. Finally, we believe that Guideline 1.4.1 "Use of Color: Color is not used as the only visual means of conveying information, indicating an action, prompting a response, or distinguishing a visual element. (Level A)" is an important accessibility
+    guideline. If this site were to be live for store employees we must prepare the site to be as accessible as possible to employees with disabilities. As one of the most common disabilities is color blindness, this guideline is especially important.
+    As such we took steps in order to make the page as eye pleasing as possible, whilst still being accessible to these people. This means that all of our interactive elements do not only use color as a means to convey information. Our page uses shapes,
+    correct tags, and contrasting colors in order to comply with this guideline. Our web page conforms, and also does not conform to other guidelines found under Appendix A.
+</p>
+<p>
+    &nbsp;&nbsp;&nbsp;&nbsp;We plan to improve our website in specific ways in order to improve its accessibility and usability. The following is our prioritized list of improvements to make, from most important to least.
+</p>
+<ol>
+    <li>
+        Fix the Krakow Post link in order to make it's purpose more clear. In order to accomplish this we will add an &lt;abbr&gt; tag around the link, explaining the purpose of the link. [Guideline 2.4.4]
+    </li>
+    <li>
+        Provide alt attributes for the images missing them (ie. in the dynamic table). In order to make the dynamic table's images have alt attributes, we will simply make the alt text the products name. In the future one could add an additional column asking
+        for alt text. However we believe this to be outside the scope for this assignment. [Guideline 1.1.1]
+    </li>
+    <li>
+        We will make only the last row refresh when adding a new product to the table. This will be done in javascript by simply adding a row to the HTML table instead of building the whole table again. This will improve the user's experience. [Assignment 2 Reset
+        Button]
+    </li>
+    <li>
+        We will change how our form stops users from submitting incomplete forms. Currently our page grays out the submit button when it detects an incomplete input field. This however, our TA pointed out to be unintuitive and could be confusing. As such in the
+        improved implementation we will get rid of the grayed out submit button and replace it with a Javascript alert. This will be done using Javascript's alert() function. [Assignment 2 Misc.]
+    </li>
+    <li>
+        In order to make our code cleaner we will merge dynamic_table.js and sort_table.js into one file. This should not be complicated [Assignment 2 Misc.]
+    </li>
+</ol>
+</section>
+<section id="appendixA">
+    <h1>Appendix A (Accessibility Table)</h1>
+    <table>
+        <tr>
+            <th>Guideline</th>
+            <th>Success Criteria Met</th>
+            <th>Explanation</th>
+        </tr>
+        <tr>
+            <th colspan="3">Guideline 1.1 Text Alternatives: Provide text alternatives for any non-text content so that it can be changed into other forms people need, such as large print, braille, speech, symbols or simpler language.</th>
+        </tr>
+        <tr>
+            <td>1.1.1 Non-text Content: All non-text content that is presented to the user has a text alternative that serves the equivalent purpose, except for the situations listed below. (Level A)</td>
+            <td><b>No</b></td>
+            <td>All of the static images on our site have valid alt attributes, however the dynamic images in our products table do not have alt attributes</td>
+        </tr>
+        <tr>
+            <th colspan="3">Guideline 1.3 Adaptable: Create content that can be presented in different ways (for example simpler layout) without losing information or structure.</th>
+        </tr>
+        <tr>
+            <td>1.3.1 Info and Relationships: Information, structure, and relationships conveyed through presentation can be programmatically determined or are available in text. (Level A)</td>
+            <td>Yes</td>
+            <td>Our website includes informative classes and ids which convey the relationships, structure, and information.</td>
+        </tr>
+        <tr>
+            <td>1.3.2 Meaningful Sequence: When the sequence in which content is presented affects its meaning, a correct reading sequence can be programmatically determined. (Level A)</td>
+            <td>Yes</td>
+            <td>Our website uses correct Header tags to better structure the page for accessible browsers, and conveys a correct reading order</td>
+        </tr>
+        <tr>
+            <td>1.3.3 Sensory Characteristics: Instructions provided for understanding and operating content do not rely solely on sensory characteristics of components such as shape, size, visual location, orientation, or sound. (Level A)</td>
+            <td>Yes</td>
+            <td>The interactive segments of our website include useful placeholder text, and is stylized in such a way that the purpose is clear. One possible improvement here is to add text explaining the use of the table</td>
+        </tr>
+        <tr>
+            <th colspan="3">Guideline 1.4 Distinguishable: Make it easier for users to see and hear content including separating foreground from background.</th>
+        </tr>
+        <tr>
+            <td>1.4.1 Use of Color: Color is not used as the only visual means of conveying information, indicating an action, prompting a response, or distinguishing a visual element. (Level A)</td>
+            <td>Yes</td>
+            <td>Our website uses not only color to convey informations and relationships. For example, our interactive buttons use shapes as well as text to distinguish visual elements</td>
+        </tr>
+        <tr>
+            <td>1.4.2 Audio Control: If any audio on a Web page plays automatically for more than 3 seconds, either a mechanism is available to pause or stop the audio, or a mechanism is available to control audio volume independently from the overall system
+                volume level. (Level A)</td>
+            <td>Yes</td>
+            <td>We have no audio on our website</td>
+        </tr>
+        <tr>
+            <th colspan="3">Guideline 2.1 Keyboard Accessible: Make all functionality available from a keyboard.</th>
+        </tr>
+        <tr>
+            <td>2.1.1 Keyboard: All functionality of the content is operable through a keyboard interface without requiring specific timings for individual keystrokes, except where the underlying function requires input that depends on the path of the user's
+                movement and not just the endpoints. (Level A)</td>
+            <td><b>No</b></td>
+            <td>Whilst the main portion of our website (the Products Table) is operable through a keyboard, for example you can navigate using tab, other sections, such as the Google Maps and interactive widget at the bottom, are inoperable by keyboard only.</td>
+        </tr>
+        <tr>
+            <td>2.1.2 No Keyboard Trap: If keyboard focus can be moved to a component of the page using a keyboard interface, then focus can be moved away from that component using only a keyboard interface, and, if it requires more than unmodified arrow
+                or tab keys or other standard exit methods, the user is advised of the method for moving focus away. (Level A)</td>
+            <td>Yes</td>
+            <td>Our user never enters a Keyboard Trap, they can always move out of it using the tab button</td>
+        </tr>
+        <tr>
+            <td>2.1.3 Keyboard (No Exception): All functionality of the content is operable through a keyboard interface without requiring specific timings for individual keystrokes. (Level AAA)</td>
+            <td>No</td>
+            <td>Not all functionality is operable through a keyboard interface as mentioned in 2.1.1 The Google Maps and colorful balls are mouse operable only. The Google Maps interface is out of our hands, and the balls are not crucial in our opinion</td>
+        </tr>
+        <tr>
+            <th colspan="3">Guideline 2.4 Navigable: Provide ways to help users navigate, find content, and determine where they are.</th>
+        </tr>
+        <tr>
+            <td>2.4.1 Bypass Blocks: A mechanism is available to bypass blocks of content that are repeated on multiple Web pages. (Level A)</td>
+            <td>Yes</td>
+            <td>Our website consists of only one web page, as such there are is no content that is repeated on multiple pages. As well as this, blocks of content can be bypassed by means of a keyboard</td>
+        </tr>
+        <tr>
+            <td>2.4.2 Page Titled: Web pages have titles that describe topic or purpose. (Level A)</td>
+            <td>Yes</td>
+            <td>The Title of our webpage is "Miko and Honngyu's Online Store", this descripes the topic of the webpage</td>
+        </tr>
+        <tr>
+            <td>2.4.3 Focus Order: If a Web page can be navigated sequentially and the navigation sequences affect meaning or operation, focusable components receive focus in an order that preserves meaning and operability. (Level A)</td>
+            <td>Yes</td>
+            <td>The webpage can be navigated sequentially via the tab key, all information is present sequentially and retains its original meaning and purpose. However, one possible improvement would be to fix the tab navigation, as it currently requires
+                pressing the key A LOT</td>
+        </tr>
+        <tr>
+            <td>2.4.4 Link Purpose (In Context): The purpose of each link can be determined from the link text alone or from the link text together with its programmatically determined link context, except where the purpose of the link would be ambiguous
+                to users in general. (Level A)</td>
+            <td><b>No</b></td>
+            <td>Whilst the majority of the links on our website adhere to this principle, there is one link leading to a Krakow Post article which does not have enough context, instead, it is a simple "no"</td>
+        </tr>
+        <tr>
+            <td>2.4.5 Multiple Ways: More than one way is available to locate a Web page within a set of Web pages except where the Web Page is the result of, or a step in, a process. (Level AA)</td>
+            <td>Yes</td>
+            <td>This guideline is not really pertinent to our website as we do not have a collection of Web pages.</td>
+        </tr>
+        <tr>
+            <td>2.4.6 Headings and Labels: Headings and labels describe topic or purpose. (Level AA)</td>
+            <td>Yes</td>
+            <td>Our website uses Headings and Labels properly to describe section's topics. Each sections has a heading which describes its topic and also is useful for navigations</td>
+        </tr>
+        <tr>
+            <td>2.4.7 Focus Visible: Any keyboard operable user interface has a mode of operation where the keyboard focus indicator is visible. (Level AA)</td>
+            <td>Yes</td>
+            <td>Our keyboard operable dynamic table uses focus attributes in order to visualize when a user is focues on a field (focus is yellow). Furthermore, when navigating our site through the tab button, different sections are highlighted depending
+                on the browser.</td>
+        </tr>
+        <tr>
+            <td>2.4.8 Location: Information about the user's location within a set of Web pages is available. (Level AAA)</td>
+            <td>Yes</td>
+            <td>Once again, our website is not a collection of webpages, but rather a single page. As such the user is always on the same document. However our headings help the user in locating themselves on this one page. Overall, this guideline is not
+                pertinent to our page</td>
+        </tr>
+        <tr>
+            <td>2.4.9 Link Purpose (Link Only): A mechanism is available to allow the purpose of each link to be identified from link text alone, except where the purpose of the link would be ambiguous to users in general. (Level AAA)</td>
+            <td>Yes</td>
+            <td>The purpose of each link can be identified from the link text alone, for example on our navigation bar, as well as the fixed Krakow Post link. The only exception is our dynamic table's buttons, but these features are ambiguous to the users
+                in general</td>
+        </tr>
+        <tr>
+            <td>2.4.10 Section Headings: Section headings are used to organize the content. (Level AAA)</td>
+            <td>Yes</td>
+            <td>Our website uses section headings, mainly h1-h6 tags to organise the content. Furthermore our website uses visual cues such as lines at the bottom of a section in order to better organize the content.</td>
+        </tr>
+    </table>
+</section>
 
-        <p class="intro">Date of Evaluation: Jan 24 2019</p>
-        <p class="intro">Authors: Mikolaj Zyzanski and HongYu He</p>
-        <p class="intro">Group: CS2-006</p>
+<p class="intro">Date of Evaluation: Jan 24 2019</p>
+<p class="intro">Authors: Mikolaj Zyzanski and HongYu He</p>
+<p class="intro">Group: CS2-006</p>
 
-        <p>
-            &nbsp;&nbsp;&nbsp;&nbsp;Our website attempts to provide a great user experience, it has so far managed to do well, however, there are possible improvements to make the site more accessible, and more usable for users. First of all our page fails to provide
-            alt attributes for all images. It only provides them for the static images present on the site and fails to do so for the dynamic table. Second of all, whilst the input form of the dynamic table includes many useful placeholder and name tags
-            for understanding its purpose, some short text explaining the usage would make the page more accessible. Finally, our page is not fully functional through a keyboard alone, the Google Maps and Interactive Widget are not accessible. However,
-            we believe that this is not the core functionality of our web page, and as such does not merit fixes, especially since they are out of reach. We worked hard to make the page as intuitive as possible which allowed us to make the page highly
-            usable. One example of this is in the different colored Edit, Delete, and Submit buttons.
-        </p>
-        <p>
-            &nbsp;&nbsp;&nbsp;&nbsp;We believe that one of the most important WCAG guidelines for our web page to follow is Guideline 1.3.1 "Info and Relationships: Information, structure, and relationships conveyed through presentation can be programmatically determined
-            or are available in text. (Level A)" In order to fulfill this guideline we used semantic tags throughout our web page such as &lt;abbr&gt; in order to convey the relationships and meaning of text on our website. We also carefully used the
-            header and section tags in order to properly sequence our web page. This decision also lead to a more accessible and usable site. We also believe that Guideline 2.4.4 "Link Purpose (In Context): The purpose of each link can be determined from
-            the link text alone or from the link text together with its programmatically determined link context, except where the purpose of the link would be ambiguous to users in general. (Level A)" is especially important for accessibility. We strived
-            hard to meet this guideline by using a navigation bar for most of our links. However during this self evaluation report we realized that we had a link under our "Physical Locations" table which did not have a clear purpose. The link leads
-            to a Krakow Post article explaining how stores in Poland are closed on Sundays. However, we should make this link much more clean and make the purpose more clear. This can be accomplished with special accessiblity tags. We also believe that
-            this change will better the overall usability of our site. Finally, we believe that Guideline 1.4.1 "Use of Color: Color is not used as the only visual means of conveying information, indicating an action, prompting a response, or distinguishing
-            a visual element. (Level A)" is an important accessibility guideline. If this site were to be live for store employees we must prepare the site to be as accessible as possible to employees with disabilities. As one of the most common disabilities
-            is color blindness, this guideline is especially important. As such we took steps in order to make the page as eye pleasing as possible, whilst still being accessible to these people. This means that all of our interactive elements do not
-            only use color as a means to convey information. Our page uses shapes, correct tags, and contrasting colors in order to comply with this guideline. Our web page conforms, and also does not conform to other guidelines found under Appendix A.
-        </p>
-        <p>
-            &nbsp;&nbsp;&nbsp;&nbsp;We plan to improve our website in specific ways in order to improve its accessibility and usability. The following is our prioritized list of improvements to make, from most important to least.
-        </p>
-        <ol>
-            <li>
-                Fix the Krakow Post link in order to make it's purpose more clear. In order to accomplish this we will add an &lt;abbr&gt; tag around the link, explaining the purpose of the link. [Guideline 2.4.4]
-            </li>
-            <li>
-                Provide alt attributes for the images missing them (ie. in the dynamic table). In order to make the dynamic table's images have alt attributes, we will simply make the alt text the products name. In the future one could add an additional column asking
-                for alt text. However we believe this to be outside the scope for this assignment. [Guideline 1.1.1]
-            </li>
-            <li>
-                We will make only the last row refresh when adding a new product to the table. This will be done in javascript by simply adding a row to the HTML table instead of building the whole table again. This will improve the user's experience. [Assignment 2 Reset
-                Button]
-            </li>
-            <li>
-                We will change how our form stops users from submitting incomplete forms. Currently our page grays out the submit button when it detects an incomplete input field. This however, our TA pointed out to be unintuitive and could be confusing. As such in the
-                improved implementation we will get rid of the grayed out submit button and replace it with a Javascript alert. This will be done using Javascript's alert() function. [Assignment 2 Misc.]
-            </li>
-            <li>
-                In order to make our code cleaner we will merge dynamic_table.js and sort_table.js into one file. This should not be complicated [Assignment 2 Misc.]
-            </li>
-        </ol>
-    </section>
-    <section id="appendixA">
-        <h1>Appendix A (Accessibility Table)</h1>
-        <table>
-            <tr>
-                <th>Guideline</th>
-                <th>Success Criteria Level A</th>
-                <th>Explanation</th>
-            </tr>
-            <tr>
-                <th colspan="3">Guideline 1.1 Text Alternatives: Provide text alternatives for any non-text content so that it can be changed into other forms people need, such as large print, braille, speech, symbols or simpler language.</th>
-            </tr>
-            <tr>
-                <td>1.1.1 Non-text Content: All non-text content that is presented to the user has a text alternative that serves the equivalent purpose, except for the situations listed below. (Level A)</td>
-                <td><b>No</b></td>
-                <td>All of the static images on our site have valid alt attributes, however the dynamic images in our products table do not have alt attributes</td>
-            </tr>
-            <tr>
-                <th colspan="3">Guideline 1.3 Adaptable: Create content that can be presented in different ways (for example simpler layout) without losing information or structure.</th>
-            </tr>
-            <tr>
-                <td>1.3.1 Info and Relationships: Information, structure, and relationships conveyed through presentation can be programmatically determined or are available in text. (Level A)</td>
-                <td>Yes</td>
-                <td>Our website includes informative classes and ids which convey the relationships, structure, and information.</td>
-            </tr>
-            <tr>
-                <td>1.3.2 Meaningful Sequence: When the sequence in which content is presented affects its meaning, a correct reading sequence can be programmatically determined. (Level A)</td>
-                <td>Yes</td>
-                <td>Our website uses correct Header tags to better structure the page for accessible browsers, and conveys a correct reading order</td>
-            </tr>
-            <tr>
-                <td>1.3.3 Sensory Characteristics: Instructions provided for understanding and operating content do not rely solely on sensory characteristics of components such as shape, size, visual location, orientation, or sound. (Level A)</td>
-                <td>Yes</td>
-                <td>The interactive segments of our website include useful placeholder text, and is stylized in such a way that the purpose is clear. One possible improvement here is to add text explaining the use of the table</td>
-            </tr>
-            <tr>
-                <th colspan="3">Guideline 1.4 Distinguishable: Make it easier for users to see and hear content including separating foreground from background.</th>
-            </tr>
-            <tr>
-                <td>1.4.1 Use of Color: Color is not used as the only visual means of conveying information, indicating an action, prompting a response, or distinguishing a visual element. (Level A)</td>
-                <td>Yes</td>
-                <td>Our website uses not only color to convey informations and relationships. For example, our interactive buttons use shapes as well as text to distinguish visual elements</td>
-            </tr>
-            <tr>
-                <td>1.4.2 Audio Control: If any audio on a Web page plays automatically for more than 3 seconds, either a mechanism is available to pause or stop the audio, or a mechanism is available to control audio volume independently from the overall
-                    system volume level. (Level A)</td>
-                <td>Yes</td>
-                <td>We have no audio on our website</td>
-            </tr>
-            <tr>
-                <td>1.4.3 Contrast (Minimum): The visual presentation of text and images of text has a contrast ratio of at least 4.5:1.(Level AA)</td>
-                <td>Yes</td>
-                <td>We have checked that all our visual presentation of text and images of text satisfied the contrast ratio of 4.5:1.</td>
-            </tr>
-            <tr>
-                <td>1.4.4 Resize text: Except for captions and images of text, text can be resized without assistive technology up to 200 percent without loss of content or functionality. (Level AA)</td>
-                <td>Yes</td>
-                <td>Our website is able to work well even when be resized up to 500%.</td>
-            </tr>
-            <tr>
-                <td>1.4.5 Images of Text: If the technologies being used can achieve the visual presentation, text is used to convey information rather than images of text.(Level AA)</td>
-                <td>Yes</td>
-                <td>Our website dis not use any image to convey literal information.</td>
-            </tr>
-            <tr>
-                <td>1.4.6 Contrast (Enhanced): The visual presentation of text and images of text has a contrast ratio of at least 7:1.(Level AAA)</td>
-                <td>No</td>
-                <td>We have checked that all our visual presentation of text and images of text satisfied the contrast ratio of 7:1 except the title and left-hand side menu.</td>
-            </tr>
-            <tr>
-                <td>1.4.7 Low or No Background Audio: For prerecorded audio-only content that (1) contains primarily speech in the foreground, (2) is not an audio CAPTCHA or audio logo, and (3) is not vocalization intended to be primarily musical expression
-                    such as singing or rapping.(Level AAA)</td>
-                <td>Yes</td>
-                <td>Our website dis not use any background audio.</td>
-            </tr>
-            <tr>
-                <td>1.4.8 Visual Presentation: For the visual presentation of blocks of text, a mechanism is available to achieve the following: (Level AAA)
-                    <ol>
-                        <li>
-                            Foreground and background colors can be selected by the user.
-                        </li>
-                        <li>
-                            Width is no more than 80 characters or glyphs (40 if CJK).
-                        </li>
-                        <li>
-                            Text is not justified (aligned to both the left and the right margins).
-                        </li>
-                        <li>
-                            Line spacing (leading) is at least space-and-a-half within paragraphs, and paragraph spacing is at least 1.5 times larger than the line spacing.
-                        </li>
-                        <li>
-                            Text can be resized without assistive technology up to 200 percent in a way that does not require the user to scroll horizontally to read a line of text on a full-screen window.
-                        </li>
-                    </ol>
-                </td>
-                <td>No</td>
-                <td>Although our website meet the requirement of 2 ~ 5, but as for "Foreground and background colors can be selected by the user.", there is too much additional work need to do and we have not made it yet. </td>
-            </tr>
-            <tr>
-                <td>1.4.9 Images of Text (No Exception): Images of text are only used for pure decoration or where a particular presentation of text is essential to the information being conveyed. (Level AAA)</td>
-                <td>Yes</td>
-                <td>Our website dis not use any image to convey literal information.</td>
-            </tr>
+<p>
+    &nbsp;&nbsp;&nbsp;&nbsp;Our website attempts to provide a great user experience, it has so far managed to do well, however, there are possible improvements to make the site more accessible, and more usable for users. First of all our page fails to provide
+    alt attributes for all images. It only provides them for the static images present on the site and fails to do so for the dynamic table. Second of all, whilst the input form of the dynamic table includes many useful placeholder and name tags for understanding
+    its purpose, some short text explaining the usage would make the page more accessible. Finally, our page is not fully functional through a keyboard alone, the Google Maps and Interactive Widget are not accessible. However, we believe that this is
+    not the core functionality of our web page, and as such does not merit fixes, especially since they are out of reach. We worked hard to make the page as intuitive as possible which allowed us to make the page highly usable. One example of this is
+    in the different colored Edit, Delete, and Submit buttons.
+</p>
+<p>
+    &nbsp;&nbsp;&nbsp;&nbsp;We believe that one of the most important WCAG guidelines for our web page to follow is Guideline 1.3.1 "Info and Relationships: Information, structure, and relationships conveyed through presentation can be programmatically determined
+    or are available in text. (Level A)" In order to fulfill this guideline we used semantic tags throughout our web page such as &lt;abbr&gt; in order to convey the relationships and meaning of text on our website. We also carefully used the header and
+    section tags in order to properly sequence our web page. This decision also lead to a more accessible and usable site. We also believe that Guideline 2.4.4 "Link Purpose (In Context): The purpose of each link can be determined from the link text alone
+    or from the link text together with its programmatically determined link context, except where the purpose of the link would be ambiguous to users in general. (Level A)" is especially important for accessibility. We strived hard to meet this guideline
+    by using a navigation bar for most of our links. However during this self evaluation report we realized that we had a link under our "Physical Locations" table which did not have a clear purpose. The link leads to a Krakow Post article explaining
+    how stores in Poland are closed on Sundays. However, we should make this link much more clean and make the purpose more clear. This can be accomplished with special accessiblity tags. We also believe that this change will better the overall usability
+    of our site. Finally, we believe that Guideline 1.4.1 "Use of Color: Color is not used as the only visual means of conveying information, indicating an action, prompting a response, or distinguishing a visual element. (Level A)" is an important accessibility
+    guideline. If this site were to be live for store employees we must prepare the site to be as accessible as possible to employees with disabilities. As one of the most common disabilities is color blindness, this guideline is especially important.
+    As such we took steps in order to make the page as eye pleasing as possible, whilst still being accessible to these people. This means that all of our interactive elements do not only use color as a means to convey information. Our page uses shapes,
+    correct tags, and contrasting colors in order to comply with this guideline. Our web page conforms, and also does not conform to other guidelines found under Appendix A.
+</p>
+<p>
+    &nbsp;&nbsp;&nbsp;&nbsp;We plan to improve our website in specific ways in order to improve its accessibility and usability. The following is our prioritized list of improvements to make, from most important to least.
+</p>
+<ol>
+    <li>
+        Fix the Krakow Post link in order to make it's purpose more clear. In order to accomplish this we will add an &lt;abbr&gt; tag around the link, explaining the purpose of the link. [Guideline 2.4.4]
+    </li>
+    <li>
+        Provide alt attributes for the images missing them (ie. in the dynamic table). In order to make the dynamic table's images have alt attributes, we will simply make the alt text the products name. In the future one could add an additional column asking
+        for alt text. However we believe this to be outside the scope for this assignment. [Guideline 1.1.1]
+    </li>
+    <li>
+        We will make only the last row refresh when adding a new product to the table. This will be done in javascript by simply adding a row to the HTML table instead of building the whole table again. This will improve the user's experience. [Assignment 2 Reset
+        Button]
+    </li>
+    <li>
+        We will change how our form stops users from submitting incomplete forms. Currently our page grays out the submit button when it detects an incomplete input field. This however, our TA pointed out to be unintuitive and could be confusing. As such in the
+        improved implementation we will get rid of the grayed out submit button and replace it with a Javascript alert. This will be done using Javascript's alert() function. [Assignment 2 Misc.]
+    </li>
+    <li>
+        In order to make our code cleaner we will merge dynamic_table.js and sort_table.js into one file. This should not be complicated [Assignment 2 Misc.]
+    </li>
+</ol>
+</section>
+<section id="appendixA">
+    <h1>Appendix A (Accessibility Table)</h1>
+    <table>
+        <tr>
+            <th>Guideline</th>
+            <th>Success Criteria Level A</th>
+            <th>Explanation</th>
+        </tr>
+        <tr>
+            <th colspan="3">Guideline 1.1 Text Alternatives: Provide text alternatives for any non-text content so that it can be changed into other forms people need, such as large print, braille, speech, symbols or simpler language.</th>
+        </tr>
+        <tr>
+            <td>1.1.1 Non-text Content: All non-text content that is presented to the user has a text alternative that serves the equivalent purpose, except for the situations listed below. (Level A)</td>
+            <td><b>No</b></td>
+            <td>All of the static images on our site have valid alt attributes, however the dynamic images in our products table do not have alt attributes</td>
+        </tr>
+        <tr>
+            <th colspan="3">Guideline 1.3 Adaptable: Create content that can be presented in different ways (for example simpler layout) without losing information or structure.</th>
+        </tr>
+        <tr>
+            <td>1.3.1 Info and Relationships: Information, structure, and relationships conveyed through presentation can be programmatically determined or are available in text. (Level A)</td>
+            <td>Yes</td>
+            <td>Our website includes informative classes and ids which convey the relationships, structure, and information.</td>
+        </tr>
+        <tr>
+            <td>1.3.2 Meaningful Sequence: When the sequence in which content is presented affects its meaning, a correct reading sequence can be programmatically determined. (Level A)</td>
+            <td>Yes</td>
+            <td>Our website uses correct Header tags to better structure the page for accessible browsers, and conveys a correct reading order</td>
+        </tr>
+        <tr>
+            <td>1.3.3 Sensory Characteristics: Instructions provided for understanding and operating content do not rely solely on sensory characteristics of components such as shape, size, visual location, orientation, or sound. (Level A)</td>
+            <td>Yes</td>
+            <td>The interactive segments of our website include useful placeholder text, and is stylized in such a way that the purpose is clear. One possible improvement here is to add text explaining the use of the table</td>
+        </tr>
+        <tr>
+            <th colspan="3">Guideline 1.4 Distinguishable: Make it easier for users to see and hear content including separating foreground from background.</th>
+        </tr>
+        <tr>
+            <td>1.4.1 Use of Color: Color is not used as the only visual means of conveying information, indicating an action, prompting a response, or distinguishing a visual element. (Level A)</td>
+            <td>Yes</td>
+            <td>Our website uses not only color to convey informations and relationships. For example, our interactive buttons use shapes as well as text to distinguish visual elements</td>
+        </tr>
+        <tr>
+            <td>1.4.2 Audio Control: If any audio on a Web page plays automatically for more than 3 seconds, either a mechanism is available to pause or stop the audio, or a mechanism is available to control audio volume independently from the overall system
+                volume level. (Level A)</td>
+            <td>Yes</td>
+            <td>We have no audio on our website</td>
+        </tr>
+        <tr>
+            <td>1.4.3 Contrast (Minimum): The visual presentation of text and images of text has a contrast ratio of at least 4.5:1.(Level AA)</td>
+            <td>Yes</td>
+            <td>We have checked that all our visual presentation of text and images of text satisfied the contrast ratio of 4.5:1.</td>
+        </tr>
+        <tr>
+            <td>1.4.4 Resize text: Except for captions and images of text, text can be resized without assistive technology up to 200 percent without loss of content or functionality. (Level AA)</td>
+            <td>Yes</td>
+            <td>Our website is able to work well even when be resized up to 500%.</td>
+        </tr>
+        <tr>
+            <td>1.4.5 Images of Text: If the technologies being used can achieve the visual presentation, text is used to convey information rather than images of text.(Level AA)</td>
+            <td>Yes</td>
+            <td>Our website dis not use any image to convey literal information.</td>
+        </tr>
+        <tr>
+            <td>1.4.6 Contrast (Enhanced): The visual presentation of text and images of text has a contrast ratio of at least 7:1.(Level AAA)</td>
+            <td>No</td>
+            <td>We have checked that all our visual presentation of text and images of text satisfied the contrast ratio of 7:1 except the title and left-hand side menu.</td>
+        </tr>
+        <tr>
+            <td>1.4.7 Low or No Background Audio: For prerecorded audio-only content that (1) contains primarily speech in the foreground, (2) is not an audio CAPTCHA or audio logo, and (3) is not vocalization intended to be primarily musical expression such
+                as singing or rapping.(Level AAA)</td>
+            <td>Yes</td>
+            <td>Our website dis not use any background audio.</td>
+        </tr>
+        <tr>
+            <td>1.4.8 Visual Presentation: For the visual presentation of blocks of text, a mechanism is available to achieve the following: (Level AAA)
+                <ol>
+                    <li>
+                        Foreground and background colors can be selected by the user.
+                    </li>
+                    <li>
+                        Width is no more than 80 characters or glyphs (40 if CJK).
+                    </li>
+                    <li>
+                        Text is not justified (aligned to both the left and the right margins).
+                    </li>
+                    <li>
+                        Line spacing (leading) is at least space-and-a-half within paragraphs, and paragraph spacing is at least 1.5 times larger than the line spacing.
+                    </li>
+                    <li>
+                        Text can be resized without assistive technology up to 200 percent in a way that does not require the user to scroll horizontally to read a line of text on a full-screen window.
+                    </li>
+                </ol>
+            </td>
+            <td>No</td>
+            <td>Although our website meet the requirement of 2 ~ 5, but as for "Foreground and background colors can be selected by the user.", there is too much additional work need to do and we have not made it yet. </td>
+        </tr>
+        <tr>
+            <td>1.4.9 Images of Text (No Exception): Images of text are only used for pure decoration or where a particular presentation of text is essential to the information being conveyed. (Level AAA)</td>
+            <td>Yes</td>
+            <td>Our website dis not use any image to convey literal information.</td>
+        </tr>
 
-            <tr>
-                <th colspan="3">Guideline 2.1 Keyboard Accessible: Make all functionality available from a keyboard.</th>
-            </tr>
-            <tr>
-                <td>2.1.1 Keyboard: All functionality of the content is operable through a keyboard interface without requiring specific timings for individual keystrokes, except where the underlying function requires input that depends on the path of the
-                    user's movement and not just the endpoints. (Level A)</td>
-                <td><b>No</b></td>
-                <td>Whilst the main portion of our website (the Products Table) is operable through a keyboard, for example you can navigate using tab, other sections, such as the Google Maps and interactive widget at the bottom, are inoperable by keyboard
-                    only.</td>
-            </tr>
-            <tr>
-                <td>2.1.2 No Keyboard Trap: If keyboard focus can be moved to a component of the page using a keyboard interface, then focus can be moved away from that component using only a keyboard interface, and, if it requires more than unmodified arrow
-                    or tab keys or other standard exit methods, the user is advised of the method for moving focus away. (Level A)</td>
-                <td>Yes</td>
-                <td>Our user never enters a Keyboard Trap, they can always move out of it using the tab button</td>
-            </tr>
-            <tr>
-                <th colspan="3">Guideline 2.4 Navigable: Provide ways to help users navigate, find content, and determine where they are.</th>
-            </tr>
-            <tr>
-                <td>2.4.1 Bypass Blocks: A mechanism is available to bypass blocks of content that are repeated on multiple Web pages. (Level A)</td>
-                <td>Yes</td>
-                <td>Our website consists of only one web page, as such there are is no content that is repeated on multiple pages. As well as this, blocks of content can be bypassed by means of a keyboard</td>
-            </tr>
-            <tr>
-                <td>2.4.2 Page Titled: Web pages have titles that describe topic or purpose. (Level A)</td>
-                <td>Yes</td>
-                <td>The Title of our webpage is "Miko and Honngyu's Online Store", this descripes the topic of the webpage</td>
-            </tr>
-            <tr>
-                <td>2.4.3 Focus Order: If a Web page can be navigated sequentially and the navigation sequences affect meaning or operation, focusable components receive focus in an order that preserves meaning and operability. (Level A)</td>
-                <td>Yes</td>
-                <td>The webpage can be navigated sequentially via the tab key, all information is present sequentially and retains its original meaning and purpose. However, one possible improvement would be to fix the tab navigation, as it currently requires
-                    pressing the key A LOT</td>
-            </tr>
-            <tr>
-                <td>2.4.4 Link Purpose (In Context): The purpose of each link can be determined from the link text alone or from the link text together with its programmatically determined link context, except where the purpose of the link would be ambiguous
-                    to users in general. (Level A)</td>
-                <td><b>No</b></td>
-                <td>Whilst the majority of the links on our website adhere to this principle, there is one link leading to a Krakow Post article which does not have enough context, instead, it is a simple "no"</td>
-            </tr>
-        </table>
-    </section>
+        <tr>
+            <th colspan="3">Guideline 2.1 Keyboard Accessible: Make all functionality available from a keyboard.</th>
+        </tr>
+        <tr>
+            <td>2.1.1 Keyboard: All functionality of the content is operable through a keyboard interface without requiring specific timings for individual keystrokes, except where the underlying function requires input that depends on the path of the user's
+                movement and not just the endpoints. (Level A)</td>
+            <td><b>No</b></td>
+            <td>Whilst the main portion of our website (the Products Table) is operable through a keyboard, for example you can navigate using tab, other sections, such as the Google Maps and interactive widget at the bottom, are inoperable by keyboard only.
+            </td>
+        </tr>
+        <tr>
+            <td>2.1.2 No Keyboard Trap: If keyboard focus can be moved to a component of the page using a keyboard interface, then focus can be moved away from that component using only a keyboard interface, and, if it requires more than unmodified arrow
+                or tab keys or other standard exit methods, the user is advised of the method for moving focus away. (Level A)</td>
+            <td>Yes</td>
+            <td>Our user never enters a Keyboard Trap, they can always move out of it using the tab button</td>
+        </tr>
+        <tr>
+            <th colspan="3">Guideline 2.4 Navigable: Provide ways to help users navigate, find content, and determine where they are.</th>
+        </tr>
+        <tr>
+            <td>2.4.1 Bypass Blocks: A mechanism is available to bypass blocks of content that are repeated on multiple Web pages. (Level A)</td>
+            <td>Yes</td>
+            <td>Our website consists of only one web page, as such there are is no content that is repeated on multiple pages. As well as this, blocks of content can be bypassed by means of a keyboard</td>
+        </tr>
+        <tr>
+            <td>2.4.2 Page Titled: Web pages have titles that describe topic or purpose. (Level A)</td>
+            <td>Yes</td>
+            <td>The Title of our webpage is "Miko and Honngyu's Online Store", this descripes the topic of the webpage</td>
+        </tr>
+        <tr>
+            <td>2.4.3 Focus Order: If a Web page can be navigated sequentially and the navigation sequences affect meaning or operation, focusable components receive focus in an order that preserves meaning and operability. (Level A)</td>
+            <td>Yes</td>
+            <td>The webpage can be navigated sequentially via the tab key, all information is present sequentially and retains its original meaning and purpose. However, one possible improvement would be to fix the tab navigation, as it currently requires
+                pressing the key A LOT</td>
+        </tr>
+        <tr>
+            <td>2.4.4 Link Purpose (In Context): The purpose of each link can be determined from the link text alone or from the link text together with its programmatically determined link context, except where the purpose of the link would be ambiguous
+                to users in general. (Level A)</td>
+            <td><b>No</b></td>
+            <td>Whilst the majority of the links on our website adhere to this principle, there is one link leading to a Krakow Post article which does not have enough context, instead, it is a simple "no"</td>
+        </tr>
+    </table>
+</section>
 
-    <section id="appendixB">
-        <h1>Appendix B (TAs Report Table)</h1>
-        <table>
-            <tr>
-                <th>Feedback</th>
-                <th>Feedback Type</th>
-                <th>Details</th>
-            </tr>
-            <tr>
-                <th colspan="3">Assignment 1</th>
-            </tr>
-            <tr>
-                <th colspave="3">HTML b: Interactive form</th>
-            </tr>
-            <tr>
-                <td>There are 6 columns in the table instead of 5, the 'Operation' column could've been avoided by adding the submit button as a row with one cell to the bottom of the table.</td>
-                <td>Technical Implementation Detail</td>
-                <td>The requirements did specify to use 5 columns. In the future we could implement the version described by the feedback</td>
-            </tr>
-            <tr>
-                <th>CSS d: Responsive design</th>
-            </tr>
-            <tr>
-                <td>The Red bull image gets quite distorted when using different screen sizes, try maintaining it's aspect ratio. When making the browser smaller, the product table doesn't adjust to the page size, leading to horizontal scroll bars which shouldn't
-                    occur as they are quite tedious to use when on a mobile phone.</td>
-                <td>Usability and Accessibility</td>
-                <td>The Red Bull image's width and height parameters were not set to the same percentage, leading to the error. This has been fixed after the feedback. The Products Table has been fixed with a minimum width of 270 pixels, this could be improved
-                    in the future.</td>
-            </tr>
-            <tr>
-                <th colspan="3">CSS e: browser compatibility report</th>
-            </tr>
-            <tr>
-                <td>Although you have used different methods for the 'Best before date' in two different browsers, a reason for doing so was not stated.</td>
-                <td>Technical Implementation Detail</td>
-                <td>The browser report does not specify enough why we switched input methods for Best Before Date. The report should be updated stating that the date input field was changed to text instead of date because not all browsers support the date
-                    input type</td>
-            </tr>
-            <tr>
-                <th colspan="3">CSS f: Misc</th>
-            </tr>
-            <tr>
-                <td>Good clear code.</td>
-                <td>Technical Implementation Detail/Positive Feedback</td>
-                <td>Thank you, we could further improve our code by adding better and more comments</td>
-            </tr>
-            <tr>
-                <th colspan="3">Assignment 2</th>
-            </tr>
-            <tr>
-                <th colspan="3">Sortable tables</th>
-            </tr>
-            <tr>
-                <td>Nice job sorting the dates!</td>
-                <td>Positive Usability Detail</td>
-                <td>The dates are sorted first by year, and then by month instead of simply sorting the dates alphabetically which was the minimum</td>
-            </tr>
-            <tr>
-                <th colspan="3">Reset button</th>
-            </tr>
-            <tr>
-                <td>Next time, you could've made just the last added rows refresh instead of the whole table</td>
-                <td>Usability and Accessibility</td>
-                <td>By making just the added rows refresh the user's experience could be improved.</td>
-            </tr>
-            <tr>
-                <th colspan="3">Misc.</th>
-            </tr>
-            <tr>
-                <td>Clever use of widgets, the one at the bottom of the page was unnecessary but entertaining nonetheless!</td>
-                <td>Positive Usability</td>
-                <td>Other widget used was Google Maps to show the physical locations of our stores. Thank you :)</td>
-            </tr>
-            <tr>
-                <td>Next time include an error message when not all the data is complete for the submit button instead of making it just not send the request.</td>
-                <td>Usability and Accessibility</td>
-                <td>We have since updated our site to fit what the feedback says. As such, we no longer gray out the submit button when not all fields are filled out, rather if the user tries to submit an incomplete form a browser alert tells them to fill
-                    out the form fully</td>
-            </tr>
-            <tr>
-                <td>You could've left both sorting functions in one file otherwise, good job with the separation</td>
-                <td>Technical Implementation Detail</td>
-                <td>Following this feedback we have merged our dynamic_table.js and sort_table.js files into one file</td>
-            </tr>
-        </table>
-    </section>
+<section id="appendixB">
+    <h1>Appendix B (TAs Report Table)</h1>
+    <table>
+        <tr>
+            <th>Feedback</th>
+            <th>Feedback Type</th>
+            <th>Details</th>
+        </tr>
+        <tr>
+            <th colspan="3">Assignment 1</th>
+        </tr>
+        <tr>
+            <th colspave="3">HTML b: Interactive form</th>
+        </tr>
+        <tr>
+            <td>There are 6 columns in the table instead of 5, the 'Operation' column could've been avoided by adding the submit button as a row with one cell to the bottom of the table.</td>
+            <td>Technical Implementation Detail</td>
+            <td>The requirements did specify to use 5 columns. In the future we could implement the version described by the feedback</td>
+        </tr>
+        <tr>
+            <th>CSS d: Responsive design</th>
+        </tr>
+        <tr>
+            <td>The Red bull image gets quite distorted when using different screen sizes, try maintaining it's aspect ratio. When making the browser smaller, the product table doesn't adjust to the page size, leading to horizontal scroll bars which shouldn't
+                occur as they are quite tedious to use when on a mobile phone.</td>
+            <td>Usability and Accessibility</td>
+            <td>The Red Bull image's width and height parameters were not set to the same percentage, leading to the error. This has been fixed after the feedback. The Products Table has been fixed with a minimum width of 270 pixels, this could be improved
+                in the future.</td>
+        </tr>
+        <tr>
+            <th colspan="3">CSS e: browser compatibility report</th>
+        </tr>
+        <tr>
+            <td>Although you have used different methods for the 'Best before date' in two different browsers, a reason for doing so was not stated.</td>
+            <td>Technical Implementation Detail</td>
+            <td>The browser report does not specify enough why we switched input methods for Best Before Date. The report should be updated stating that the date input field was changed to text instead of date because not all browsers support the date input
+                type</td>
+        </tr>
+        <tr>
+            <th colspan="3">CSS f: Misc</th>
+        </tr>
+        <tr>
+            <td>Good clear code.</td>
+            <td>Technical Implementation Detail/Positive Feedback</td>
+            <td>Thank you, we could further improve our code by adding better and more comments</td>
+        </tr>
+        <tr>
+            <th colspan="3">Assignment 2</th>
+        </tr>
+        <tr>
+            <th colspan="3">Sortable tables</th>
+        </tr>
+        <tr>
+            <td>Nice job sorting the dates!</td>
+            <td>Positive Usability Detail</td>
+            <td>The dates are sorted first by year, and then by month instead of simply sorting the dates alphabetically which was the minimum</td>
+        </tr>
+        <tr>
+            <th colspan="3">Reset button</th>
+        </tr>
+        <tr>
+            <td>Next time, you could've made just the last added rows refresh instead of the whole table</td>
+            <td>Usability and Accessibility</td>
+            <td>By making just the added rows refresh the user's experience could be improved.</td>
+        </tr>
+        <tr>
+            <th colspan="3">Misc.</th>
+        </tr>
+        <tr>
+            <td>Clever use of widgets, the one at the bottom of the page was unnecessary but entertaining nonetheless!</td>
+            <td>Positive Usability</td>
+            <td>Other widget used was Google Maps to show the physical locations of our stores. Thank you :)</td>
+        </tr>
+        <tr>
+            <td>Next time include an error message when not all the data is complete for the submit button instead of making it just not send the request.</td>
+            <td>Usability and Accessibility</td>
+            <td>We have since updated our site to fit what the feedback says. As such, we no longer gray out the submit button when not all fields are filled out, rather if the user tries to submit an incomplete form a browser alert tells them to fill out
+                the form fully</td>
+        </tr>
+        <tr>
+            <td>You could've left both sorting functions in one file otherwise, good job with the separation</td>
+            <td>Technical Implementation Detail</td>
+            <td>Following this feedback we have merged our dynamic_table.js and sort_table.js files into one file</td>
+        </tr>
+    </table>
+</section>
 </body>
 
 </html>
