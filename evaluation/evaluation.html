@@ -80,8 +80,27 @@
                     alert. This will be done using Javascript's alert() function. [Assignment 2 Misc.]
                 </li>
                 <li>
+                    In order to satisfy part 4 of Guideline 1.4.8 (AAA) we must make sure that the line spacing is at least a space and a half
+                    and paragraph spacing must be at least 1.5 times larger than the line spacing. We could fulfill the first part of this 
+                    requirement (line spacing) using CSS's line-height, and we fixed the second part (paragraph spacing) with the CSS attribute 
+                    margin-bottom [Guideline 1.4.8]
+                </li>
+                <li>
                     In order to make our code cleaner we will merge dynamic_table.js and sort_table.js into one file. This should not be complicated 
                     [Assignment 2 Misc.]    
+                </li>
+                <li>
+                    In order to satisfy part 1 of Guideline 1.4.8 (AAA) we would have to give the user a tool to change the background and foreground colors
+                    of the webpage. We found this requirement to be outside the scope of the project as it would require the development of a completely 
+                    new segment of the webpage strictly for customization. If we had more time we could implement this functionality using the 
+                    DOM API with javascript. [Guideline 1.4.8]
+                </li>
+                <li>
+                    Our webpage does not meet Guidelines 2.1.1 and 2.1.3 because not all segments of our page are navigatable by keyboard. The issue 
+                    stems from the Google Maps segment, and the interactive colorful balls at the bottom of the page. We have decided that it is 
+                    outside the scope of this project to fix and make these elements navigatable through a keyboard. First of all the Google Maps 
+                    segment is provided by Google, and as such we cannot manipulate the code. Lastly, the colorful balls are not that important to our website 
+                    and we cannot see them being operated via a keyboard. [Guidelines 2.1.1 and 2.1.3]
                 </li>
             </ol>
         </section>
@@ -94,7 +113,7 @@
                     <th>Explanation</th>
                 </tr>
                 <tr>
-                        <th colspan="3">Guideline 1.1 Text Alternatives: Provide text alternatives for any non-text content so that it can be changed into other forms people need, such as large print, braille, speech, symbols or simpler language.</th>
+                    <th colspan="3">Guideline 1.1 Text Alternatives: Provide text alternatives for any non-text content so that it can be changed into other forms people need, such as large print, braille, speech, symbols or simpler language.</th>
                 </tr>
                 <tr>
                     <td>1.1.1 Non-text Content: All non-text content that is presented to the user has a text alternative that serves the equivalent purpose, except for the situations listed below. (Level A)</td>
@@ -147,7 +166,7 @@
                 </tr>
                 <tr>
                     <td>2.1.3 Keyboard (No Exception): All functionality of the content is operable through a keyboard interface without requiring specific timings for individual keystrokes. (Level AAA)</td>
-                    <td>No</td>
+                    <td><b>No</b></td>
                     <td>Not all functionality is operable through a keyboard interface as mentioned in 2.1.1 The Google Maps and colorful balls are mouse operable only. The Google Maps interface is out of our hands, and the balls are not crucial in our opinion</td>
                 </tr>
                 <tr>
@@ -218,7 +237,7 @@
                     <th colspan="3">Assignment 1</th>
                 </tr>
                 <tr>
-                    <th colspave="3">HTML b: Interactive form</th>
+                    <th colspan="3">HTML b: Interactive form</th>
                 </tr>
                 <tr>
                     <td>There are 6 columns in the table instead of 5, the 'Operation' column could've been avoided by adding the submit button as a row with one cell to the bottom of the table.</td>
