@@ -71,6 +71,11 @@ section {
     margin-right: 0.1%;
 }
 
+section p {
+    text-indent: 2em;
+    margin-bottom: 3%;
+}
+
 input,
 select,
 button {
@@ -143,7 +148,7 @@ a:visited {
 }
 
 .menuitem a {
-    color: rgb(63, 122, 65);
+    color: #3f7a41;
     font-weight: bold;
     display: block;
     text-align: center;
@@ -423,8 +428,10 @@ input:focus {
         font-size: 20px;
     }
     p {
+        text-indent: 3em;
         font-size: 16px;
         font-family: DengXian;
+        margin-bottom: 35px;
     }
     #headline h1 {
         top: 55%;
